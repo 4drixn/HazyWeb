@@ -5,53 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hazy</title>
     <style>
+        /* Reset básico */
+        body, h1, p, a {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos generales */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #1a1a1a;
             color: #ffffff;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #a81e1e; 
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        a {
-            text-decoration: none;
-            color: #ffffff;
-            background-color: #a81e1e; 
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            margin: 5px;
-            display: inline-block;
-        }
-        a:hover {
-            background-color: #8c1a1a; 
-        }
-        .container {
-            max-width: 600px;
+            min-height: 100vh;
             padding: 20px;
+        }
+
+        .container {
             background-color: #2a2a2a;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
         }
-        .devs {
-            margin-top: 20px;
-            font-size: 1rem;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #a81e1e; /* Color de Hazy */
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
             color: #cccccc;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #a81e1e;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            flex: 1 1 auto;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .buttons a:hover {
+            background-color: #8c1a1a; /* Color más oscuro al hacer hover */
+        }
+
+        .devs {
+            font-size: 0.9rem;
+            color: #999999;
+            margin-top: 20px;
+        }
+
+        .devs p {
+            margin: 5px 0;
+        }
+
+        /* Responsividad */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .buttons a {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -59,11 +100,11 @@
     <div class="container">
         <h1>Hazy</h1>
         <p>Próximamente...</p>
-        <p>
-            <a href="https://invite.hazybot.net">Invita al bot a tu servidor</a>
+        <div class="buttons">
+            <a href="https://invite.hazybot.net">Invita al bot</a>
             <a href="https://discord.gg/kilombo">Unirse a Kilombo</a>
             <a href="https://discord.gg/hazybot">Unirse a Hazy</a>
-        </p>
+        </div>
         <div class="devs">
             <p>Devs:</p>
             <p>adrian.tf | homer.lua</p>
