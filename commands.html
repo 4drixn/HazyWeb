@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comandos - Hazy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="assets/styles.css">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
-  <script defer src="assets/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Hazy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico">
+    <script defer src="js/script.js"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <h1>Hazy</h1>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="commands.html">Comandos</a></li>
-        <li><a href="about.html">Developers</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="commands-section">
-      <h2>📜 Comandos de Hazy</h2>
-      <table>
-        <tr><th>Categoría</th><th>Comando</th></tr>
-        <tr>
-          <td>🎟️ Sistema de Tickets</td>
-          <td><i class="fas fa-ticket-alt"></i> /tickets, $add, $remove, $addrole, $removerole, $delete, $rename</td>
-        </tr>
-        <tr>
-          <td>🔨 Moderación</td>
-          <td><i class="fas fa-gavel"></i> /ban, /unban, /kick, /mute, /unmute, /purge</td>
-        </tr>
-        <tr>
-          <td>🛠 Administración</td>
-          <td><i class="fas fa-cogs"></i> /canal bloquear, /canal desbloquear</td>
-        </tr>
-        <tr>
-          <td>💡 Utilidades</td>
-          <td><i class="fas fa-lightbulb"></i> /sugerir</td>
-        </tr>
-      </table>
+    <header>
+        <div class="logo"><img src="img/logo.png" alt="Hazy Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="commands.html">Comandos</a></li>
+                <li><a href="about.html">Sobre Hazy</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><button id="theme-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about">
+        <h1>Sobre Hazy</h1>
+        <p>Hazy es un bot de Discord diseñado para facilitar la administración y mejorar la experiencia en los servidores. Ofrece una variedad de herramientas avanzadas para moderación, automatización y personalización.</p>
     </section>
-  </main>
+
+    <footer>
+        <p>&copy; 2025 Hazy. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
