@@ -1,63 +1,56 @@
+/* Estilos generales */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #121212, #1a1a1a);
-    color: #e0e0e0;
-    margin: 0;
-  }
-  
-  header {
-    position: fixed;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px 40px;
-    z-index: 1000;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.2rem;
-    transition: 0.3s;
-  }
-  
-  nav a:hover {
-    color: #ff3b3b;
-  }
-  
-  .hero {
-    height: 100vh;
-    background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .faq-section {
-    padding: 40px;
-    text-align: center;
-  }
-  
-  footer {
-    background: #121212;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .social-icons i {
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: 0.3s;
-  }
-  
-  .social-icons i:hover {
-    color: #ff3b3b;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Modos */
+.dark {
+  background: #121212;
+  color: white;
+}
+
+.light {
+  background: white;
+  color: black;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#theme-selector {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.feature-card {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+}
