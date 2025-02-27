@@ -6,51 +6,57 @@
   <title>Hazy - El Bot Definitivo</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/script.js"></script>
-  <script defer src="assets/dark-mode.js"></script>
+  <script defer src="assets/mode.js"></script>
 </head>
 <body>
+
   <header>
     <nav>
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="Hazy">
+      </div>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="commands.html">Comandos</a></li>
         <li><a href="about.html">Sobre Hazy</a></li>
         <li><a href="contact.html">Contacto</a></li>
-        <li><button id="dark-mode-toggle">🌙</button></li>
+        <li>
+          <select id="theme-selector">
+            <option value="light">🌞 Claro</option>
+            <option value="dark">🌙 Oscuro</option>
+          </select>
+        </li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>El Bot Definitivo para Discord</h2>
+    <h1>El Bot Definitivo para Discord</h1>
+    <p>Automatiza tu servidor y administra con eficiencia.</p>
     <button class="btn" onclick="window.location.href='https://invite.hazybot.net'">Invítalo Ahora</button>
   </section>
 
-  <section class="developers-section">
-    <h2>Desarrolladores</h2>
-    <div class="dev-card">
-      <img src="assets/images/adrian.webp" alt="Adrian">
-      <h3>Adrian</h3>
-      <div class="social-icons">
-        <a href="https://github.com/Blxsted"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/adrixnlb21"><i class="fab fa-twitter"></i></a>
-      </div>
+  <section class="features">
+    <div class="feature-card">
+      <i class="fas fa-gavel"></i>
+      <h3>Moderación Avanzada</h3>
+      <p>Banea, silencia y administra con facilidad.</p>
     </div>
-    <div class="dev-card">
-      <img src="assets/images/homer.webp" alt="HomeR">
-      <h3>HomeR</h3>
-      <div class="social-icons">
-        <a href="https://github.com/homerARG"><i class="fab fa-github"></i></a>
-      </div>
+    <div class="feature-card">
+      <i class="fas fa-ticket-alt"></i>
+      <h3>Sistema de Tickets</h3>
+      <p>Gestiona solicitudes de soporte con tickets automatizados.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-cogs"></i>
+      <h3>Comandos Personalizados</h3>
+      <p>Configura y personaliza el bot a tu gusto.</p>
     </div>
   </section>
 
   <footer>
     <p>© 2025 Hazy. Todos los derechos reservados.</p>
-    <div class="social-icons">
-      <a href="https://github.com/Blxsted"><i class="fab fa-github"></i></a>
-      <a href="https://x.com/adrixnlb21"><i class="fab fa-twitter"></i></a>
-    </div>
   </footer>
+
 </body>
 </html>
