@@ -1,37 +1,48 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: #111;
     color: white;
     text-align: center;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.hero {
+    margin-top: 50px;
 }
 
 .hero h1 {
     font-size: 3em;
-    text-shadow: 0 0 10px white;
+    text-shadow: 0 0 15px white;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .btn {
     background: #a81e1e;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 24px;
+    border-radius: 8px;
     text-decoration: none;
     color: white;
+    font-weight: bold;
+    transition: all 0.3s;
 }
 
 .btn:hover {
     background: #8b1616;
+    transform: scale(1.1);
 }
 
 .feature {
     display: inline-block;
     width: 30%;
     padding: 20px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
     margin: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .feature:hover {
     transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
 }
