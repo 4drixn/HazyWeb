@@ -1,406 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hazy - Bot Todo-en-Uno para Discord</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter:300,400,600,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #a81e1e;
-      --secondary-color: #ff6b6b;
-      --bg-color: #0f0f0f;
-      --text-color: #fff;
-      --accent-color: #ccc;
-      --dark-bg: #1a1a1a;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
-    header {
-      background: rgba(15,15,15,0.95);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      border-bottom: 1px solid #333;
-      backdrop-filter: blur(10px);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 80px;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--primary-color);
-    }
-    .nav-menu {
-      display: flex;
-      gap: 30px;
-    }
-    .nav-menu li {
-      list-style: none;
-      font-size: 0.9rem;
-    }
-    .nav-menu li a { transition: color 0.3s ease; }
-    .nav-menu li a:hover { color: var(--primary-color); }
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: var(--primary-color);
-    }
-    .hero {
-      height: 100vh;
-      background: url('https://source.unsplash.com/1600x900/?discord,community') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15,15,15,0.7);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      animation: fadeIn 1s ease-out;
-    }
-    .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: var(--accent-color);
-    }
-    .cta-btn {
-      background: var(--primary-color);
-      padding: 15px 40px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .cta-btn:hover {
-      background: #901a1a;
-      transform: scale(1.05);
-    }
-    section { padding: 100px 0; }
-    section h2 {
-      text-align: center;
-      margin-bottom: 60px;
-      font-size: 2.8rem;
-      color: var(--primary-color);
-      animation: fadeIn 1s ease-out;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-    }
-    .feature-item {
-      background: var(--dark-bg);
-      padding: 40px;
-      border-radius: 12px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeIn 1s ease-out;
-    }
-    .feature-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(168,30,30,0.2);
-    }
-    .feature-item h3 {
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-      color: var(--primary-color);
-    }
-    .feature-item p {
-      font-size: 1rem;
-      color: var(--accent-color);
-    }
-    .cta-section {
-      background: linear-gradient(45deg, var(--bg-color), var(--dark-bg));
-      text-align: center;
-      animation: fadeIn 1s ease-out;
-    }
-    .cta-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: var(--primary-color);
-    }
-    .cta-section p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: var(--accent-color);
-    }
-    .testimonials {
-      background: var(--dark-bg);
-      padding: 60px 0;
-      text-align: center;
-    }
-    .testimonials h2 { margin-bottom: 40px; color: var(--primary-color); }
-    .testimonial-item {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      font-style: italic;
-      color: var(--accent-color);
-      animation: fadeIn 1s ease-out;
-    }
-    .testimonial-item span {
-      display: block;
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: var(--primary-color);
-    }
-    .faq-item {
-      max-width: 800px;
-      margin: 20px auto;
-      background: var(--dark-bg);
-      padding: 20px;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-      animation: fadeIn 1s ease-out;
-      cursor: pointer;
-    }
-    .faq-item:hover { transform: translateY(-5px); }
-    .faq-item h3 {
-      font-size: 1.2rem;
-      color: var(--primary-color);
-    }
-    .faq-item p {
-      font-size: 1rem;
-      color: var(--accent-color);
-      display: none;
-      margin-top: 10px;
-    }
-    .faq-item.active p { display: block; }
-    footer {
-      background: var(--bg-color);
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 20px;
-    }
-    .footer-column h3 {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-      color: var(--primary-color);
-    }
-    .footer-column p,
-    .footer-column a {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: var(--accent-color);
-      transition: color 0.3s;
-    }
-    .footer-column a:hover { color: #901a1a; }
-    .footer-bottom { font-size: 0.8rem; color: #777; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 768px) {
-      .nav-menu {
-        flex-direction: column;
-        background: var(--bg-color);
-        position: absolute;
-        top: 80px;
-        right: 20px;
-        display: none;
-        padding: 20px;
-        border-radius: 8px;
-      }
-      .nav-menu.active { display: flex; }
-      .hamburger { display: block; }
-    }
-    @media (min-width: 769px) { .hamburger { display: none; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hazy - Comandos y Funciones</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #1e1e1e, #2e2e2e); color: #f0f0f0; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(30,30,30,0.95); padding: 20px 30px; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+  header h1 { font-size: 1.8rem; color: #ff4d4d; }
+  nav ul { list-style: none; display: flex; gap: 20px; }
+  nav ul li { font-weight: 600; }
+  nav ul li a { transition: color 0.3s; }
+  nav ul li a:hover { color: #ff4d4d; }
+  main { padding-top: 90px; }
+  .hero { min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://source.unsplash.com/1600x900/?technology,abstract') no-repeat center center/cover; position: relative; }
+  .hero::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(30,30,30,0.7); }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .hero-content h2 { font-size: 3rem; margin-bottom: 20px; color: #ff4d4d; }
+  .hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
+  .btn { padding: 12px 30px; background: #ff4d4d; border: none; border-radius: 25px; cursor: pointer; transition: background 0.3s; color: #fff; font-size: 1rem; }
+  .btn:hover { background: #e04343; }
+  .section { padding: 80px 20px; }
+  .section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #ff4d4d; }
+  .accordion { width: 100%; max-width: 1000px; margin: 0 auto; }
+  .accordion-item { border-bottom: 1px solid #444; }
+  .accordion-header { padding: 15px 20px; cursor: pointer; font-weight: 600; background: rgba(50,50,50,0.9); color: #ff4d4d; }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: rgba(40,40,40,0.9); }
+  .accordion-content p { padding: 15px 20px; font-size: 0.95rem; }
+  .accordion-item.active .accordion-content { max-height: 500px; }
+  .contact { text-align: center; }
+  .contact p { margin-bottom: 10px; }
+  footer { text-align: center; padding: 20px; background: rgba(30,30,30,0.95); font-size: 0.9rem; color: #aaa; }
+  @media (max-width: 768px) {
+    header { padding: 15px 20px; }
+    header h1 { font-size: 1.5rem; }
+    nav ul li { font-size: 0.9rem; }
+    .hero-content h2 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav-container">
-      <div class="logo">Hazy</div>
-      <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('active')"></i>
-      <ul class="nav-menu">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#caracteristicas">Características</a></li>
-        <li><a href="#integraciones">Integraciones</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+<header>
+  <h1>Hazy</h1>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#comandos">Comandos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h2>Hazy: El Bot Definitivo para Discord</h2>
+      <p>Administra, modera y personaliza tu servidor con comandos potentes y eficientes.</p>
+      <button class="btn" onclick="window.location.href='https://invite.hazybot.net'">Invítalo Ahora</button>
     </div>
-  </header>
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-content container">
-        <h1>Hazy</h1>
-        <p>El bot todo-en-uno para Discord: gestión de tickets, moderación, estadísticas y más.</p>
-        <button class="cta-btn" onclick="window.location.href='https://invite.hazybot.net'">Invita al Bot</button>
-      </div>
-    </section>
-    <section id="caracteristicas">
-      <div class="container">
-        <h2>Características Principales</h2>
-        <div class="features-grid">
-          <div class="feature-item">
-            <h3>Gestión de Tickets</h3>
-            <p>Organiza y administra tickets de soporte de forma sencilla y eficiente.</p>
-          </div>
-          <div class="feature-item">
-            <h3>Moderación Inteligente</h3>
-            <p>Protege tu comunidad con sistemas de moderación automáticos y personalizables.</p>
-          </div>
-          <div class="feature-item">
-            <h3>Estadísticas en Tiempo Real</h3>
-            <p>Monitorea el rendimiento y la actividad de tu servidor con informes detallados.</p>
-          </div>
-          <div class="feature-item">
-            <h3>Personalización Total</h3>
-            <p>Configura Hazy a la medida de las necesidades de tu comunidad.</p>
-          </div>
-          <div class="feature-item">
-            <h3>Soporte 24/7</h3>
-            <p>Recibe asistencia continua y profesional en todo momento.</p>
-          </div>
-          <div class="feature-item">
-            <h3>Integraciones Avanzadas</h3>
-            <p>Conecta Hazy con otras herramientas y plataformas para potenciar tu servidor.</p>
-          </div>
+  </section>
+  <section class="section" id="comandos">
+    <h2>Comandos de Hazy</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">🎟️ Sistema de Tickets</div>
+        <div class="accordion-content">
+          <p><strong>/tickets</strong> - Inicia el sistema de tickets.</p>
+          <p><strong>$add @usuario</strong> - Agrega a un usuario al ticket.</p>
+          <p><strong>$remove @usuario</strong> - Remueve a un usuario del ticket.</p>
+          <p><strong>$addrole @rol</strong> - Agrega un rol al ticket.</p>
+          <p><strong>$removerole @rol</strong> - Remueve un rol del ticket.</p>
+          <p><strong>$delete</strong> - Cierra el ticket y envía el transcript.</p>
+          <p><strong>$rename</strong> - Cambia el nombre de un ticket.</p>
         </div>
       </div>
-    </section>
-    <section id="integraciones">
-      <div class="container">
-        <h2>Integraciones</h2>
-        <div class="features-grid">
-          <div class="feature-item">
-            <h3>Discord</h3>
-            <p>Optimizado para Discord con comandos intuitivos y una API robusta.</p>
-          </div>
-          <div class="feature-item">
-            <h3>Webhooks</h3>
-            <p>Recibe notificaciones y alertas en tiempo real directamente en tu canal.</p>
-          </div>
-          <div class="feature-item">
-            <h3>APIs Externas</h3>
-            <p>Conecta con otras aplicaciones y servicios para ampliar la funcionalidad.</p>
-          </div>
+      <div class="accordion-item">
+        <div class="accordion-header">🔨 Moderación</div>
+        <div class="accordion-content">
+          <p><strong>/ban @usuario [razón]</strong> - Banea a un usuario.</p>
+          <p><strong>/unban [id] razón:(opcional)</strong> - Desbanea a un usuario.</p>
+          <p><strong>/kick @usuario [razón]</strong> - Expulsa a un usuario.</p>
+          <p><strong>/mute @usuario [tiempo] [razón]</strong> - Mutea a un usuario.</p>
+          <p><strong>/unmute @usuario</strong> - Desmutea a un usuario.</p>
+          <p><strong>/purge [cantidad]</strong> - Borra mensajes en masa.</p>
         </div>
       </div>
-    </section>
-    <section class="cta-section">
-      <div class="container">
-        <h2>¿Listo para transformar tu servidor?</h2>
-        <p>Descubre el poder de Hazy y lleva la gestión de tu comunidad al siguiente nivel.</p>
-        <button class="cta-btn" onclick="window.location.href='https://invite.hazybot.net'">Invita al Bot</button>
-      </div>
-    </section>
-    <section class="testimonials" id="testimonios">
-      <div class="container">
-        <h2>Testimonios</h2>
-        <div class="testimonial-item">
-          "Hazy ha revolucionado la forma en que gestionamos nuestra comunidad. ¡Altamente recomendado!"
-          <span>- Usuario Satisfecho</span>
-        </div>
-        <div class="testimonial-item">
-          "La integración y la moderación son impecables. Nuestro servidor nunca había estado tan seguro."
-          <span>- Admin de Servidor</span>
+      <div class="accordion-item">
+        <div class="accordion-header">🛠 Administración</div>
+        <div class="accordion-content">
+          <p><strong>/canal bloquear</strong> - Bloquea un canal.</p>
+          <p><strong>/canal desbloquear</strong> - Desbloquea un canal.</p>
         </div>
       </div>
-    </section>
-    <section id="faq">
-      <div class="container">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-item">
-          <h3>¿Qué es Hazy?</h3>
-          <p>Hazy es un bot todo-en-uno para Discord que facilita la gestión de tu servidor, ofreciendo moderación, estadísticas y más.</p>
-        </div>
-        <div class="faq-item">
-          <h3>¿Cómo invito a Hazy?</h3>
-          <p>Haz clic en el botón "Invita al Bot" y sigue las instrucciones para añadirlo a tu servidor.</p>
-        </div>
-        <div class="faq-item">
-          <h3>¿Es Hazy gratuito?</h3>
-          <p>Sí, Hazy es gratuito con opciones premium disponibles para funcionalidades avanzadas.</p>
-        </div>
-        <div class="faq-item">
-          <h3>¿Dónde puedo obtener soporte?</h3>
-          <p>Puedes unirte a nuestro servidor de Discord para recibir asistencia 24/7 y ayuda de la comunidad.</p>
+      <div class="accordion-item">
+        <div class="accordion-header">💡 Utilidades</div>
+        <div class="accordion-content">
+          <p><strong>/sugerir [texto]</strong> - Envía una sugerencia.</p>
         </div>
       </div>
-    </section>
-    <section id="contacto">
-      <div class="container">
-        <h2>Contacto</h2>
-        <div class="features-grid">
-          <div class="feature-item">
-            <h3>Email</h3>
-            <p>soporte@hazybot.net</p>
-          </div>
-          <div class="feature-item">
-            <h3>Discord</h3>
-            <p><a href="https://discord.gg/hazybot" target="_blank" style="color: var(--primary-color);">discord.gg/hazybot</a></p>
-          </div>
-          <div class="feature-item">
-            <h3>Redes Sociales</h3>
-            <p>
-              <a href="https://twitter.com/hazy" target="_blank"><i class="fab fa-twitter"></i></a>
-              <a href="https://facebook.com/hazy" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://instagram.com/hazy" target="_blank"><i class="fab fa-instagram"></i></a>
-            </p>
-          </div>
+      <div class="accordion-item">
+        <div class="accordion-header">📜 Misc</div>
+        <div class="accordion-content">
+          <p><strong>/verificar</strong> - Inicia el sistema de verificación.</p>
+          <p><strong>/logs [On][Off]</strong> - Activa o desactiva el sistema de logs.</p>
+          <p><strong>/setup</strong> - Configura el bot en el servidor.</p>
+          <p><strong>/edit</strong> - Edita la configuración de un sistema.</p>
+          <p><strong>/sorteo</strong> - Crea un sorteo.</p>
         </div>
       </div>
-    </section>
-  </main>
-  <footer>
-    <div class="container footer-container">
-      <div class="footer-column">
-        <h3>Hazy</h3>
-        <p>© 2025 Hazy. Todos los derechos reservados.</p>
-        <p><a href="https://invite.hazybot.net" target="_blank">Invita al Bot</a></p>
+      <div class="accordion-item">
+        <div class="accordion-header">🤖 Bots Personalizados</div>
+        <div class="accordion-content">
+          <p>Si estás interesado en un bot personalizado o funciones específicas, contáctame para discutir los detalles.</p>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2025 Hazy. Todos los derechos reservados.
-    </div>
-  </footer>
-  <script>
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      item.addEventListener('click', function() {
-        this.classList.toggle('active');
-      });
+  </section>
+  <section class="section contact" id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Dudas o necesitas soporte? Escríbeme directamente a:</p>
+    <p><a href="mailto:adrian@hazybot.net" style="color:#ff4d4d;">adrian@hazybot.net</a></p>
+  </section>
+</main>
+<footer>
+  <p>© 2025 Hazy. Todos los derechos reservados.</p>
+</footer>
+<script>
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+      this.parentElement.classList.toggle('active');
     });
-  </script>
+  });
+</script>
 </body>
 </html>
