@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Hazy</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="effects.css">
 </head>
 <body>
     <header>
-        <h1>Sobre Hazy</h1>
+        <h1 class="glow">Sobre Hazy</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -19,13 +21,16 @@
         </nav>
     </header>
     <main>
-        <section id="about">
+        <section id="about" class="animated">
             <h2>¿Qué es Hazy?</h2>
             <p>Hazy es un bot dedicado a mejorar la administración de servidores de Discord.</p>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
         <p>© 2025 Hazy. Todos los derechos reservados.</p>
     </footer>
+    <script src="script.js"></script>
+    <script src="ui-effects.js"></script>
+    <script src="particles.js"></script>
 </body>
 </html>
