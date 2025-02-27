@@ -1,139 +1,351 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hazy - Comandos y Funciones</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #1e1e1e, #2e2e2e); color: #f0f0f0; line-height: 1.6; }
-  a { text-decoration: none; color: inherit; }
-  header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(30,30,30,0.95); padding: 20px 30px; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-  header h1 { font-size: 1.8rem; color: #ff4d4d; }
-  nav ul { list-style: none; display: flex; gap: 20px; }
-  nav ul li { font-weight: 600; }
-  nav ul li a { transition: color 0.3s; }
-  nav ul li a:hover { color: #ff4d4d; }
-  main { padding-top: 90px; }
-  .hero { min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://source.unsplash.com/1600x900/?technology,abstract') no-repeat center center/cover; position: relative; }
-  .hero::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(30,30,30,0.7); }
-  .hero-content { position: relative; z-index: 2; max-width: 800px; }
-  .hero-content h2 { font-size: 3rem; margin-bottom: 20px; color: #ff4d4d; }
-  .hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
-  .btn { padding: 12px 30px; background: #ff4d4d; border: none; border-radius: 25px; cursor: pointer; transition: background 0.3s; color: #fff; font-size: 1rem; }
-  .btn:hover { background: #e04343; }
-  .section { padding: 80px 20px; }
-  .section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #ff4d4d; }
-  .accordion { width: 100%; max-width: 1000px; margin: 0 auto; }
-  .accordion-item { border-bottom: 1px solid #444; }
-  .accordion-header { padding: 15px 20px; cursor: pointer; font-weight: 600; background: rgba(50,50,50,0.9); color: #ff4d4d; }
-  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: rgba(40,40,40,0.9); }
-  .accordion-content p { padding: 15px 20px; font-size: 0.95rem; }
-  .accordion-item.active .accordion-content { max-height: 500px; }
-  .contact { text-align: center; }
-  .contact p { margin-bottom: 10px; }
-  footer { text-align: center; padding: 20px; background: rgba(30,30,30,0.95); font-size: 0.9rem; color: #aaa; }
-  @media (max-width: 768px) {
-    header { padding: 15px 20px; }
-    header h1 { font-size: 1.5rem; }
-    nav ul li { font-size: 0.9rem; }
-    .hero-content h2 { font-size: 2.5rem; }
-    .hero-content p { font-size: 1rem; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazy - El Bot Definitivo para Discord</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ====== Base ====== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 0;
+    }
+    
+    /* ====== Header ====== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(18,18,18,0.95);
+      padding: 15px 30px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+    header h1 { font-size: 1.8rem; color: #ff4d4d; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li { font-weight: 600; }
+    nav ul li a { transition: color 0.3s; }
+    nav ul li a:hover { color: #ff4d4d; }
+    
+    /* ====== Hero Section ====== */
+    .hero {
+      height: 100vh;
+      background: url('https://source.unsplash.com/1600x900/?discord,technology') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(18,18,18,0.7);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff4d4d;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .btn {
+      padding: 12px 30px;
+      background: #ff4d4d;
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .btn:hover { background: #e04343; transform: scale(1.05); }
+    
+    /* ====== Section Headings ====== */
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #ff4d4d;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    /* ====== Accordion (Comandos) ====== */
+    .accordion {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .accordion-item {
+      border: 1px solid #333;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1e1e1e;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .accordion-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      background: #2a2a2a;
+      color: #ff4d4d;
+      transition: background 0.3s;
+    }
+    .accordion-header:hover { background: #333; }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #1e1e1e;
+    }
+    .accordion-content p {
+      padding: 15px 20px;
+      border-top: 1px solid #333;
+      font-size: 0.95rem;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+    }
+    
+    /* ====== Developers ====== */
+    .devs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .dev-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .dev-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+    .dev-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #ff4d4d;
+      transition: transform 0.3s;
+    }
+    .dev-card h3 { margin-bottom: 10px; color: #ff4d4d; }
+    .dev-card a {
+      color: #ff4d4d;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .dev-card a:hover { color: #e04343; }
+    
+    /* ====== Contacto ====== */
+    .contact {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    
+    /* ====== Footer ====== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #121212;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    
+    /* ====== Scroll Reveal Animations ====== */
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    
+    /* ====== Responsive ====== */
+    @media (max-width: 768px) {
+      .hero-content h2 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>Hazy</h1>
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#comandos">Comandos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-<main>
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <h2>Hazy: El Bot Definitivo para Discord</h2>
-      <p>Administra, modera y personaliza tu servidor con comandos potentes y eficientes.</p>
-      <button class="btn" onclick="window.location.href='https://invite.hazybot.net'">Invítalo Ahora</button>
-    </div>
-  </section>
-  <section class="section" id="comandos">
-    <h2>Comandos de Hazy</h2>
-    <div class="accordion">
-      <div class="accordion-item">
-        <div class="accordion-header">🎟️ Sistema de Tickets</div>
-        <div class="accordion-content">
-          <p><strong>/tickets</strong> - Inicia el sistema de tickets.</p>
-          <p><strong>$add @usuario</strong> - Agrega a un usuario al ticket.</p>
-          <p><strong>$remove @usuario</strong> - Remueve a un usuario del ticket.</p>
-          <p><strong>$addrole @rol</strong> - Agrega un rol al ticket.</p>
-          <p><strong>$removerole @rol</strong> - Remueve un rol del ticket.</p>
-          <p><strong>$delete</strong> - Cierra el ticket y envía el transcript.</p>
-          <p><strong>$rename</strong> - Cambia el nombre de un ticket.</p>
+  <!-- Header -->
+  <header>
+    <h1>Hazy</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#comandos">Comandos</a></li>
+        <li><a href="#devs">Developers</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <h2 class="fade">Hazy: El Bot Definitivo para Discord</h2>
+        <p class="fade">Administra, modera y personaliza tu servidor con comandos potentes y eficientes.</p>
+        <button class="btn fade" onclick="window.location.href='https://invite.hazybot.net'">Invítalo Ahora</button>
+      </div>
+    </section>
+    
+    <!-- Comandos Section -->
+    <section id="comandos" class="container">
+      <h2 class="fade">Comandos de Hazy</h2>
+      <div class="accordion">
+        <div class="accordion-item fade">
+          <div class="accordion-header">🎟️ Sistema de Tickets</div>
+          <div class="accordion-content">
+            <p><strong>/tickets</strong> - Inicia el sistema de tickets.</p>
+            <p><strong>$add @usuario</strong> - Agrega a un usuario al ticket.</p>
+            <p><strong>$remove @usuario</strong> - Remueve a un usuario del ticket.</p>
+            <p><strong>$addrole @rol</strong> - Agrega un rol al ticket.</p>
+            <p><strong>$removerole @rol</strong> - Remueve un rol del ticket.</p>
+            <p><strong>$delete</strong> - Cierra el ticket y envía el transcript.</p>
+            <p><strong>$rename</strong> - Cambia el nombre de un ticket.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade">
+          <div class="accordion-header">🔨 Moderación</div>
+          <div class="accordion-content">
+            <p><strong>/ban @usuario [razón]</strong> - Banea a un usuario.</p>
+            <p><strong>/unban [id] razón:(opcional)</strong> - Desbanea a un usuario.</p>
+            <p><strong>/kick @usuario [razón]</strong> - Expulsa a un usuario.</p>
+            <p><strong>/mute @usuario [tiempo] [razón]</strong> - Mutea a un usuario.</p>
+            <p><strong>/unmute @usuario</strong> - Desmutea a un usuario.</p>
+            <p><strong>/purge [cantidad]</strong> - Borra mensajes en masa.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade">
+          <div class="accordion-header">🛠 Administración</div>
+          <div class="accordion-content">
+            <p><strong>/canal bloquear</strong> - Bloquea un canal.</p>
+            <p><strong>/canal desbloquear</strong> - Desbloquea un canal.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade">
+          <div class="accordion-header">💡 Utilidades</div>
+          <div class="accordion-content">
+            <p><strong>/sugerir [texto]</strong> - Envía una sugerencia.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade">
+          <div class="accordion-header">📜 Misc</div>
+          <div class="accordion-content">
+            <p><strong>/verificar</strong> - Inicia el sistema de verificación.</p>
+            <p><strong>/logs [On][Off]</strong> - Activa o desactiva el sistema de logs.</p>
+            <p><strong>/setup</strong> - Configura el bot en el servidor.</p>
+            <p><strong>/edit</strong> - Edita la configuración de un sistema.</p>
+            <p><strong>/sorteo</strong> - Crea un sorteo.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade">
+          <div class="accordion-header">🤖 Bots Personalizados</div>
+          <div class="accordion-content">
+            <p>Si estás interesado en un bot personalizado o funciones específicas, contáctame para discutir los detalles.</p>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <div class="accordion-header">🔨 Moderación</div>
-        <div class="accordion-content">
-          <p><strong>/ban @usuario [razón]</strong> - Banea a un usuario.</p>
-          <p><strong>/unban [id] razón:(opcional)</strong> - Desbanea a un usuario.</p>
-          <p><strong>/kick @usuario [razón]</strong> - Expulsa a un usuario.</p>
-          <p><strong>/mute @usuario [tiempo] [razón]</strong> - Mutea a un usuario.</p>
-          <p><strong>/unmute @usuario</strong> - Desmutea a un usuario.</p>
-          <p><strong>/purge [cantidad]</strong> - Borra mensajes en masa.</p>
+    </section>
+    
+    <!-- Developers Section -->
+    <section id="devs" class="container">
+      <h2 class="fade">Developers</h2>
+      <div class="devs">
+        <div class="dev-card fade">
+          <img src="https://images-ext-1.discordapp.net/external/J84IfhAcTlXB2HjCV0wCfRlBWpYWmSPThFuyukd6B-g/https/cdn.discordapp.com/avatars/1096843631513583757/6866b0eed7cf8778116eed14d52aa2fc.webp?format=webp" alt="Adrian">
+          <h3>Adrian</h3>
+          <p><a href="https://adrian.tf" target="_blank">adrian.tf</a></p>
+        </div>
+        <div class="dev-card fade">
+          <img src="https://images-ext-1.discordapp.net/external/TgZpmATvy5yM6epbsYj-f1pc_svZNVh_PnC5IPZdyYw/https/cdn.discordapp.com/avatars/786094453772386324/4ea53198b40d1410b0caff45af903cc8.webp?format=webp" alt="HomeR">
+          <h3>HomeR</h3>
+          <p><a href="https://homer.lua" target="_blank">homer.lua</a></p>
         </div>
       </div>
-      <div class="accordion-item">
-        <div class="accordion-header">🛠 Administración</div>
-        <div class="accordion-content">
-          <p><strong>/canal bloquear</strong> - Bloquea un canal.</p>
-          <p><strong>/canal desbloquear</strong> - Desbloquea un canal.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header">💡 Utilidades</div>
-        <div class="accordion-content">
-          <p><strong>/sugerir [texto]</strong> - Envía una sugerencia.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header">📜 Misc</div>
-        <div class="accordion-content">
-          <p><strong>/verificar</strong> - Inicia el sistema de verificación.</p>
-          <p><strong>/logs [On][Off]</strong> - Activa o desactiva el sistema de logs.</p>
-          <p><strong>/setup</strong> - Configura el bot en el servidor.</p>
-          <p><strong>/edit</strong> - Edita la configuración de un sistema.</p>
-          <p><strong>/sorteo</strong> - Crea un sorteo.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header">🤖 Bots Personalizados</div>
-        <div class="accordion-content">
-          <p>Si estás interesado en un bot personalizado o funciones específicas, contáctame para discutir los detalles.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section contact" id="contacto">
-    <h2>Contacto</h2>
-    <p>¿Dudas o necesitas soporte? Escríbeme directamente a:</p>
-    <p><a href="mailto:adrian@hazybot.net" style="color:#ff4d4d;">adrian@hazybot.net</a></p>
-  </section>
-</main>
-<footer>
-  <p>© 2025 Hazy. Todos los derechos reservados.</p>
-</footer>
-<script>
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', function() {
-      this.parentElement.classList.toggle('active');
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contacto" class="container contact">
+      <h2 class="fade">Contacto</h2>
+      <p class="fade">¿Tienes alguna pregunta o necesitas soporte?</p>
+      <p class="fade">Escríbeme a: <a href="mailto:adrian@hazybot.net" style="color:#ff4d4d;">adrian@hazybot.net</a></p>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Hazy. Todos los derechos reservados.</p>
+  </footer>
+  
+  <script>
+    // ====== Funcionalidad Accordion ======
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
+      });
     });
-  });
-</script>
+    
+    // ====== Scroll Reveal con Intersection Observer ======
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    document.querySelectorAll('.fade').forEach(element => {
+      observer.observe(element);
+    });
+  </script>
 </body>
 </html>
