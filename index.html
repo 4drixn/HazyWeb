@@ -8,48 +8,290 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background: #121212; color: #e0e0e0; line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
-    a { text-decoration: none; color: inherit; }
-    .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px 0; }
-    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(18,18,18,0.95); padding: 15px 30px; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
-    header h1 { font-size: 1.8rem; color: #ff4d4d; }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav ul li { font-weight: 600; }
-    nav ul li a { transition: color 0.3s; }
-    nav ul li a:hover { color: #ff4d4d; }
-    .hero { height: 100vh; background: url('https://source.unsplash.com/1600x900/?discord,technology') no-repeat center center/cover; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; }
-    .hero::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18,18,18,0.7); z-index: 1; }
-    .hero-content { position: relative; z-index: 2; padding: 20px; }
-    .hero-content h2 { font-size: 3rem; margin-bottom: 20px; color: #ff4d4d; opacity: 0; transform: translateY(20px); }
-    .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0; transform: translateY(20px); }
-    .btn { padding: 12px 30px; background: #ff4d4d; border: none; border-radius: 25px; color: #fff; font-size: 1rem; cursor: pointer; transition: background 0.3s, transform 0.3s; opacity: 0; transform: translateY(20px); }
-    .btn:hover { background: #e04343; transform: scale(1.05); }
-    section { padding: 80px 20px; }
-    section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #ff4d4d; opacity: 0; transform: translateY(20px); }
-    .about { text-align: center; max-width: 800px; margin: auto; opacity: 0; transform: translateY(20px); }
-    .accordion { width: 100%; max-width: 1000px; margin: auto; }
-    .accordion-item { border: 1px solid #333; margin-bottom: 10px; border-radius: 8px; overflow: hidden; background: #1e1e1e; opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
-    .accordion-header { padding: 15px 20px; cursor: pointer; font-weight: 600; background: #2a2a2a; color: #ff4d4d; transition: background 0.3s; }
-    .accordion-header:hover { background: #333; }
-    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #1e1e1e; }
-    .accordion-content p { padding: 15px 20px; border-top: 1px solid #333; font-size: 0.95rem; }
-    .accordion-item.active .accordion-content { max-height: 500px; }
-    .devs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; }
-    .dev-card { background: #1e1e1e; border: 1px solid #333; border-radius: 10px; padding: 20px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; opacity: 0; transform: translateY(20px); }
-    .dev-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-    .dev-card img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; border: 3px solid #ff4d4d; transition: transform 0.3s; }
-    .dev-card h3 { margin-bottom: 10px; color: #ff4d4d; }
-    .dev-card p { font-size: 1rem; }
-    .dev-card a { color: #ff4d4d; font-weight: 600; transition: color 0.3s; }
-    .dev-card a:hover { color: #e04343; }
-    .contact { text-align: center; opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
-    footer { text-align: center; padding: 20px; background: #121212; font-size: 0.9rem; color: #777; }
-    #scrollToTop { position: fixed; bottom: 30px; right: 30px; background: #ff4d4d; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 100; }
-    #scrollToTop:hover { background: #e04343; }
-    .visible { opacity: 1 !important; transform: translateY(0) !important; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 0;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(18,18,18,0.95);
+      padding: 15px 30px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      color: #ff4d4d;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li {
+      font-weight: 600;
+    }
+    nav ul li a {
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ff4d4d;
+    }
+    .hero {
+      height: 100vh;
+      background: url('https://source.unsplash.com/1600x900/?discord,technology') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(18,18,18,0.7);
+      z-index: 1;
+    }
+    /* Animated wave at the bottom of the hero */
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 20px;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff4d4d;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .btn {
+      padding: 12px 30px;
+      background: #ff4d4d;
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .btn:hover {
+      background: #e04343;
+      transform: scale(1.05);
+    }
+    section {
+      padding: 80px 20px;
+      position: relative;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #ff4d4d;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .about {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .accordion {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .accordion-item {
+      border: 1px solid #333;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1e1e1e;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .accordion-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      background: #2a2a2a;
+      color: #ff4d4d;
+      transition: background 0.3s;
+    }
+    .accordion-header:hover {
+      background: #333;
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #1e1e1e;
+    }
+    .accordion-content p {
+      padding: 15px 20px;
+      border-top: 1px solid #333;
+      font-size: 0.95rem;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+    }
+    .devs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .dev-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .dev-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .dev-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #ff4d4d;
+      transition: transform 0.3s;
+    }
+    .dev-card h3 {
+      margin-bottom: 10px;
+      color: #ff4d4d;
+    }
+    .dev-card p {
+      font-size: 1rem;
+    }
+    .dev-card a {
+      color: #ff4d4d;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .dev-card a:hover {
+      color: #e04343;
+    }
+    .contact {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #121212;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    #scrollToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ff4d4d;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 100;
+    }
+    #scrollToTop:hover {
+      background: #e04343;
+    }
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    /* Additional wave to separate sections more gracefully */
+    .wave {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    /* Bottom wave for about section top */
+    .wave-top {
+      top: 100%;
+      transform: translateY(-1px);
+    }
+    .wave svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 120px;
+    }
+    .wave .shape-fill {
+      fill: #121212;
+    }
     @media (max-width: 768px) {
-      .hero-content h2 { font-size: 2.5rem; }
-      .hero-content p { font-size: 1rem; }
+      .hero-content h2 {
+        font-size: 2.5rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -72,6 +314,11 @@
         <h2 class="fade">Hazy: El Bot Definitivo para Discord</h2>
         <p class="fade">Administra, modera y personaliza tu servidor con comandos potentes y eficientes.</p>
         <button class="btn fade" onclick="window.location.href='https://invite.hazybot.net'">Invítalo Ahora</button>
+      </div>
+      <div class="hero-wave">
+        <svg viewBox="0 0 500 120" preserveAspectRatio="none">
+          <path d="M0,120 C150,0 350,0 500,120 L500,120 L0,120 Z" style="fill: #121212;"></path>
+        </svg>
       </div>
     </section>
     <section id="about" class="container">
