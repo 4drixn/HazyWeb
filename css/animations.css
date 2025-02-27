@@ -1,37 +1,18 @@
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
+    from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes glow {
-    0% { text-shadow: 0 0 10px white; }
-    50% { text-shadow: 0 0 20px red; }
-    100% { text-shadow: 0 0 10px white; }
+@keyframes glowText {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff0000; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.animated {
+    animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes slideIn {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.glow-text {
-    animation: glow 2s infinite alternate;
-}
-
-.pulse {
-    animation: pulse 1.5s infinite;
-}
-
-.fade-in {
-    animation: fadeIn 1.5s;
-}
-
-.slide-in {
-    animation: slideIn 1s ease-out;
+.glow {
+    animation: glowText 2s infinite alternate;
 }
