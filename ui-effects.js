@@ -8,12 +8,3 @@ document.addEventListener("DOMContentLoaded", function () {
         elements.forEach((el) => {
             let rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.8) {
-                el.style.opacity = 1;
-                el.classList.add("animate");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", revealElements);
-    revealElements();
-});
