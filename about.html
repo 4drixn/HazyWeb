@@ -4,27 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Hazy</title>
+  <!-- Fuentes e iconos (igual que el original) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Estilos propios -->
   <link rel="stylesheet" href="assets/styles.css">
+  <!-- GSAP y ScrollReveal (CDN) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
+  <!-- Script principal -->
+  <script defer src="assets/script.js"></script>
 </head>
 <body>
   <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="commands.html">Comandos</a></li>
-        <li><a href="about.html">Sobre Hazy</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
-    </nav>
+    <h1>Hazy</h1>
   </header>
-
-  <section class="about-section">
-    <h2>Sobre Hazy</h2>
-    <p>Hazy es un bot para Discord con múltiples funciones diseñadas para facilitar la administración de servidores y mejorar la experiencia de los usuarios.</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Hazy. Todos los derechos reservados.</p>
-  </footer>
+  <main>
+    <section class="developers-section">
+      <h2>Developers</h2>
+      <div class="dev-card">
+        <img src="https://cdn.discordapp.com/avatars/1096843631513583757/6866b0eed7cf8778116eed14d52aa2fc.webp" alt="Adrian">
+        <h3>Adrian</h3>
+        <div class="social-icons">
+          <a href="https://github.com/Blxsted"><i class="fab fa-github"></i></a>
+          <a href="https://x.com/adrixnlb21"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="dev-card">
+        <img src="https://cdn.discordapp.com/avatars/786094453772386324/4ea53198b40d1410b0caff45af903cc8.webp" alt="HomeR">
+        <h3>HomeR</h3>
+        <div class="social-icons">
+          <a href="https://github.com/homerARG"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
