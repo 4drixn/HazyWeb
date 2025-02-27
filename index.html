@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hazy</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Typed.js para animaciones de texto -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Estilos personalizados -->
     <style>
         /* Reset básico */
-        body, h1, p, a {
+        body, h1, h2, h3, p, a {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -14,44 +21,55 @@
 
         /* Estilos generales */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #1a1a1a;
             color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Fondo dinámico */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://www.svgbackgrounds.com/wp-content/uploads/2021/05/protruding-squares-orange-background.png') center/cover no-repeat;
+            opacity: 0.1;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        .container {
-            background-color: #2a2a2a;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
+        /* Header */
+        header {
             text-align: center;
+            padding: 60px 0;
         }
 
-        h1 {
-            font-size: 2.5rem;
+        header h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
-            color: #a81e1e; /* Color de Hazy */
+            color: #a81e1e;
         }
 
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+        header p {
+            font-size: 1.2rem;
             color: #cccccc;
         }
 
+        /* Botones */
         .buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-top: 30px;
         }
 
         .buttons a {
@@ -62,32 +80,118 @@
             border-radius: 5px;
             font-size: 1rem;
             transition: background-color 0.3s ease;
-            flex: 1 1 auto;
-            max-width: 200px;
-            text-align: center;
         }
 
         .buttons a:hover {
-            background-color: #8c1a1a; /* Color más oscuro al hacer hover */
+            background-color: #8c1a1a;
         }
 
-        .devs {
+        /* Secciones */
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #a81e1e;
+            text-align: center;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            text-align: center;
+        }
+
+        /* Estadísticas */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #a81e1e;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        /* Equipo */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #a81e1e;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a2a2a;
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
             font-size: 0.9rem;
-            color: #999999;
-            margin-top: 20px;
+            color: #cccccc;
         }
 
-        .devs p {
-            margin: 5px 0;
+        footer a {
+            color: #a81e1e;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsividad */
-        @media (max-width: 600px) {
-            h1 {
+        @media (max-width: 768px) {
+            header h1 {
                 font-size: 2rem;
             }
-            p {
-                font-size: 1rem;
+            section h2 {
+                font-size: 2rem;
             }
             .buttons a {
                 padding: 10px 20px;
@@ -97,18 +201,93 @@
     </style>
 </head>
 <body>
+    <!-- Fondo dinámico -->
+    <div class="background"></div>
+
+    <!-- Contenedor principal -->
     <div class="container">
-        <h1>Hazy</h1>
-        <p>Próximamente...</p>
-        <div class="buttons">
-            <a href="https://invite.hazybot.net">Invita al bot</a>
-            <a href="https://discord.gg/kilombo">Unirse a Kilombo</a>
-            <a href="https://discord.gg/hazybot">Unirse a Hazy</a>
-        </div>
-        <div class="devs">
-            <p>Devs:</p>
-            <p>adrian.tf | homer.lua</p>
-        </div>
+        <!-- Header -->
+        <header>
+            <h1>Hazy</h1>
+            <p>Próximamente...</p>
+            <div class="buttons">
+                <a href="https://invite.hazybot.net">Invita al bot</a>
+                <a href="https://discord.gg/kilombo">Unirse a Kilombo</a>
+                <a href="https://discord.gg/hazybot">Unirse a Hazy</a>
+            </div>
+        </header>
+
+        <!-- Sección: Cómo unirse -->
+        <section id="how-to-join">
+            <h2>¿Cómo unirse?</h2>
+            <p>Sigue estos pasos para unirte a nuestra comunidad.</p>
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Invita al bot</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Únete a Discord</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">¡Disfruta!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Estadísticas -->
+        <section id="stats">
+            <h2>Estadísticas</h2>
+            <p>Algunos números que nos enorgullecen.</p>
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">Usuarios</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Servidores</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Equipo -->
+        <section id="team">
+            <h2>Equipo</h2>
+            <p>Conoce a los desarrolladores detrás de Hazy.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Adrian">
+                    <h3>Adrian</h3>
+                    <p>adrian.tf</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Homero">
+                    <h3>Homero</h3>
+                    <p>homer.lua</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2023 Hazy. Todos los derechos reservados.</p>
+            <p>Desarrollado por <a href="#">adrian.tf</a> y <a href="#">homer.lua</a>.</p>
+        </footer>
     </div>
+
+    <!-- Script para Typed.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const typed = new Typed('#typed-text', {
+                strings: ["Hazy", "Bot de Discord", "Comunidad activa"],
+                typeSpeed: 100,
+                backSpeed: 50,
+                loop: true
+            });
+        });
+    </script>
 </body>
 </html>
