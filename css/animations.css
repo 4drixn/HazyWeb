@@ -9,10 +9,20 @@
     100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
 .animated {
     animation: fadeIn 1s ease-in-out;
 }
 
 .glow {
     animation: glowText 2s infinite alternate;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
 }
