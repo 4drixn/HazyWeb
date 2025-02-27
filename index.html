@@ -7,7 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* Estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       background: #121212;
@@ -15,7 +20,6 @@
       line-height: 1.6;
       overflow-x: hidden;
       scroll-behavior: smooth;
-      position: relative;
     }
     a {
       text-decoration: none;
@@ -27,6 +31,8 @@
       margin: auto;
       padding: 20px 0;
     }
+
+    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -58,6 +64,8 @@
     nav ul li a:hover {
       color: #ff4d4d;
     }
+
+    /* Hero Section */
     .hero {
       height: 100vh;
       background: url('https://source.unsplash.com/1600x900/?discord,technology') no-repeat center center/cover;
@@ -78,7 +86,6 @@
       background: rgba(18,18,18,0.7);
       z-index: 1;
     }
-    /* Animated wave at the bottom of the hero */
     .hero-wave {
       position: absolute;
       bottom: 0;
@@ -121,6 +128,8 @@
       background: #e04343;
       transform: scale(1.05);
     }
+
+    /* Secciones */
     section {
       padding: 80px 20px;
       position: relative;
@@ -133,6 +142,8 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
+    /* Acerca de */
     .about {
       text-align: center;
       max-width: 800px;
@@ -140,6 +151,8 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
+    /* Acordeón de comandos */
     .accordion {
       width: 100%;
       max-width: 1000px;
@@ -180,6 +193,8 @@
     .accordion-item.active .accordion-content {
       max-height: 500px;
     }
+
+    /* Developers */
     .devs {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -224,12 +239,24 @@
     .dev-card a:hover {
       color: #e04343;
     }
+
+    /* Contacto */
     .contact {
       text-align: center;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s, transform 0.6s;
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 50px 20px;
+      margin-top: 60px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
+    .contact p {
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -237,6 +264,8 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    /* Botón de scroll */
     #scrollToTop {
       position: fixed;
       bottom: 30px;
@@ -259,39 +288,16 @@
     #scrollToTop:hover {
       background: #e04343;
     }
+
+    /* Animaciones */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
     .visible {
       opacity: 1 !important;
       transform: translateY(0) !important;
-    }
-    /* Additional wave to separate sections more gracefully */
-    .wave {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-    }
-    /* Bottom wave for about section top */
-    .wave-top {
-      top: 100%;
-      transform: translateY(-1px);
-    }
-    .wave svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 1.3px);
-      height: 120px;
-    }
-    .wave .shape-fill {
-      fill: #121212;
-    }
-    @media (max-width: 768px) {
-      .hero-content h2 {
-        font-size: 2.5rem;
-      }
-      .hero-content p {
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
@@ -399,6 +405,11 @@
         </div>
       </div>
     </section>
+    <div class="wave-top">
+      <svg viewBox="0 0 500 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,100 350,0 500,100 L500,0 L0,0 Z" class="shape-fill"></path>
+      </svg>
+    </div>
     <section id="contacto" class="container contact">
       <h2 class="fade">Contacto</h2>
       <p class="fade">¿Tienes alguna pregunta o necesitas soporte?</p>
@@ -415,6 +426,7 @@
         this.parentElement.classList.toggle('active');
       });
     });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
