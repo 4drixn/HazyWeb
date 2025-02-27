@@ -90,3 +90,45 @@ footer {
     background: #a81e1e;
     margin-top: 50px;
 }
+
+.commands-table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.commands-table th, .commands-table td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: left;
+}
+
+.commands-table th {
+    background-color: #a81e1e;
+}
+
+.dev-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.dev-card {
+    text-align: center;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.dev-card img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.social-icons a {
+    margin: 10px;
+    color: white;
+    font-size: 20px;
+}
