@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="effects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -23,27 +24,40 @@
     <main>
         <section id="commands" class="animated">
             <h2>Lista de Comandos</h2>
-            <h3>Administración</h3>
+            <h3>🎟️ Sistema de Tickets</h3>
             <ul>
-                <li>/urban</li>
-                <li>/lack</li>
-                <li>/mula</li>
-                <li>/umma/o</li>
-                <li>/burgo</li>
+                <li><code>/tickets</code> - Inicia el sistema de tickets.</li>
+                <li><code>$add @usuario</code> - Agrega a un usuario al ticket.</li>
+                <li><code>$remove @usuario</code> - Remueve a un usuario del ticket.</li>
+                <li><code>$addrole @rol</code> - Agrega un rol al ticket.</li>
+                <li><code>$removerole @rol</code> - Remueve un rol del ticket.</li>
+                <li><code>$delete</code> - Cierra el ticket y envía el transcript.</li>
+                <li><code>$rename</code> - Cambia el nombre de un ticket.</li>
             </ul>
-            <h3>Tickets</h3>
+            <h3>🔨 Moderación</h3>
             <ul>
-                <li>/tickets</li>
-                <li>/remove</li>
-                <li>/adicto/o</li>
-                <li>/removero/o</li>
-                <li>/delete</li>
-                <li>/rename</li>
+                <li><code>/ban @usuario [razón]</code> - Banea a un usuario.</li>
+                <li><code>/unban [id] [razón]</code> - Desbanea a un usuario.</li>
+                <li><code>/kick @usuario [razón]</code> - Expulsa a un usuario.</li>
+                <li><code>/mute @usuario [tiempo] [razón]</code> - Mutea a un usuario.</li>
+                <li><code>/unmute @usuario</code> - Desmutea a un usuario.</li>
+                <li><code>/purge [cantidad]</code> - Borra mensajes en masa.</li>
             </ul>
-            <h3>Seguridad</h3>
+            <h3>🛠 Administración</h3>
             <ul>
-                <li>/camal blogușar</li>
-                <li>/camal desblogușar</li>
+                <li><code>/canal bloquear</code> - Bloquea un canal.</li>
+                <li><code>/canal desbloquear</code> - Desbloquea un canal.</li>
+            </ul>
+            <h3>💡 Utilidades</h3>
+            <ul>
+                <li><code>/sugerir [texto]</code> - Envía una sugerencia.</li>
+            </ul>
+            <h3>📜 Misc</h3>
+            <ul>
+                <li><code>/verificar</code> - Inicia el sistema de verificación.</li>
+                <li><code>/logs [On][Off]</code> - Activa o desactiva el sistema de logs.</li>
+                <li><code>/setup</code> - Configura el bot en el servidor.</li>
+                <li><code>/edit</code> - Edita la configuración de un sistema.</li>
             </ul>
         </section>
     </main>
