@@ -34,7 +34,7 @@ nav ul li a:hover {
     color: #ff4c4c;
 }
 
-.btn {
+btn {
     background-color: #a81e1e;
     color: white;
     padding: 10px 20px;
@@ -43,18 +43,18 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-.btn:hover {
+btn:hover {
     background-color: #ff4c4c;
 }
 
-.footer {
+footer {
     background-color: #a81e1e;
     padding: 15px;
     text-align: center;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.dev-card {
+dev-card {
     background-color: #1e1e1e;
     border-radius: 10px;
     padding: 20px;
@@ -63,25 +63,25 @@ nav ul li a:hover {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.dev-card:hover {
+dev-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.dev-image {
+dev-image {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     margin-bottom: 15px;
 }
 
-.social-icons a {
+social-icons a {
     color: white;
     margin: 0 10px;
     font-size: 1.5em;
     transition: color 0.3s ease-in-out;
 }
 
-.social-icons a:hover {
+social-icons a:hover {
     color: #ff4c4c;
 }
