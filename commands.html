@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hazy - Lista de Comandos</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/effects.css">
 </head>
 <body>
-    <header class="fade-in">
-        <div class="logo"><img src="img/logo.png" alt="Hazy Logo"></div>
+    <header>
+        <h1>Lista de Comandos</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -20,23 +19,14 @@
         </nav>
     </header>
 
-    <section class="commands">
-        <h1 class="glow-text">Lista de Comandos</h1>
-        <div class="command-box card-hover">
-            <h3>⚙️ Administración</h3>
-            <p>/ban, /unban, /kick, /mute, /unmute, /purge</p>
-        </div>
-        <div class="command-box card-hover">
-            <h3>🎟️ Tickets</h3>
-            <p>/tickets, /add, /remove, /addrole, /removerole, /delete, /rename</p>
-        </div>
-        <div class="command-box card-hover">
-            <h3>🔒 Seguridad</h3>
-            <p>/canal bloquear, /canal desbloquear</p>
-        </div>
-    </section>
+    <table>
+        <tr><th>Categoría</th><th>Comando</th></tr>
+        <tr><td>🔧 Administración</td><td>/ban, /unban, /kick, /mute, /unmute, /purge</td></tr>
+        <tr><td>📩 Tickets</td><td>/tickets, /add, /remove, /addrole, /removerole, /delete, /rename</td></tr>
+        <tr><td>🔒 Seguridad</td><td>/canal bloquear, /canal desbloquear</td></tr>
+    </table>
 
-    <footer class="fade-in">
+    <footer class="footer">
         <p>&copy; 2025 Hazy. Todos los derechos reservados.</p>
     </footer>
 </body>
