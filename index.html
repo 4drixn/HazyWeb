@@ -12,9 +12,10 @@
   <script defer src="assets/script.js"></script>
 </head>
 <body>
+
   <header>
     <nav>
-      <h1>Hazy</h1>
+      <h1 class="logo">Hazy</h1>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="commands.html">Comandos</a></li>
@@ -23,23 +24,34 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <section class="hero">
-      <h2 class="scramble-text"></h2>
-      <button class="btn" onclick="window.location.href='https://invite.hazybot.net'">Invítalo Ahora</button>
+      <div class="hero-content">
+        <h2 class="scramble-text"></h2>
+        <p class="hero-subtitle">Automatiza tu servidor y administra con eficiencia.</p>
+        <button class="btn" onclick="window.location.href='https://invite.hazybot.net'">Invítalo Ahora</button>
+      </div>
     </section>
 
-    <section class="faq-section">
-      <h2>Preguntas Frecuentes</h2>
-      <div class="faq-item">
-        <p>📌 ¿Cómo invitar a Hazy?</p>
-        <p class="faq-answer">Invita el bot a tu servidor y abre un ticket en el Discord principal para configurarlo.</p>
+    <section class="features">
+      <div class="feature-card">
+        <i class="fas fa-gavel"></i>
+        <h3>Moderación Avanzada</h3>
+        <p>Banea, silencia y administra con facilidad.</p>
       </div>
-      <div class="faq-item">
-        <p>🛠️ ¿Hazy es gratis?</p>
-        <p class="faq-answer">No, Hazy es un bot de pago, pero actualmente estamos en fase beta y algunos usuarios tienen acceso gratuito.</p>
+      <div class="feature-card">
+        <i class="fas fa-ticket-alt"></i>
+        <h3>Sistema de Tickets</h3>
+        <p>Gestiona solicitudes de soporte con tickets automatizados.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-cogs"></i>
+        <h3>Comandos Personalizados</h3>
+        <p>Configura y personaliza el bot a tu gusto.</p>
       </div>
     </section>
   </main>
+
 </body>
 </html>
