@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hazy - El Bot Definitivo para Discord</title>
+    <title>Hazy</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script defer src="js/particles.js"></script>
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="icon" href="favicon.ico">
+    <script defer src="js/encryption.js"></script>
     <script defer src="js/script.js"></script>
+    <script defer src="js/particles.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo"><img src="img/logo.png" alt="Hazy Logo"></div>
+    <header class="fade-in">
+        <div class="logo"><img src="img/logo.png" alt="Hazy"></div>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -23,14 +26,32 @@
     </header>
 
     <section class="hero">
-        <h1>El Bot Definitivo para Discord</h1>
-        <p>Automatiza y administra tu servidor con eficiencia.</p>
-        <a href="https://invite.hazybot.net" class="btn">Invítalo Ahora</a>
+        <h1 id="animated-text" class="glow-text">El Bot Definitivo para Discord</h1>
+        <p class="fade-in">Automatiza y administra tu servidor con eficiencia.</p>
+        <a href="https://invite.hazybot.net" class="btn pulse">Invítalo Ahora</a>
     </section>
 
-    <div id="particles"></div>
+    <section class="features">
+        <div class="feature slide-in">
+            <i class="fas fa-gavel"></i>
+            <h3>Moderación Avanzada</h3>
+            <p>Banea, silencia y administra con facilidad.</p>
+        </div>
+        <div class="feature slide-in">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Sistema de Tickets</h3>
+            <p>Gestiona solicitudes de soporte con tickets automatizados.</p>
+        </div>
+        <div class="feature slide-in">
+            <i class="fas fa-cogs"></i>
+            <h3>Comandos Personalizados</h3>
+            <p>Configura y personaliza el bot a tu gusto.</p>
+        </div>
+    </section>
 
-    <footer>
+    <canvas id="particles"></canvas>
+
+    <footer class="fade-in">
         <p>&copy; 2025 Hazy. Todos los derechos reservados.</p>
     </footer>
 </body>
