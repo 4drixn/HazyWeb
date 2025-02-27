@@ -2,3 +2,23 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     document.body.classList.toggle('light-mode');
     this.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    let elements = document.querySelectorAll(".fade-in, .slide-in");
+    elements.forEach((el) => {
+        el.style.opacity = 0;
+    });
+
+    function revealElements() {
+        elements.forEach((el) => {
+            let rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                el.style.opacity = 1;
+                el.classList.add("animate");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealElements);
+    revealElements();
+});
