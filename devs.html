@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - Hazy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="assets/styles.css">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
-  <script defer src="assets/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazy - Sobre los Desarrolladores</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico">
+    <script defer src="js/script.js"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <h1>Hazy</h1>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="commands.html">Comandos</a></li>
-        <li><a href="about.html">Developers</a></li>
-        <li><a href="devs.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="commands-section">
-      <h2>Contacto / Soporte</h2>
-      <p>Para soporte, únete a nuestro servidor de Discord o escríbeme a mi mail personal adrian@hazybot.net.</p>
+    <header>
+        <div class="logo"><img src="img/logo.png" alt="Hazy Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="commands.html">Comandos</a></li>
+                <li><a href="about.html">Sobre Hazy</a></li>
+                <li><a href="devs.html">Developers</a></li>
+                <li><button id="theme-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="developers">
+        <h1>Conoce a los Desarrolladores</h1>
+        <div class="dev-card">
+            <img src="img/adrian.png" alt="Adrian">
+            <h3>Adrian</h3>
+            <div class="social-icons">
+                <a href="https://github.com/Blxsted"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/adrixnlb21"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="dev-card">
+            <img src="img/homer.png" alt="HomeR">
+            <h3>HomeR</h3>
+            <div class="social-icons">
+                <a href="https://github.com/homerARG"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
     </section>
-  </main>
+
+    <footer>
+        <p>&copy; 2025 Hazy. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
