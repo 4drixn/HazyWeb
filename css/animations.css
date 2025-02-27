@@ -26,12 +26,3 @@
 .pulse {
     animation: pulse 2s infinite;
 }
-
-@keyframes slideInFromLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.dev-card {
-    animation: slideInFromLeft 1s ease-in-out;
-}
