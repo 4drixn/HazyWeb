@@ -6,6 +6,8 @@
   <title>Hazy - Bot Definitivo para Discord</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
     /* Estilos Generales */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,15 +62,43 @@
     section { padding: 80px 20px; }
     section h2 { text-align: center; font-size: 2.5rem; color: #ff4d4d; }
 
-    /* Testimonios */
-    .testimonials {
-      width: 100%;
-      max-width: 600px;
-      margin: auto;
-      text-align: center;
+    /* Sección de Características */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
-    .testimonial-slide { display: none; font-size: 1.2rem; background: #1e1e1e; padding: 20px; border-radius: 10px; }
-    .active { display: block; }
+    .feature-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover { transform: scale(1.05); }
+
+    /* Sección FAQ */
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+    .faq-item {
+      background: #1e1e1e;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Estadísticas */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+    }
+    .stat-box { font-size: 2rem; font-weight: bold; color: #ff4d4d; }
 
     /* Footer */
     footer {
@@ -88,7 +118,6 @@
       transition: transform 0.3s ease;
     }
     .social-icons a:hover { transform: scale(1.2); }
-
   </style>
 </head>
 <body>
@@ -98,8 +127,9 @@
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#about">Acerca</a></li>
         <li><a href="#comandos">Comandos</a></li>
-        <li><a href="#devs">Developers</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
   </header>
@@ -112,10 +142,22 @@
       </div>
     </section>
 
-    <section class="testimonials">
-      <h2>Testimonios</h2>
-      <div class="testimonial-slide active">"Hazy mejoró la seguridad de mi servidor!" - Usuario A</div>
-      <div class="testimonial-slide">"El bot más útil que he probado!" - Usuario B</div>
+    <section class="features">
+      <h2>Características</h2>
+      <div class="feature-card">🔧 Moderación Avanzada</div>
+      <div class="feature-card">🚀 Comandos Personalizados</div>
+      <div class="feature-card">🛡️ Seguridad Mejorada</div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-box" id="servers">🌎 2000 Servidores</div>
+      <div class="stat-box" id="users">👥 50,000 Usuarios</div>
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-item">📌 ¿Cómo invitar a Hazy?</div>
+      <div class="faq-item">🛠️ ¿Cuáles son los comandos más usados?</div>
     </section>
   </main>
 
@@ -128,27 +170,15 @@
   </footer>
 
   <script>
-    // Efecto Máquina de Escribir
-    let text = "El Bot Definitivo para Discord";
-    let i = 0;
-    function typeEffect() {
-      if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 100);
-      }
-    }
-    typeEffect();
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
 
-    // Testimonios Automáticos
-    let index = 0;
-    function showTestimonial() {
-      let slides = document.querySelectorAll(".testimonial-slide");
-      slides.forEach(slide => slide.classList.remove("active"));
-      slides[index].classList.add("active");
-      index = (index + 1) % slides.length;
-    }
-    setInterval(showTestimonial, 4000);
+    let servers = 2000, users = 50000;
+    document.getElementById('servers').textContent = `🌎 ${servers.toLocaleString()} Servidores`;
+    document.getElementById('users').textContent = `👥 ${users.toLocaleString()} Usuarios`;
   </script>
 
 </body>
