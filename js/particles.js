@@ -7,13 +7,14 @@ document.addEventListener("DOMContentLoaded", function() {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 150; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            radius: Math.random() * 2,
+            radius: Math.random() * 3,
             speedX: (Math.random() - 0.5) * 2,
-            speedY: (Math.random() - 0.5) * 2
+            speedY: (Math.random() - 0.5) * 2,
+            color: `rgba(255, ${Math.random() * 255}, ${Math.random() * 255}, 0.8)`
         });
     }
 
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         particles.forEach(p => {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = "white";
+            ctx.fillStyle = p.color;
             ctx.fill();
             p.x += p.speedX;
             p.y += p.speedY;
