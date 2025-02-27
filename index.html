@@ -3,46 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hazy - La revolución en comunidades digitales</title>
+  <title>Hazy - Bot todo-en-uno para Discord</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:300,400,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* Reset básico */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #0f0f0f; color: #fff; line-height: 1.6; }
+    body { font-family: 'Inter', sans-serif; background-color: #0f0f0f; color: #fff; line-height: 1.6; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    
+
     /* Navegación */
     nav {
-      background: rgba(15,15,15,0.95);
+      background: rgba(15, 15, 15, 0.95);
       position: fixed;
       width: 100%;
       top: 0;
       left: 0;
       z-index: 100;
       border-bottom: 1px solid #333;
+      backdrop-filter: blur(10px);
     }
     nav .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 60px;
+      height: 80px;
     }
     nav .logo {
       font-size: 1.8rem;
       font-weight: 600;
       color: #a81e1e;
     }
-    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul { list-style: none; display: flex; gap: 30px; }
     nav ul li { font-size: 0.9rem; }
     nav ul li a { transition: color 0.3s ease; }
     nav ul li a:hover { color: #a81e1e; }
-    
+
     /* Sección Hero */
     .hero {
       height: 100vh;
-      background: url('https://source.unsplash.com/1600x900/?community,digital') no-repeat center center/cover;
+      background: url('https://source.unsplash.com/1600x900/?discord,community') no-repeat center center/cover;
       position: relative;
       display: flex;
       align-items: center;
@@ -53,50 +54,59 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15,15,15,0.7);
+      background: rgba(15, 15, 15, 0.7);
     }
     .hero-content { position: relative; z-index: 2; }
-    .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #a81e1e, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #ccc; }
     .cta-btn {
       background: #a81e1e;
-      padding: 12px 30px;
+      padding: 15px 40px;
       font-size: 1rem;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
-    .cta-btn:hover { background: #901a1a; }
-    
+    .cta-btn:hover { background: #901a1a; transform: scale(1.05); }
+
     /* Sección Características */
-    .caracteristicas { padding: 80px 0; }
+    .caracteristicas { padding: 100px 0; }
     .caracteristicas h2 {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       font-size: 2.8rem;
       color: #a81e1e;
     }
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
     }
     .feature-item {
       background: #1a1a1a;
-      padding: 30px;
-      border-radius: 8px;
+      padding: 40px;
+      border-radius: 12px;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .feature-item:hover { transform: translateY(-10px); }
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(168, 30, 30, 0.2);
+    }
     .feature-item h3 { margin-bottom: 15px; font-size: 1.4rem; color: #a81e1e; }
     .feature-item p { font-size: 1rem; color: #ccc; }
-    
+
     /* Sección CTA secundaria */
     .cta-section {
-      padding: 80px 0;
-      background: #0f0f0f;
+      padding: 100px 0;
+      background: linear-gradient(45deg, #0f0f0f, #1a1a1a);
       text-align: center;
     }
     .cta-section h2 {
@@ -105,12 +115,12 @@
       color: #a81e1e;
     }
     .cta-section p { font-size: 1.1rem; margin-bottom: 30px; color: #ccc; }
-    
+
     /* Sección FAQ */
-    .faq { padding: 80px 0; }
+    .faq { padding: 100px 0; }
     .faq h2 {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       font-size: 2.8rem;
       color: #a81e1e;
     }
@@ -120,7 +130,9 @@
       background: #1a1a1a;
       padding: 20px;
       border-radius: 8px;
+      transition: transform 0.3s ease;
     }
+    .faq-item:hover { transform: translateY(-5px); }
     .faq-item h3 {
       font-size: 1.2rem;
       color: #a81e1e;
@@ -133,11 +145,12 @@
       margin-top: 10px;
     }
     .faq-item.active p { display: block; }
-    
-    /* Footer (dos columnas: Hazy y Kilombo) */
+
+    /* Footer */
     footer {
       background: #0f0f0f;
-      padding: 40px 20px;
+      padding: 60px 20px;
+      text-align: center;
     }
     .footer-container {
       display: flex;
@@ -179,12 +192,13 @@
       font-size: 0.8rem;
       color: #777;
     }
-    
-    @media (max-width: 768px) {
-      nav .nav-container { flex-direction: column; height: auto; }
-      .hero h1 { font-size: 2.8rem; }
-      .footer-container { flex-direction: column; align-items: center; text-align: center; }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+    .fade-in { animation: fadeIn 1s ease-out; }
   </style>
 </head>
 <body>
@@ -202,86 +216,85 @@
       </ul>
     </div>
   </nav>
-  
+
   <!-- Sección Hero -->
   <section class="hero" id="inicio">
-    <div class="hero-content container">
+    <div class="hero-content container fade-in">
       <h1>Hazy</h1>
-      <p>La revolución en comunidades digitales</p>
+      <p>El bot todo-en-uno para Discord: gestión de tickets, moderación y más.</p>
       <button class="cta-btn" onclick="location.href='https://invite.hazybot.net'">Invita al Bot</button>
     </div>
   </section>
-  
+
   <!-- Sección Características -->
   <section class="caracteristicas" id="caracteristicas">
     <div class="container">
-      <h2>Descubre lo que Hazy te ofrece</h2>
+      <h2 class="fade-in">Características Principales</h2>
       <div class="features-grid">
-        <div class="feature-item">
-          <h3>Invita al Bot</h3>
-          <p>Agrega Hazy a tu servidor y aprovecha funciones únicas.</p>
+        <div class="feature-item fade-in">
+          <h3>Gestión de Tickets</h3>
+          <p>Crea y gestiona tickets de soporte de manera eficiente.</p>
         </div>
-        <div class="feature-item">
-          <h3>Únete a Discord</h3>
-          <p>Conecta con una comunidad activa y vibrante.</p>
+        <div class="feature-item fade-in">
+          <h3>Moderación Automática</h3>
+          <p>Mantén tu comunidad segura con herramientas de moderación avanzadas.</p>
         </div>
-        <div class="feature-item">
-          <h3>Soporte 24/7</h3>
-          <p>Asistencia continua para que nunca te quedes sin ayuda.</p>
-        </div>
-        <div class="feature-item">
+        <div class="feature-item fade-in">
           <h3>Estadísticas en Tiempo Real</h3>
-          <p>Mide el crecimiento y actividad de tu comunidad al instante.</p>
+          <p>Monitorea el crecimiento y actividad de tu servidor.</p>
         </div>
-        <div class="feature-item">
-          <h3>Totalmente Personalizable</h3>
-          <p>Ajusta Hazy a tus necesidades con opciones avanzadas.</p>
+        <div class="feature-item fade-in">
+          <h3>Personalización Total</h3>
+          <p>Ajusta Hazy a las necesidades de tu comunidad.</p>
         </div>
-        <div class="feature-item">
+        <div class="feature-item fade-in">
+          <h3>Soporte 24/7</h3>
+          <p>Asistencia continua para resolver cualquier problema.</p>
+        </div>
+        <div class="feature-item fade-in">
           <h3>Fácil de Usar</h3>
-          <p>Una experiencia intuitiva para usuarios de todos los niveles.</p>
+          <p>Interfaz intuitiva para usuarios de todos los niveles.</p>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Sección CTA secundaria -->
   <section class="cta-section">
-    <div class="container">
-      <h2>Empieza a disfrutar Hazy</h2>
-      <p>Únete a una comunidad que evoluciona y se conecta en tiempo real.</p>
-      <button class="cta-btn" onclick="location.href='https://discord.gg/hazybot'">Únete a Discord</button>
+    <div class="container fade-in">
+      <h2>¿Listo para mejorar tu servidor?</h2>
+      <p>Invita a Hazy y lleva tu comunidad al siguiente nivel.</p>
+      <button class="cta-btn" onclick="location.href='https://invite.hazybot.net'">Invita al Bot</button>
     </div>
   </section>
-  
+
   <!-- Sección FAQ -->
   <section class="faq" id="faq">
     <div class="container">
-      <h2>Preguntas Frecuentes</h2>
-      <div class="faq-item">
+      <h2 class="fade-in">Preguntas Frecuentes</h2>
+      <div class="faq-item fade-in">
         <h3 onclick="toggleFaq(this)">¿Qué es Hazy?</h3>
-        <p>Hazy es un bot y plataforma para conectar comunidades, ofrecer soporte, estadísticas en tiempo real y mucho más.</p>
+        <p>Hazy es un bot todo-en-uno para Discord que gestiona tickets, moderación y más.</p>
       </div>
-      <div class="faq-item">
-        <h3 onclick="toggleFaq(this)">¿Cómo invito al bot?</h3>
-        <p>Simplemente haz clic en el botón "Invita al Bot" y sigue las instrucciones para agregarlo a tu servidor.</p>
+      <div class="faq-item fade-in">
+        <h3 onclick="toggleFaq(this)">¿Cómo invito a Hazy?</h3>
+        <p>Haz clic en el botón "Invita al Bot" y sigue las instrucciones.</p>
       </div>
-      <div class="faq-item">
-        <h3 onclick="toggleFaq(this)">¿Cómo puedo unirme a la comunidad?</h3>
-        <p>Puedes unirte a nuestro Discord oficial y conectar con miles de usuarios en Hazy.</p>
+      <div class="faq-item fade-in">
+        <h3 onclick="toggleFaq(this)">¿Es Hazy gratuito?</h3>
+        <p>Sí, Hazy es completamente gratuito con opciones premium disponibles.</p>
       </div>
-      <div class="faq-item">
-        <h3 onclick="toggleFaq(this)">¿Cuáles son las reglas para mantener la comunidad segura?</h3>
-        <p>Contamos con un conjunto de normas claras que garantizan un ambiente respetuoso y amigable para todos.</p>
+      <div class="faq-item fade-in">
+        <h3 onclick="toggleFaq(this)">¿Cómo obtengo soporte?</h3>
+        <p>Únete a nuestro servidor de Discord para recibir asistencia 24/7.</p>
       </div>
     </div>
   </section>
-  
-  <!-- Footer con dos columnas: Hazy y Kilombo -->
+
+  <!-- Footer -->
   <footer id="contacto">
     <div class="container footer-container">
-      <!-- Columna Hazy -->
-      <div class="footer-column">
+      <div class="footer-column fade-in">
         <h3>Hazy</h3>
         <p>© 2025 Hazy. Todos los derechos reservados.</p>
         <p>Invita a nuestro bot: <a href="https://invite.hazybot.net" target="_blank">invite.hazybot.net</a></p>
@@ -292,27 +305,28 @@
           <a href="https://instagram.com/hazy" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-      <!-- Columna Kilombo -->
-      <div class="footer-column">
-        <h3>Kilombo</h3>
-        <p>Servidor IP: <strong>kilomborp.net</strong></p>
-        <p>Únete a nuestro Discord: <a href="https://discord.gg/kilombo" target="_blank">discord.gg/kilombo</a></p>
-        <div class="social">
-          <a href="https://twitter.com/kilombo" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://facebook.com/kilombo" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://instagram.com/kilombo" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
     </div>
     <div class="footer-bottom">
-      © 2025 Hazy & Kilombo. Todos los derechos reservados.
+      © 2025 Hazy. Todos los derechos reservados.
     </div>
   </footer>
-  
+
   <script>
     function toggleFaq(element) {
       element.parentElement.classList.toggle("active");
     }
+
+    // Animaciones al hacer scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    fadeElements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
