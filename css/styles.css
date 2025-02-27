@@ -1,134 +1,37 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #111;
+    font-family: Arial, sans-serif;
+    background: #111;
     color: white;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-header {
-    background-color: #a81e1e;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 40px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ffcccb;
-}
-
-.hero {
     text-align: center;
-    padding: 100px 20px;
-    position: relative;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-    0% { text-shadow: 0 0 10px white; }
-    100% { text-shadow: 0 0 20px #ffcccb; }
+    font-size: 3em;
+    text-shadow: 0 0 10px white;
 }
 
 .btn {
-    display: inline-block;
-    background-color: #a81e1e;
-    padding: 15px 30px;
-    color: white;
+    background: #a81e1e;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
+    color: white;
 }
 
 .btn:hover {
-    background-color: #ff4747;
-}
-
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px;
+    background: #8b1616;
 }
 
 .feature {
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #a81e1e;
-    margin-top: 50px;
-}
-
-.commands-table {
-    width: 80%;
-    margin: auto;
-    border-collapse: collapse;
-}
-
-.commands-table th, .commands-table td {
-    border: 1px solid white;
-    padding: 10px;
-    text-align: left;
-}
-
-.commands-table th {
-    background-color: #a81e1e;
-}
-
-.dev-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px;
-}
-
-.dev-card {
-    text-align: center;
-    background: #222;
+    display: inline-block;
+    width: 30%;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-.dev-card img {
-    width: 100px;
-    border-radius: 50%;
-}
-
-.social-icons a {
+    background: rgba(255, 255, 255, 0.1);
     margin: 10px;
-    color: white;
-    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: scale(1.1);
 }
