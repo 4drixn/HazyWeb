@@ -10,6 +10,7 @@
   
   body {
     font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
     background: var(--bg-color);
     color: var(--text-color);
     overflow-x: hidden;
@@ -55,13 +56,18 @@
     letter-spacing: 1px;
     cursor: pointer;
   }
-  .nav-right a {
-    text-decoration: none;
-    color: var(--text-color);
-    margin: 10px;
-    transition: color 0.3s;
-  }
-  .nav-right a:hover { color: var(--main-color); }
+.nav-right a:link,
+.nav-right a:visited {
+  text-decoration: none;
+  color: var(--text-color);
+  margin: 10px;
+  transition: color 0.3s;
+}
+
+.nav-right a:hover,
+.nav-right a:active {
+  color: var(--main-color);
+}
   .invite-btn {
     padding: 8px 16px;
     background: var(--main-color);
