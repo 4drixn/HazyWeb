@@ -63,7 +63,9 @@
       margin: 10px;
       transition: color 0.3s;
     }
-    .nav-right a:hover { color: var(--main-color); }
+    .nav-right a:hover {
+      color: var(--main-color);
+    }
     .invite-btn {
       padding: 8px 16px;
       background: var(--main-color);
@@ -73,7 +75,9 @@
       font-weight: bold;
       transition: background 0.3s;
     }
-    .invite-btn:hover { background: #d92020; }
+    .invite-btn:hover {
+      background: #d92020;
+    }
     .beta-notification {
       position: fixed;
       top: 80px;
@@ -105,7 +109,11 @@
       color: var(--main-color);
       cursor: pointer;
     }
-    .hero-content p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6; }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
     .hero-content .cta-btn {
       padding: 15px 30px;
       background: var(--main-color);
@@ -117,18 +125,34 @@
       transition: background 0.3s;
       text-decoration: none;
     }
-    .hero-content .cta-btn:hover { background: #d92020; }
-    section { padding: 60px 20px; max-width: var(--container-width); margin: auto; }
-    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--main-color); }
-    .section-subtitle { text-align: center; font-size: 1.1rem; margin-bottom: 50px; color: #ccc; }
-    .commands-grid,
-    .faq-grid {
+    .hero-content .cta-btn:hover {
+      background: #d92020;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: var(--container-width);
+      margin: auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--main-color);
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      color: #ccc;
+    }
+    .commands-grid, .faq-grid {
       display: grid;
       gap: 30px;
     }
-    .commands-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-    .command-card,
-    .faq-card {
+    .commands-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .command-card, .faq-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-left: 3px solid var(--main-color);
@@ -139,18 +163,30 @@
       overflow: hidden;
       position: relative;
     }
-    .command-card:hover,
-    .faq-card:hover { transform: translateY(-5px); }
-    .command-card h3,
-    .faq-card h3 {
+    .command-card:hover, .faq-card:hover {
+      transform: translateY(-5px);
+    }
+    .command-card h3, .faq-card h3 {
       color: var(--main-color);
       margin-bottom: 15px;
       font-size: 1.4rem;
     }
-    .command-card ul { list-style: none; margin-left: 20px; }
-    .command-card li { margin: 8px 0; line-height: 1.4; }
-    .command-card li i { margin-right: 8px; color: var(--main-color); }
-    .faq-card p { margin-bottom: 10px; line-height: 1.5; }
+    .command-card ul {
+      list-style: none;
+      margin-left: 20px;
+    }
+    .command-card li {
+      margin: 8px 0;
+      line-height: 1.4;
+    }
+    .command-card li i {
+      margin-right: 8px;
+      color: var(--main-color);
+    }
+    .faq-card p {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
     .faq-card {
       position: relative;
       z-index: 1;
@@ -236,7 +272,10 @@
       margin-bottom: 10px;
       line-height: 1.5;
     }
-    .rules-card a { color: var(--main-color); text-decoration: underline; }
+    .rules-card a {
+      color: var(--main-color);
+      text-decoration: underline;
+    }
     .contact-container {
       max-width: 600px;
       margin: 0 auto;
@@ -246,9 +285,12 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    .contact-container form { display: flex; flex-direction: column; gap: 15px; }
-    .contact-container input,
-    .contact-container textarea {
+    .contact-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact-container input, .contact-container textarea {
       width: 100%;
       padding: 10px;
       border: 1px solid var(--card-border);
@@ -257,8 +299,10 @@
       color: var(--text-color);
       font-size: 1rem;
     }
-    .contact-container input:focus,
-    .contact-container textarea:focus { outline: none; border-color: var(--main-color); }
+    .contact-container input:focus, .contact-container textarea:focus {
+      outline: none;
+      border-color: var(--main-color);
+    }
     .contact-container button {
       padding: 10px;
       background: var(--main-color);
@@ -269,7 +313,9 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    .contact-container button:hover { background: #d92020; }
+    .contact-container button:hover {
+      background: #d92020;
+    }
     .developer-container {
       display: flex;
       justify-content: center;
@@ -289,24 +335,34 @@
       position: relative;
       min-height: 400px;
     }
-    .developer-card:hover { transform: translateY(-5px); }
+    .developer-card:hover {
+      transform: translateY(-5px);
+    }
     .developer-pfp {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       border: 3px solid var(--main-color);
-      animation: pulseBorder 2s infinite;
       object-fit: cover;
+      animation: pulsateBorder 2s infinite;
     }
-    .developer-card h3 { margin: 15px 0 10px; color: var(--main-color); }
-    .developer-card p { font-size: 0.9rem; margin-bottom: 10px; }
+    .developer-card h3 {
+      margin: 15px 0 10px;
+      color: var(--main-color);
+    }
+    .developer-card p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
     .social-links a {
       margin: 0 10px;
       font-size: 1.7rem;
       color: var(--text-color);
       transition: color 0.3s;
     }
-    .social-links a:hover { color: var(--main-color); }
+    .social-links a:hover {
+      color: var(--main-color);
+    }
     .github-link {
       border: 2px solid var(--main-color);
       border-radius: 50%;
@@ -324,7 +380,9 @@
       font-weight: bold;
       transition: background 0.3s;
     }
-    .surprise-btn:hover { background: #d92020; }
+    .surprise-btn:hover {
+      background: #d92020;
+    }
     .support-bubble {
       position: fixed;
       bottom: 20px;
@@ -358,14 +416,21 @@
       background: rgba(0,0,0,0.6);
       color: #aaa;
     }
-    footer p { font-size: 0.9rem; }
-    footer a { color: var(--main-color); text-decoration: none; }
+    footer p {
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: var(--main-color);
+      text-decoration: none;
+    }
     @media (max-width: 768px) {
       .nav-container { justify-content: center; }
       .nav-right { margin-top: 10px; }
       .hero-content h1 { font-size: 3rem; }
       .hero-content p { font-size: 1rem; }
-      .developer-card, .contact-container { width: 90%; }
+      .developer-card, .contact-container {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -373,7 +438,7 @@
 
   <div id="particles-js"></div>
 
-  <div class="beta-notification" data-aos="fade-down" id="betaNotification">
+  <div class="beta-notification" id="betaNotification">
     <p>
       Actualmente nos encontramos en <strong>beta</strong>, puedes solicitar tu acceso gratuito a Hazy uniéndote al 
       <a href="https://discord.gg/hazybot" target="_blank">Discord</a>.
@@ -381,7 +446,7 @@
     </p>
   </div>
 
-  <nav data-aos="fade-down">
+  <nav>
     <div class="nav-container">
       <div class="nav-left">
         <h2 id="logo">Hazy</h2>
@@ -399,8 +464,8 @@
     </div>
   </nav>
 
-  <header id="inicio" data-aos="fade-up">
-    <div class="hero-content" data-aos="fade-up">
+  <header id="inicio">
+    <div class="hero-content">
       <h1 id="scrambleText">Hazy</h1>
       <p>El bot definitivo para tu servidor de Discord. Gestión, moderación y mucho más, todo en un solo lugar. Simplifica la administración de tu comunidad con nuestro poderoso sistema de tickets, moderación avanzada y utilidades imprescindibles.</p>
       <a class="cta-btn" href="https://invite.hazybot.net" target="_blank">¡Invítame a tu Servidor!</a>
@@ -608,12 +673,16 @@
     </div>
   </section>
 
-  <!-- Sección Developer movida justo antes de Contáctanos -->
-  <section id="developer" data-aos="fade-up">
+  <section id="developer">
     <h2 class="section-title">Developer</h2>
     <div class="developer-container">
-      <div class="developer-card" data-aos="flip-left">
-        <img class="developer-pfp" src="https://i.postimg.cc/0yrhjTHM/converted-image.png" alt="Adrian PFP" onerror="this.onerror=null;this.src='https://via.placeholder.com/120';">
+      <div class="developer-card">
+        <img 
+          class="developer-pfp" 
+          src="https://i.imgur.com/3VvdJmH.png" 
+          alt="Adrian PFP"
+          onerror="this.onerror=null;this.src='https://via.placeholder.com/120';"
+        >
         <h3>Adrian</h3>
         <p>Email: <a href="mailto:adrian@hazybot" style="color: var(--main-color);">adrian@hazybot.net</a></p>
         <p>Discord: <strong>adrian.tf</strong></p>
@@ -641,7 +710,7 @@
   </section>
 
   <footer>
-    <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • Made By Hazy Tea, | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
   <a href="https://discord.gg/hazybot" class="support-bubble" target="_blank" title="Soporte en Discord">
@@ -651,13 +720,12 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <script>
-    window.onload = function() {
-      AOS.init({
-        duration: 800,
-        once: true
-      });
-    };
+    AOS.init({
+      duration: 800,
+      once: true
+    });
     
     particlesJS("particles-js", {
       "particles": {
@@ -754,14 +822,13 @@
       fx.setText('Hazy');
     }
     scrambleReveal();
+
     el.addEventListener('click', () => {
       fx.setText('????').then(scrambleReveal);
     });
     document.querySelector('.nav-left h2').addEventListener('click', () => {
       fx.setText('????').then(scrambleReveal);
     });
-    
-    gsap.from(".developer-card", { duration: 1, y: 50, opacity: 0, ease: "power2.out", stagger: 0.2 });
   </script>
 </body>
 </html>
