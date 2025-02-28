@@ -43,7 +43,7 @@ main {
 
 nav {
   width: 100%;
-  height: 60px;
+  height: 60px; 
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
   position: fixed;
@@ -54,12 +54,13 @@ nav {
 }
 
 .nav-container {
-  max-width: var(--container-width);
-  margin: 0 auto; 
+  max-width: var(--container-width); 
+  margin: 0 auto;                  
   display: flex;
   align-items: center;
-  justify-content: space-between; 
-  padding: 10px 20px;
+  justify-content: space-between;   
+  padding: 0 20px;                  
+  height: 100%;                     
   flex-wrap: wrap;
 }
 
@@ -67,8 +68,8 @@ nav {
   font-size: 1.5rem;
   letter-spacing: 1px;
   cursor: pointer;
-  color: var(--main-color); 
-  margin: 0; /
+  color: var(--main-color); /
+  margin: 0;               
 }
 
 .nav-left h2 a {
@@ -79,7 +80,7 @@ nav {
 .nav-right {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-end;  
 }
 
 .nav-right a:link,
