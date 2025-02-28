@@ -1,175 +1,354 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hazy - Bot de Discord</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hazy</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background: #111; color: #fff; line-height: 1.6; }
-    
-    header {
-      background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-      height: 100vh;
-      position: relative;
+    :root {
+      --main-color: #a81e1e; 
+      --bg-color: #0b0b0b;
+      --text-color: #ffffff;
+      --container-width: 1200px;
     }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    nav {
+      width: 100%;
       background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
     }
-    header .container {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
+    .nav-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
     }
-    header h1 {
-      font-size: 4rem;
-      color: #a81e1e;
-      margin-bottom: 20px;
-    }
-    header p {
+    .nav-left h2 {
       font-size: 1.5rem;
+      color: var(--main-color);
+      letter-spacing: 1px;
+    }
+    .nav-right a {
+      text-decoration: none;
+      color: var(--text-color);
+      margin-left: 20px;
+      transition: color 0.3s;
+    }
+    .nav-right a:hover {
+      color: var(--main-color);
+    }
+    .invite-btn {
+      padding: 8px 16px;
+      background: var(--main-color);
+      border-radius: 5px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .invite-btn:hover {
+      background: #d92020;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 0 20px;
+    }
+    .hero-content {
+      max-width: 700px;
+    }
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: var(--main-color);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .hero-content .cta-btn {
+      padding: 15px 30px;
+      background: var(--main-color);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+    .hero-content .cta-btn:hover {
+      background: #d92020;
     }
 
     section {
       padding: 60px 20px;
-    }
-    .container {
-      max-width: 1200px;
+      max-width: var(--container-width);
       margin: auto;
     }
-    .commands {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--main-color);
     }
-    .command-category {
-      background: #222;
-      border: 2px solid #a81e1e;
-      border-radius: 10px;
-      padding: 20px;
-      width: 300px;
-      transition: transform 0.3s;
-    }
-    .command-category:hover {
-      transform: scale(1.05);
-    }
-    .command-category h2 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      color: #a81e1e;
-    }
-    .command-category ul {
-      list-style: none;
-    }
-    .command-category li {
-      margin: 8px 0;
-      display: flex;
-      align-items: center;
-    }
-    .command-category li i {
-      margin-right: 10px;
-      color: #a81e1e;
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      color: #ccc;
     }
 
-    /* Footer */
+    .commands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .command-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 3px solid var(--main-color);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .command-card:hover {
+      transform: translateY(-5px);
+    }
+    .command-card h3 {
+      color: var(--main-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    .command-card ul {
+      list-style: none;
+    }
+    .command-card li {
+      margin: 8px 0;
+      line-height: 1.4;
+    }
+    .command-card li i {
+      margin-right: 8px;
+      color: var(--main-color);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
-      background: #000;
+      background: rgba(0, 0, 0, 0.6);
+      color: #aaa;
     }
-
-    .animate { opacity: 0; transition: opacity 1s ease-in-out; }
-    .animate.visible { opacity: 1; }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: var(--main-color);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container animate animate__animated animate__fadeInDown">
+
+  <div id="particles-js"></div>
+
+  <nav class="animate__animated animate__fadeInDown">
+    <div class="nav-container">
+      <div class="nav-left">
+        <h2>Hazy</h2>
+      </div>
+      <div class="nav-right">
+        <a href="#inicio">Inicio</a>
+        <a href="#commands">Comandos</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar Bot</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio">
+    <div class="hero-content animate__animated animate__fadeInUp">
       <h1>Hazy</h1>
-      <p>El bot definitivo para tu servidor de Discord</p>
+      <p>El bot definitivo para tu servidor de Discord. Gestión, moderación y mucho más, todo en un solo lugar. Simplifica la administración de tu comunidad con nuestro poderoso sistema de tickets, moderación avanzada y utilidades imprescindibles.</p>
+      <a class="cta-btn" href="https://invite.hazybot.net" target="_blank">¡Invítame a tu Servidor!</a>
     </div>
   </header>
 
-  <section id="commands">
-    <div class="container">
-      <h2 class="animate animate__animated animate__fadeInUp">Comandos de Hazy</h2>
-      <p class="animate animate__animated animate__fadeInUp">Descubre todos los comandos que Hazy ofrece para gestionar y moderar tu servidor.</p>
-      <div class="commands">
-        <div class="command-category animate animate__animated animate__zoomIn">
-          <h2>🎟️ Sistema de Tickets</h2>
-          <ul>
-            <li><i class="fas fa-ticket-alt"></i> /tickets - Inicia el sistema de tickets.</li>
-            <li><i class="fas fa-user-plus"></i> $add @usuario - Agrega a un usuario al ticket.</li>
-            <li><i class="fas fa-user-minus"></i> $remove @usuario - Remueve a un usuario del ticket.</li>
-            <li><i class="fas fa-user-tag"></i> $addrole @rol - Agrega un rol al ticket.</li>
-            <li><i class="fas fa-user-times"></i> $removerole @rol - Remueve un rol del ticket.</li>
-            <li><i class="fas fa-times"></i> $delete - Cierra el ticket y envía el transcript.</li>
-            <li><i class="fas fa-edit"></i> $rename - Cambia el nombre de un ticket.</li>
-          </ul>
-        </div>
-        <!-- Moderación -->
-        <div class="command-category animate animate__animated animate__zoomIn" style="animation-delay: 0.2s;">
-          <h2>🔨 Moderación</h2>
-          <ul>
-            <li><i class="fas fa-ban"></i> /ban @usuario [razón] - Banea a un usuario.</li>
-            <li><i class="fas fa-undo"></i> /unban [id] - Revoca el baneo.</li>
-            <li><i class="fas fa-sign-out-alt"></i> /kick @usuario [razón] - Expulsa a un usuario.</li>
-            <li><i class="fas fa-volume-mute"></i> /mute @usuario [tiempo] [razón] - Mutea a un usuario.</li>
-            <li><i class="fas fa-volume-up"></i> /unmute @usuario - Desmutea a un usuario.</li>
-            <li><i class="fas fa-trash"></i> /purge [cantidad] - Borra mensajes en masa.</li>
-          </ul>
-        </div>
-        <div class="command-category animate animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
-          <h2>🛠 Administración</h2>
-          <ul>
-            <li><i class="fas fa-lock"></i> /canal bloquear - Bloquea un canal.</li>
-            <li><i class="fas fa-lock-open"></i> /canal desbloquear - Desbloquea un canal.</li>
-          </ul>
-        </div>
-        <div class="command-category animate animate__animated animate__zoomIn" style="animation-delay: 0.6s;">
-          <h2>💡 Utilidades</h2>
-          <ul>
-            <li><i class="fas fa-lightbulb"></i> /sugerir [texto] - Envía una sugerencia.</li>
-          </ul>
-        </div>
-        <div class="command-category animate animate__animated animate__zoomIn" style="animation-delay: 0.8s;">
-          <h2>📜 Misc</h2>
-          <ul>
-            <li><i class="fas fa-check"></i> /verificar - Inicia el sistema de verificación.</li>
-            <li><i class="fas fa-book"></i> /logs [On][Off] - Activa o desactiva el sistema de logs.</li>
-            <li><i class="fas fa-cog"></i> /setup - Configura el bot en el servidor.</li>
-            <li><i class="fas fa-edit"></i> /edit - Edita la configuración de un sistema.</li>
-          </ul>
-        </div>
+  <section id="commands" class="animate__animated animate__fadeInUp">
+    <h2 class="section-title">Comandos de Hazy</h2>
+    <p class="section-subtitle">Descubre todas las funciones que Hazy te ofrece para gestionar y moderar tu servidor de Discord.</p>
+    
+    <div class="commands-grid">
+      <div class="command-card">
+        <h3>🎟️ Sistema de Tickets</h3>
+        <ul>
+          <li><i class="fas fa-ticket-alt"></i> /tickets - Inicia el sistema de tickets.</li>
+          <li><i class="fas fa-user-plus"></i> $add @usuario - Agrega a un usuario al ticket.</li>
+          <li><i class="fas fa-user-minus"></i> $remove @usuario - Remueve a un usuario del ticket.</li>
+          <li><i class="fas fa-user-tag"></i> $addrole @rol - Agrega un rol al ticket.</li>
+          <li><i class="fas fa-user-times"></i> $removerole @rol - Remueve un rol del ticket.</li>
+          <li><i class="fas fa-times"></i> $delete - Cierra el ticket y envía el transcript.</li>
+          <li><i class="fas fa-edit"></i> $rename - Cambia el nombre de un ticket.</li>
+        </ul>
+      </div>
+
+      <div class="command-card">
+        <h3>🔨 Moderación</h3>
+        <ul>
+          <li><i class="fas fa-ban"></i> /ban @usuario [razón] - Banea a un usuario.</li>
+          <li><i class="fas fa-undo"></i> /unban [id] - Revoca el baneo.</li>
+          <li><i class="fas fa-sign-out-alt"></i> /kick @usuario [razón] - Expulsa a un usuario.</li>
+          <li><i class="fas fa-volume-mute"></i> /mute @usuario [tiempo] [razón] - Mutea a un usuario.</li>
+          <li><i class="fas fa-volume-up"></i> /unmute @usuario - Desmutea a un usuario.</li>
+          <li><i class="fas fa-trash"></i> /purge [cantidad] - Borra mensajes en masa.</li>
+        </ul>
+      </div>
+
+      <div class="command-card">
+        <h3>🛠 Administración</h3>
+        <ul>
+          <li><i class="fas fa-lock"></i> /canal bloquear - Bloquea un canal.</li>
+          <li><i class="fas fa-lock-open"></i> /canal desbloquear - Desbloquea un canal.</li>
+        </ul>
+      </div>
+
+      <div class="command-card">
+        <h3>💡 Utilidades</h3>
+        <ul>
+          <li><i class="fas fa-lightbulb"></i> /sugerir [texto] - Envía una sugerencia.</li>
+        </ul>
+      </div>
+
+      <div class="command-card">
+        <h3>📜 Misc</h3>
+        <ul>
+          <li><i class="fas fa-check"></i> /verificar - Inicia el sistema de verificación.</li>
+          <li><i class="fas fa-book"></i> /logs [On][Off] - Activa o desactiva el sistema de logs.</li>
+          <li><i class="fas fa-cog"></i> /setup - Configura el bot en el servidor.</li>
+          <li><i class="fas fa-edit"></i> /edit - Edita la configuración de un sistema.</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>Hazy® 2025•2/22/2025 21:25</p>
+    <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    const animatables = document.querySelectorAll('.animate');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 2,
+          "random": true
+        },
+        "line_linked": {
+          "enable": false
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.5,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false
+          }
         }
-      });
-    }, { threshold: 0.2 });
-    animatables.forEach(el => observer.observe(el));
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": false
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 80,
+            "duration": 0.4
+          }
+        }
+      },
+      "retina_detect": true
+    });
   </script>
 </body>
 </html>
