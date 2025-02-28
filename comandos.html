@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hazy - Comandos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <div class="beta-notification">
+    <p>
+      Actualmente nos encontramos en <strong>beta</strong>. Solicita tu acceso gratuito a Hazy uniéndote a 
+      <a href="https://discord.gg/hazybot" target="_blank">Discord</a>.
+      <span class="close-notification" onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+    </p>
+  </div>
+  
+  <nav class="sr">
+    <div class="nav-container">
+      <div class="nav-left">
+        <h2 id="logo"><a href="index.html">Hazy</a></h2>
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Inicio</a>
+        <a href="comandos.html">Comandos</a>
+        <a href="developer.html">Developer</a>
+        <a href="precios.html">Precios</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="rules.html">HAZY® RULES</a>
+        <a href="contact.html">Contáctanos</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+      </div>
+    </div>
+  </nav>
+  
+  <section id="commands" class="sr">
+    <h2 class="section-title">Comandos de Hazy</h2>
+    <p class="section-subtitle">Descubre todas las funciones que te ofrece Hazy para gestionar y moderar tu servidor de Discord.</p>
+    <div class="commands-grid">
+      <div class="command-card">
+        <h3>🎟️ Sistema de Tickets</h3>
+        <ul>
+          <li><i class="fas fa-ticket-alt"></i> /tickets</li>
+          <li><i class="fas fa-user-plus"></i> $add @usuario</li>
+          <li><i class="fas fa-user-minus"></i> $remove @usuario</li>
+          <li><i class="fas fa-user-tag"></i> $addrole @rol</li>
+          <li><i class="fas fa-user-times"></i> $removerole @rol</li>
+          <li><i class="fas fa-times"></i> $delete</li>
+          <li><i class="fas fa-edit"></i> $rename</li>
+        </ul>
+      </div>
+      <div class="command-card">
+        <h3>🔨 Moderación</h3>
+        <ul>
+          <li><i class="fas fa-ban"></i> /ban @usuario [razón]</li>
+          <li><i class="fas fa-undo"></i> /unban [id]</li>
+          <li><i class="fas fa-sign-out-alt"></i> /kick @usuario [razón]</li>
+          <li><i class="fas fa-volume-mute"></i> /mute @usuario [tiempo] [razón]</li>
+          <li><i class="fas fa-volume-up"></i> /unmute @usuario</li>
+          <li><i class="fas fa-trash"></i> /purge [cantidad]</li>
+        </ul>
+      </div>
+      <div class="command-card">
+        <h3>🛠 Administración</h3>
+        <ul>
+          <li><i class="fas fa-lock"></i> /canal bloquear</li>
+          <li><i class="fas fa-lock-open"></i> /canal desbloquear</li>
+        </ul>
+      </div>
+      <div class="command-card">
+        <h3>💡 Utilidades</h3>
+        <ul>
+          <li><i class="fas fa-lightbulb"></i> /sugerir [texto]</li>
+        </ul>
+      </div>
+      <div class="command-card">
+        <h3>📜 Misc</h3>
+        <ul>
+          <li><i class="fas fa-check"></i> /verificar</li>
+          <li><i class="fas fa-book"></i> /logs [On][Off]</li>
+          <li><i class="fas fa-cog"></i> /setup</li>
+          <li><i class="fas fa-edit"></i> /edit</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="sr">
+    <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
