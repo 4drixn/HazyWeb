@@ -25,7 +25,6 @@
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    
     #particles-js {
       position: fixed;
       width: 100%;
@@ -34,7 +33,6 @@
       left: 0;
       z-index: -1;
     }
-    
     nav {
       width: 100%;
       background: rgba(0,0,0,0.6);
@@ -65,9 +63,7 @@
       margin: 10px;
       transition: color 0.3s;
     }
-    .nav-right a:hover {
-      color: var(--main-color);
-    }
+    .nav-right a:hover { color: var(--main-color); }
     .invite-btn {
       padding: 8px 16px;
       background: var(--main-color);
@@ -78,11 +74,10 @@
       transition: background 0.3s;
     }
     .invite-btn:hover { background: #d92020; }
-    
     .beta-notification {
       position: fixed;
-      top: 80px;
-      right: 20px;
+      bottom: 20px;
+      left: 20px;
       background: rgba(168,30,30,0.95);
       color: #fff;
       padding: 15px 20px;
@@ -95,7 +90,6 @@
     .beta-notification a { color: #fff; text-decoration: underline; }
     .close-notification { cursor: pointer; font-weight: bold; margin-left: 10px; }
     .close-notification:hover { color: #ccc; }
-    
     header {
       display: flex;
       align-items: center;
@@ -104,20 +98,14 @@
       height: 100vh;
       padding: 0 20px;
     }
-    .hero-content {
-      max-width: 700px;
-    }
+    .hero-content { max-width: 700px; }
     .hero-content h1 {
       font-size: 4rem;
       margin-bottom: 20px;
       color: var(--main-color);
       cursor: pointer;
     }
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6; }
     .hero-content .cta-btn {
       padding: 15px 30px;
       background: var(--main-color);
@@ -130,7 +118,6 @@
       text-decoration: none;
     }
     .hero-content .cta-btn:hover { background: #d92020; }
-    
     section {
       padding: 60px 20px;
       max-width: var(--container-width);
@@ -148,14 +135,11 @@
       margin-bottom: 50px;
       color: #ccc;
     }
-    
     .commands-grid, .faq-grid {
       display: grid;
       gap: 30px;
     }
-    .commands-grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
+    .commands-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
     .command-card, .faq-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -167,9 +151,7 @@
       overflow: hidden;
       position: relative;
     }
-    .command-card:hover, .faq-card:hover {
-      transform: translateY(-5px);
-    }
+    .command-card:hover, .faq-card:hover { transform: translateY(-5px); }
     .command-card h3, .faq-card h3 {
       color: var(--main-color);
       margin-bottom: 15px;
@@ -179,10 +161,7 @@
     .command-card li { margin: 8px 0; line-height: 1.4; }
     .command-card li i { margin-right: 8px; color: var(--main-color); }
     .faq-card p { margin-bottom: 10px; line-height: 1.5; }
-    .faq-card {
-      position: relative;
-      z-index: 1;
-    }
+    .faq-card { position: relative; z-index: 1; }
     .faq-card::before {
       content: "";
       position: absolute;
@@ -200,12 +179,7 @@
       50% { border-color: #d92020; }
       100% { border-color: var(--main-color); }
     }
-    
-    .timeline {
-      position: relative;
-      margin: 40px 0;
-      padding-left: 40px;
-    }
+    .timeline { position: relative; margin: 40px 0; padding-left: 40px; }
     .timeline::before {
       content: '';
       position: absolute;
@@ -215,11 +189,7 @@
       height: 100%;
       background: var(--main-color);
     }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 30px;
-      padding-left: 20px;
-    }
+    .timeline-item { position: relative; margin-bottom: 30px; padding-left: 20px; }
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -230,22 +200,14 @@
       background: var(--main-color);
       border-radius: 50%;
     }
-    .timeline-date {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: var(--main-color);
-    }
+    .timeline-date { font-weight: bold; margin-bottom: 10px; color: var(--main-color); }
     .timeline-content {
       background: var(--card-bg);
       padding: 15px;
       border-radius: 5px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    
-    .rules-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .rules-container { max-width: 800px; margin: auto; }
     .rules-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -257,30 +219,20 @@
       margin-bottom: 30px;
       animation: pulsateBorder 2s infinite;
     }
-    .rules-card h3 {
-      color: var(--main-color);
-      margin-bottom: 15px;
-      font-size: 1.6rem;
-    }
+    .rules-card h3 { color: var(--main-color); margin-bottom: 15px; font-size: 1.6rem; }
     .rules-card p { margin-bottom: 10px; line-height: 1.5; }
     .rules-card a { color: var(--main-color); text-decoration: underline; }
-    
     .contact-container {
       max-width: 600px;
-      margin: 0 auto;
+      margin: auto;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    .contact-container form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .contact-container input,
-    .contact-container textarea {
+    .contact-container form { display: flex; flex-direction: column; gap: 15px; }
+    .contact-container input, .contact-container textarea {
       width: 100%;
       padding: 10px;
       border: 1px solid var(--card-border);
@@ -289,8 +241,7 @@
       color: var(--text-color);
       font-size: 1rem;
     }
-    .contact-container input:focus,
-    .contact-container textarea:focus {
+    .contact-container input:focus, .contact-container textarea:focus {
       outline: none;
       border-color: var(--main-color);
     }
@@ -305,7 +256,6 @@
       transition: background 0.3s;
     }
     .contact-container button:hover { background: #d92020; }
-    
     .developer-container {
       display: flex;
       justify-content: center;
@@ -334,14 +284,8 @@
       object-fit: cover;
       animation: pulsateBorder 2s infinite;
     }
-    .developer-card h3 {
-      margin: 15px 0 10px;
-      color: var(--main-color);
-    }
-    .developer-card p {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
+    .developer-card h3 { margin: 15px 0 10px; color: var(--main-color); }
+    .developer-card p { font-size: 0.9rem; margin-bottom: 10px; }
     .social-links a {
       margin: 0 10px;
       font-size: 1.7rem;
@@ -367,7 +311,6 @@
       transition: background 0.3s;
     }
     .surprise-btn:hover { background: #d92020; }
-    
     .support-bubble {
       position: fixed;
       bottom: 20px;
@@ -384,15 +327,8 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: transform 0.3s;
       z-index: 9999;
-      animation: bubblePulse 2s infinite;
     }
     .support-bubble:hover { transform: scale(1.1); background: #d92020; }
-    @keyframes bubblePulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    
     footer {
       text-align: center;
       padding: 20px;
@@ -401,7 +337,6 @@
     }
     footer p { font-size: 0.9rem; }
     footer a { color: var(--main-color); text-decoration: none; }
-    
     @media (max-width: 768px) {
       .nav-container { justify-content: center; }
       .nav-right { margin-top: 10px; }
@@ -412,10 +347,9 @@
   </style>
 </head>
 <body>
-  
   <div id="particles-js"></div>
   
-  <div class="beta-notification sr">
+  <div class="beta-notification">
     <p>
       Actualmente nos encontramos en <strong>beta</strong>. Solicita tu acceso gratuito a Hazy uniéndote a 
       <a href="https://discord.gg/hazybot" target="_blank">Discord</a>.
@@ -423,8 +357,8 @@
     </p>
   </div>
   
-  <nav class="sr">
-    <div class="nav-container">
+  <nav>
+    <div class="nav-container sr">
       <div class="nav-left">
         <h2 id="logo">Hazy</h2>
       </div>
@@ -436,7 +370,7 @@
         <a href="#changelog">Changelog</a>
         <a href="#rules">HAZY® RULES</a>
         <a href="#contact">Contáctanos</a>
-        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar Bot</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
       </div>
     </div>
   </nav>
@@ -647,7 +581,7 @@
   <section id="developer" class="sr">
     <h2 class="section-title">Developer</h2>
     <div class="developer-container">
-      <div class="developer-card">
+      <div class="developer-card" data-sr>
         <img class="developer-pfp" src="https://i.imgur.com/3VvdJmH.png" alt="Adrian PFP" onerror="this.onerror=null;this.src='https://via.placeholder.com/120';">
         <h3>Adrian</h3>
         <p>Email: <a href="mailto:adrian@hazybot" style="color: var(--main-color);">adrian@hazybot.net</a></p>
@@ -679,7 +613,7 @@
     <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
   
-  <a href="https://discord.gg/hazybot" class="support-bubble sr" target="_blank" title="Soporte en Discord">
+  <a href="https://discord.gg/hazybot" class="support-bubble" target="_blank" title="Soporte en Discord">
     <i class="fab fa-discord"></i>
   </a>
   
@@ -688,19 +622,26 @@
   <script>
     particlesJS("particles-js", {
       "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "number": { "value": 200, "density": { "enable": true, "value_area": 800 } },
         "color": { "value": "#ffffff" },
-        "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
-        "opacity": {
-          "value": 0.5,
-          "random": true,
-          "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
         },
-        "size": { "value": 2, "random": true },
+        "opacity": {
+          "value": 0.8,
+          "random": true,
+          "anim": { "enable": true, "speed": 1, "opacity_min": 0.2, "sync": false }
+        },
+        "size": {
+          "value": 1.5,
+          "random": true,
+          "anim": { "enable": false }
+        },
         "line_linked": { "enable": false },
         "move": {
           "enable": true,
-          "speed": 1.5,
+          "speed": 0.5,
           "direction": "none",
           "random": true,
           "straight": false,
@@ -727,6 +668,73 @@
       easing: 'ease-in-out',
       origin: 'bottom',
       reset: false
+    });
+    
+    class TextScramble {
+      constructor(el) {
+        this.el = el;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.update = this.update.bind(this);
+      }
+      setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = Math.floor(Math.random() * 40);
+          const end = start + Math.floor(Math.random() * 40);
+          this.queue.push({ from, to, start, end });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+      }
+      update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+          let { from, to, start, end, char } = this.queue[i];
+          if (this.frame >= end) {
+            complete++;
+            output += to;
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar();
+              this.queue[i].char = char;
+            }
+            output += `<span class="dud">${char}</span>`;
+          } else {
+            output += from;
+          }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+          this.resolve();
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update);
+          this.frame++;
+        }
+      }
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+      }
+    }
+    
+    const el = document.getElementById('scrambleText');
+    const fx = new TextScramble(el);
+    function scrambleReveal() {
+      fx.setText('Hazy');
+    }
+    scrambleReveal();
+    el.addEventListener('click', () => {
+      fx.setText('????').then(scrambleReveal);
+    });
+    document.querySelector('.nav-left h2').addEventListener('click', () => {
+      fx.setText('????').then(scrambleReveal);
     });
   </script>
 </body>
