@@ -608,11 +608,12 @@
     </div>
   </section>
 
+  <!-- Sección Developer movida justo antes de Contáctanos -->
   <section id="developer" data-aos="fade-up">
     <h2 class="section-title">Developer</h2>
     <div class="developer-container">
       <div class="developer-card" data-aos="flip-left">
-        <img class="developer-pfp" src="https://i.postimg.cc/0yrhjTHM/converted-image.png" alt="Adrian PFP">
+        <img class="developer-pfp" src="https://i.postimg.cc/0yrhjTHM/converted-image.png" alt="Adrian PFP" onerror="this.onerror=null;this.src='https://via.placeholder.com/120';">
         <h3>Adrian</h3>
         <p>Email: <a href="mailto:adrian@hazybot" style="color: var(--main-color);">adrian@hazybot.net</a></p>
         <p>Discord: <strong>adrian.tf</strong></p>
@@ -640,7 +641,7 @@
   </section>
 
   <footer>
-    <p>Hazy ® 2025 • Made by Hazy Dev Team | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
   <a href="https://discord.gg/hazybot" class="support-bubble" target="_blank" title="Soporte en Discord">
@@ -651,10 +652,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
+    window.onload = function() {
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+    };
     
     particlesJS("particles-js", {
       "particles": {
@@ -690,7 +693,7 @@
       },
       "retina_detect": true
     });
-
+    
     class TextScramble {
       constructor(el) {
         this.el = el;
@@ -744,6 +747,7 @@
         return this.chars[Math.floor(Math.random() * this.chars.length)];
       }
     }
+    
     const el = document.getElementById('scrambleText');
     const fx = new TextScramble(el);
     function scrambleReveal() {
