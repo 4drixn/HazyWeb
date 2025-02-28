@@ -64,7 +64,7 @@
     .nav-right a {
       text-decoration: none;
       color: var(--text-color);
-      margin: 10px 10px;
+      margin: 10px;
       transition: color 0.3s;
     }
     .nav-right a:hover { color: var(--main-color); }
@@ -174,18 +174,39 @@
       margin: 10px 0;
     }
     .changelog-card h4 { margin-top: 15px; color: #fff; font-size: 1.1rem; }
-    .chat-container {
-      display: flex;
-      justify-content: center;
+    .contact-container {
+      max-width: 600px;
       margin: 0 auto;
-      max-width: 100%;
-    }
-    .chat-container iframe {
-      border: none;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 20px;
       border-radius: 10px;
-      width: 350px;
-      height: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+    .contact-container form { display: flex; flex-direction: column; gap: 15px; }
+    .contact-container input,
+    .contact-container textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--card-border);
+      border-radius: 5px;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 1rem;
+    }
+    .contact-container input:focus,
+    .contact-container textarea:focus { outline: none; border-color: var(--main-color); }
+    .contact-container button {
+      padding: 10px;
+      background: var(--main-color);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-container button:hover { background: #d92020; }
     .developer-container {
       display: flex;
       justify-content: center;
@@ -215,8 +236,8 @@
     }
     @keyframes pulseBorder {
       0% { box-shadow: 0 0 0 0 var(--main-color); }
-      70% { box-shadow: 0 0 0 10px rgba(168,30,30, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(168,30,30, 0); }
+      70% { box-shadow: 0 0 0 10px rgba(168,30,30,0); }
+      100% { box-shadow: 0 0 0 0 rgba(168,30,30,0); }
     }
     .developer-card h3 { margin: 15px 0 10px; color: var(--main-color); }
     .developer-card p { font-size: 0.9rem; margin-bottom: 10px; }
@@ -292,8 +313,8 @@
       .nav-right { margin-top: 10px; }
       .hero-content h1 { font-size: 3rem; }
       .hero-content p { font-size: 1rem; }
-      .chat-container iframe { width: 90%; height: 400px; }
       .developer-card { width: 90%; }
+      .contact-container { width: 90%; }
     }
   </style>
 </head>
@@ -316,11 +337,11 @@
       </div>
       <div class="nav-right">
         <a href="#inicio">Inicio</a>
-        <a href="#commands">Comandos</a>
-        <a href="#faq">FAQ</a>
-        <a href="#changelog">Changelog</a>
-        <a href="#chat">Chat</a>
         <a href="#developer">Developer</a>
+        <a href="#commands">Comandos</a>
+        <a href="#faq">FAQ / Precios</a>
+        <a href="#changelog">Changelog</a>
+        <a href="#contact">Contáctanos</a>
         <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar Bot</a>
       </div>
     </div>
@@ -333,6 +354,24 @@
       <a class="cta-btn" href="https://invite.hazybot.net" target="_blank">¡Invítame a tu Servidor!</a>
     </div>
   </header>
+
+  <section id="developer" class="animate__animated animate__fadeInUp">
+    <h2 class="section-title">Developer</h2>
+    <div class="developer-container">
+      <div class="developer-card animate__animated animate__flipInX">
+        <img class="developer-pfp" src="https://images-ext-1.discordapp.net/external/J84IfhAcTlXB2HjCV0wCfRlBWpYWmSPThFuyukd6B-g/https/cdn.discordapp.com/avatars/1096843631513583757/6866b0eed7cf8778116eed14d52aa2fc.webp?format=webp" alt="Adrian PFP">
+        <h3>Adrian</h3>
+        <p>Email: <a href="mailto:adrian@hazybot.net" style="color: var(--main-color);">adrian@hazybot.net</a></p>
+        <p>Discord: <strong>adrian.tf</strong></p>
+        <div class="social-links">
+          <a href="https://discord.com/users/adrian.tf" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+          <a href="https://twitter.com/adrixnlb21" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/Blxsted" target="_blank" class="github-link" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <a class="surprise-btn" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Sorpresa</a>
+      </div>
+    </div>
+  </section>
 
   <section id="commands" class="animate__animated animate__fadeInUp">
     <h2 class="section-title">Comandos de Hazy</h2>
@@ -522,34 +561,21 @@
     </div>
   </section>
 
-  <section id="chat" class="animate__animated animate__fadeInUp">
-    <h2 class="section-title">Chat en Vivo</h2>
-    <p class="section-subtitle">Conecta en tiempo real con nuestra comunidad en Discord.</p>
-    <div class="chat-container">
-      <iframe src="https://discord.com/widget?id=1342200907093377140&theme=dark" allowtransparency="true"></iframe>
-    </div>
-  </section>
-
-  <section id="developer" class="animate__animated animate__fadeInUp">
-    <h2 class="section-title">Developer</h2>
-    <div class="developer-container">
-      <div class="developer-card animate__animated animate__flipInX">
-        <img class="developer-pfp" src="https://images-ext-1.discordapp.net/external/J84IfhAcTlXB2HjCV0wCfRlBWpYWmSPThFuyukd6B-g/https/cdn.discordapp.com/avatars/1096843631513583757/6866b0eed7cf8778116eed14d52aa2fc.webp?format=webp" alt="Adrian PFP">
-        <h3>Adrian</h3>
-        <p>Email: <a href="mailto:adrian@hazybot.net" style="color: var(--main-color);">adrian@hazybot.net</a></p>
-        <p>Discord: <strong>adrian.tf</strong></p>
-        <div class="social-links">
-          <a href="https://discord.com/users/adrian.tf" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
-          <a href="https://twitter.com/adrixnlb21" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://github.com/Blxsted" target="_blank" class="github-link" title="GitHub"><i class="fab fa-github"></i></a>
-        </div>
-        <a class="surprise-btn" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Sorpresa</a>
-      </div>
+  <section id="contact" class="animate__animated animate__fadeInUp">
+    <h2 class="section-title">Contáctanos</h2>
+    <p class="section-subtitle">Envíanos un mensaje y nos pondremos en contacto contigo.</p>
+    <div class="contact-container">
+      <form action="mailto:adrian@hazybot.net" method="post" enctype="text/plain">
+        <input type="text" name="Nombre" placeholder="Tu nombre" required>
+        <input type="email" name="Email" placeholder="Tu email" required>
+        <textarea name="Mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar Mensaje</button>
+      </form>
     </div>
   </section>
 
   <footer>
-    <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • Made by Hazy Dev Team | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
   <a href="https://discord.gg/hazybot.net" class="support-bubble" target="_blank" title="Soporte en Discord">
