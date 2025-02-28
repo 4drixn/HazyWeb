@@ -39,58 +39,72 @@
   
   <section id="commands" class="sr">
     <h2 class="section-title">Comandos de Hazy</h2>
-    <p class="section-subtitle">Descubre todas las funciones que te ofrece Hazy para gestionar y moderar tu servidor de Discord.</p>
+    <p class="section-subtitle">Aquí tienes un resumen de los comandos disponibles y su función. 🚀</p>
+    
     <div class="commands-grid">
+      
       <div class="command-card">
         <h3>🎟️ Sistema de Tickets</h3>
         <ul>
-          <li><i class="fas fa-ticket-alt"></i> /tickets</li>
-          <li><i class="fas fa-user-plus"></i> $add @usuario</li>
-          <li><i class="fas fa-user-minus"></i> $remove @usuario</li>
-          <li><i class="fas fa-user-tag"></i> $addrole @rol</li>
-          <li><i class="fas fa-user-times"></i> $removerole @rol</li>
-          <li><i class="fas fa-times"></i> $delete</li>
-          <li><i class="fas fa-edit"></i> $rename</li>
+          <li><i class="fas fa-ticket-alt"></i> /tickets - Inicia el sistema de tickets</li>
+          <li><i class="fas fa-user-plus"></i> $add @usuario - Agrega un usuario al ticket</li>
+          <li><i class="fas fa-user-minus"></i> $remove @usuario - Remueve un usuario del ticket</li>
+          <li><i class="fas fa-user-tag"></i> $addrole @rol - Agrega un rol al ticket</li>
+          <li><i class="fas fa-user-times"></i> $removerole @rol - Remueve un rol del ticket</li>
+          <li><i class="fas fa-times"></i> $delete - Cierra el ticket y envía el transcript</li>
+          <li><i class="fas fa-edit"></i> $rename - Cambia el nombre de un ticket</li>
         </ul>
       </div>
+      
       <div class="command-card">
         <h3>🔨 Moderación</h3>
         <ul>
-          <li><i class="fas fa-ban"></i> /ban @usuario [razón]</li>
-          <li><i class="fas fa-undo"></i> /unban [id]</li>
-          <li><i class="fas fa-sign-out-alt"></i> /kick @usuario [razón]</li>
-          <li><i class="fas fa-volume-mute"></i> /mute @usuario [tiempo] [razón]</li>
-          <li><i class="fas fa-volume-up"></i> /unmute @usuario</li>
-          <li><i class="fas fa-trash"></i> /purge [cantidad]</li>
+          <li><i class="fas fa-ban"></i> /ban @usuario [razón] - Banea a un usuario</li>
+          <li><i class="fas fa-undo"></i> /unban [id] (razón opcional)</li>
+          <li><i class="fas fa-sign-out-alt"></i> /kick @usuario [razón] - Expulsa a un usuario</li>
+          <li><i class="fas fa-volume-mute"></i> /mute @usuario [tiempo] [razón] - Mutea a un usuario</li>
+          <li><i class="fas fa-volume-up"></i> /unmute @usuario - Desmutea a un usuario</li>
+          <li><i class="fas fa-trash"></i> /purge [cantidad] - Borra mensajes en masa</li>
         </ul>
       </div>
+      
       <div class="command-card">
-        <h3>🛠 Administración</h3>
+        <h3>🛠️ Administración</h3>
         <ul>
-          <li><i class="fas fa-lock"></i> /canal bloquear</li>
-          <li><i class="fas fa-lock-open"></i> /canal desbloquear</li>
+          <li><i class="fas fa-lock"></i> /canal bloquear - Bloquea un canal</li>
+          <li><i class="fas fa-lock-open"></i> /canal desbloquear - Desbloquea un canal</li>
+          <li><i class="fas fa-user-tag"></i> /addrole @rol @usuario - Agrega un rol a un usuario</li>
+          <li><i class="fas fa-clock"></i> /temprole @rol @usuario - Agrega un rol temporal a un usuario</li>
         </ul>
       </div>
+      
       <div class="command-card">
         <h3>💡 Utilidades</h3>
         <ul>
-          <li><i class="fas fa-lightbulb"></i> /sugerir [texto]</li>
+          <li><i class="fas fa-lightbulb"></i> /sugerir [texto] - Envía una sugerencia</li>
+          <li><i class="fas fa-gift"></i> /sorteos - Crear un sorteo</li>
+          <li><i class="fas fa-server"></i> /serverinfo - Muestra la información del servidor</li>
+          <li><i class="fas fa-user"></i> /userinfo - Muestra la información de un usuario</li>
         </ul>
       </div>
+      
       <div class="command-card">
         <h3>📜 Misc</h3>
         <ul>
-          <li><i class="fas fa-check"></i> /verificar</li>
-          <li><i class="fas fa-book"></i> /logs [On][Off]</li>
-          <li><i class="fas fa-cog"></i> /setup</li>
-          <li><i class="fas fa-edit"></i> /edit</li>
+          <li><i class="fas fa-check"></i> /verificar - Inicia el sistema de verificación</li>
+          <li><i class="fas fa-book"></i> /logs [On][Off] - Activa o desactiva el sistema de logs</li>
+          <li><i class="fas fa-cog"></i> /setup - Configura el bot en el servidor</li>
+          <li><i class="fas fa-edit"></i> /edit - Edita la configuración de un sistema</li>
         </ul>
       </div>
-    </div>
+      
+    </div> 
   </section>
   
   <footer class="sr">
-    <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • Made By Adrian | 
+      <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+    </p>
   </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
