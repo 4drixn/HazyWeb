@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hazy - Bot de Discord</title>
+  <title>Hazy</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -128,16 +128,13 @@
     .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--main-color); }
     .section-subtitle { text-align: center; font-size: 1.1rem; margin-bottom: 50px; color: #ccc; }
     .commands-grid,
-    .faq-grid,
-    .changelog-container {
+    .faq-grid {
       display: grid;
       gap: 30px;
     }
     .commands-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-    .changelog-container { grid-template-columns: 1fr; }
     .command-card,
-    .faq-card,
-    .changelog-card {
+    .faq-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-left: 3px solid var(--main-color);
@@ -149,19 +146,15 @@
       position: relative;
     }
     .command-card:hover,
-    .faq-card:hover,
-    .changelog-card:hover { transform: translateY(-5px); }
+    .faq-card:hover { transform: translateY(-5px); }
     .command-card h3,
-    .faq-card h3,
-    .changelog-card h3 {
+    .faq-card h3 {
       color: var(--main-color);
       margin-bottom: 15px;
       font-size: 1.4rem;
     }
-    .command-card ul,
-    .changelog-card ul { list-style: none; margin-left: 20px; }
-    .command-card li,
-    .changelog-card li { margin: 8px 0; line-height: 1.4; }
+    .command-card ul { list-style: none; margin-left: 20px; }
+    .command-card li { margin: 8px 0; line-height: 1.4; }
     .command-card li i { margin-right: 8px; color: var(--main-color); }
     .faq-card p { margin-bottom: 10px; line-height: 1.5; }
     .faq-card {
@@ -184,6 +177,46 @@
       0% { border-color: var(--main-color); }
       50% { border-color: #d92020; }
       100% { border-color: var(--main-color); }
+    }
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+      padding-left: 40px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 2px;
+      height: 100%;
+      background: var(--main-color);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding-left: 20px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--main-color);
+      border-radius: 50%;
+    }
+    .timeline-date {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--main-color);
+    }
+    .timeline-content {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     .contact-container {
       max-width: 600px;
@@ -467,105 +500,101 @@
   <section id="changelog" class="animate__animated animate__fadeInUp">
     <h2 class="section-title">Changelog</h2>
     <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
-    <div class="changelog-container">
-      <div class="changelog-card animate__animated animate__fadeInRight">
-        <h3>Changelog (02/20/2025)</h3>
-        <hr/>
-        <h4>Moderation Commands</h4>
-        <ul>
-          <li>- Added /ban ✅</li>
-          <li>- Added /kick ✅</li>
-          <li>- Added /bloquear ✅</li>
-          <li>- Added /desbloquear ✅</li>
-          <li>- Added /mute ✅</li>
-          <li>- Added /unmute ✅</li>
-        </ul>
-        <hr/>
-        <h4>Misc Commands</h4>
-        <ul>
-          <li>- Added /purge ✅</li>
-          <li>- Added /sugerir ✅</li>
-        </ul>
-        <hr/>
-        <h4>Verification System ✅</h4>
-        <hr/>
-        <h4>Tickets system</h4>
-        <ul>
-          <li>- Added $add</li>
-          <li>- Added $addrole</li>
-          <li>- Added $remove</li>
-          <li>- Added $removerole</li>
-        </ul>
+    <div class="timeline">
+      <div class="timeline-item animate__animated animate__fadeInRight" style="animation-delay:0.1s;">
+        <div class="timeline-date">Changelog (02/20/2025)</div>
+        <div class="timeline-content">
+          <h4>Moderation Commands</h4>
+          <ul>
+            <li>- Added /ban ✅</li>
+            <li>- Added /kick ✅</li>
+            <li>- Added /bloquear ✅</li>
+            <li>- Added /desbloquear ✅</li>
+            <li>- Added /mute ✅</li>
+            <li>- Added /unmute ✅</li>
+          </ul>
+          <h4>Misc Commands</h4>
+          <ul>
+            <li>- Added /purge ✅</li>
+            <li>- Added /sugerir ✅</li>
+          </ul>
+          <h4>Verification System</h4>
+          <p>✅</p>
+          <h4>Tickets system</h4>
+          <ul>
+            <li>- Added $add</li>
+            <li>- Added $addrole</li>
+            <li>- Added $remove</li>
+            <li>- Added $removerole</li>
+          </ul>
+        </div>
       </div>
-      <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.1s;">
-        <h3>Changelog (02/21/2025)</h3>
-        <hr/>
-        <h4>Hazy Setup (Beta)</h4>
-        <ul>
-          <li>- Added: /setup</li>
-          <li>- Added: /editar</li>
-        </ul>
-        <hr/>
-        <h4>Tickets system</h4>
-        <ul>
-          <li>- Added: $rename</li>
-          <li>- Fixed: $add (global perm) ✅</li>
-          <li>- Fixed: $addrole (global perm) ✅</li>
-          <li>- Fixed: $remove (global perm) ✅</li>
-          <li>- Fixed: $removerole (global perm) ✅</li>
-          <li>- Fixed: No cargaba la carpeta prefix-commands.</li>
-        </ul>
-        <hr/>
-        <h4>Moderation Commands</h4>
-        <ul>
-          <li>- Added: /unban &lt;id&gt; &lt;razon&gt; (razon es opcional)</li>
-        </ul>
-        <hr/>
-        <h4>Added Logs System (Beta)</h4>
-        <ul>
-          <li>- Added: logs /on</li>
-          <li>- Added: logs /off</li>
-        </ul>
+      <div class="timeline-item animate__animated animate__fadeInRight" style="animation-delay:0.2s;">
+        <div class="timeline-date">Changelog (02/21/2025)</div>
+        <div class="timeline-content">
+          <h4>Hazy Setup (Beta)</h4>
+          <ul>
+            <li>- Added: /setup</li>
+            <li>- Added: /editar</li>
+          </ul>
+          <h4>Tickets system</h4>
+          <ul>
+            <li>- Added: $rename</li>
+            <li>- Fixed: $add (global perm) ✅</li>
+            <li>- Fixed: $addrole (global perm) ✅</li>
+            <li>- Fixed: $remove (global perm) ✅</li>
+            <li>- Fixed: $removerole (global perm) ✅</li>
+            <li>- Fixed: No cargaba la carpeta prefix-commands.</li>
+          </ul>
+          <h4>Moderation Commands</h4>
+          <ul>
+            <li>- Added: /unban &lt;id&gt; &lt;razon&gt; (razon es opcional)</li>
+          </ul>
+          <h4>Logs System (Beta)</h4>
+          <ul>
+            <li>- Added: logs /on</li>
+            <li>- Added: logs /off</li>
+          </ul>
+        </div>
       </div>
-      <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.2s;">
-        <h3>Changelog (02/22/2025)</h3>
-        <hr/>
-        <h4>All discord channels remodeled ✅</h4>
-        <p>(Thanks @fffelipeee.)<br>(Thanks @cosmo.h)</p>
-        <hr/>
-        <h4>Tickets system</h4>
-        <ul>
-          <li>- Fixed: option selection ✅</li>
-        </ul>
-        <hr/>
-        <h4>Verification system</h4>
-        <ul>
-          <li>- Fixed ✅</li>
-        </ul>
-        <hr/>
-        <h4>Sugerencias</h4>
-        <ul>
-          <li>- No se puede hablar en el canal de sugerencias (solo admins).</li>
-        </ul>
-        <hr/>
-        <h4>Auto Assistance</h4>
-        <ul>
-          <li>- Added: Ayuda automática de Hazy.</li>
-        </ul>
+      <div class="timeline-item animate__animated animate__fadeInRight" style="animation-delay:0.3s;">
+        <div class="timeline-date">Changelog (02/22/2025)</div>
+        <div class="timeline-content">
+          <p><em>Adrian — 2/22/2025 5:04</em></p>
+          <h4>All discord channels remodeled</h4>
+          <p>(Thanks @fffelipeee &amp; @cosmo.h)</p>
+          <h4>Tickets system</h4>
+          <ul>
+            <li>- Fixed: option selection ✅</li>
+          </ul>
+          <h4>Verification system</h4>
+          <ul>
+            <li>- Fixed ✅</li>
+          </ul>
+          <h4>Sugerencias</h4>
+          <ul>
+            <li>- No se puede hablar en el canal de sugerencias (solo admins).</li>
+          </ul>
+          <h4>Auto Assistance</h4>
+          <ul>
+            <li>- Added: Ayuda automática de Hazy.</li>
+          </ul>
+        </div>
       </div>
-      <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.3s;">
-        <h3>Changelog (02/23/2025)</h3>
-        <hr/>
-        <h4>Giveaway System</h4>
-        <ul>
-          <li>- Added: /sorteo</li>
-        </ul>
-        <hr/>
-        <h4>Fixes</h4>
-        <ul>
-          <li>- Fixed: $addrole</li>
-          <li>- Fixed: /sugerir (Bug con perms)</li>
-        </ul>
+      <div class="timeline-item animate__animated animate__fadeInRight" style="animation-delay:0.4s;">
+        <div class="timeline-date">Changelog (02/23/2025)</div>
+        <div class="timeline-content">
+          <p><em>Adrian — 2/23/2025 18:47</em></p>
+          <h4>Giveaway System</h4>
+          <ul>
+            <li>- Added: /sorteo</li>
+          </ul>
+          <h4>Fixes</h4>
+          <ul>
+            <li>- Fixed: $addrole</li>
+            <li>- Fixed: /sugerir (Bug con perms)</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -584,7 +613,7 @@
   </section>
 
   <footer>
-    <p>Hazy® 2025 • Made by Hazy Dev Team | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
   <a href="https://discord.gg/hazybot" class="support-bubble" target="_blank" title="Soporte en Discord">
