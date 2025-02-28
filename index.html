@@ -64,6 +64,11 @@
       font-size: 1.5rem;
       color: var(--main-color);
       letter-spacing: 1px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
     .nav-right a {
       text-decoration: none;
@@ -85,6 +90,37 @@
     }
     .invite-btn:hover {
       background: #d92020;
+    }
+
+    .beta-notification {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: rgba(168,30,30,0.95);
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      z-index: 10000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s;
+      max-width: 300px;
+    }
+    .beta-notification p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .beta-notification a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .close-notification {
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .close-notification:hover {
+      color: #ccc;
     }
 
     header {
@@ -181,7 +217,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .faq-card {
@@ -210,6 +246,52 @@
     .faq-card .price-list {
       margin: 15px 0;
       padding-left: 20px;
+    }
+    .price-plan {
+      background: rgba(168,30,30,0.2);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .changelog-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+    .changelog-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--main-color);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    .changelog-card:hover {
+      transform: translateY(-5px);
+    }
+    .changelog-card h3 {
+      color: var(--main-color);
+      margin-bottom: 10px;
+    }
+    .changelog-card hr {
+      border: 0;
+      border-top: 1px solid var(--card-border);
+      margin: 10px 0;
+    }
+    .changelog-card h4 {
+      margin-top: 15px;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+    .changelog-card ul {
+      list-style: none;
+      margin-left: 20px;
+    }
+    .changelog-card li {
+      margin: 5px 0;
     }
 
     footer {
@@ -254,6 +336,14 @@
 
   <div id="particles-js"></div>
 
+  <div class="beta-notification animate__animated animate__fadeInDown" id="betaNotification">
+    <p>
+      Actualmente nos encontramos en <strong>beta</strong>, puedes solicitar tu acceso gratuito a Hazy uniéndote al 
+      <a href="https://discord.gg/hazybot.net" target="_blank">Discord</a>.
+      <span class="close-notification" onclick="document.getElementById('betaNotification').style.display='none'">&times;</span>
+    </p>
+  </div>
+
   <nav class="animate__animated animate__fadeInDown">
     <div class="nav-container">
       <div class="nav-left">
@@ -263,6 +353,7 @@
         <a href="#inicio">Inicio</a>
         <a href="#commands">Comandos</a>
         <a href="#faq">FAQ</a>
+        <a href="#changelog">Changelog</a>
         <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar Bot</a>
       </div>
     </div>
@@ -334,32 +425,161 @@
   </section>
 
   <section id="faq" class="animate__animated animate__fadeInUp">
-    <h2 class="section-title">FAQ</h2>
-    <p class="section-subtitle">Preguntas frecuentes sobre pagos, precios y métodos de pago.</p>
+    <h2 class="section-title">FAQ / Precios</h2>
+    <p class="section-subtitle">Resuelve tus dudas sobre la adquisición y métodos de pago de Hazy.</p>
     
     <div class="faq-grid">
-      <div class="faq-card animate__animated animate__fadeInRight">
+      <div class="faq-card animate__animated animate__zoomIn">
         <h3>¿Métodos de pago y precios?</h3>
         <p>Estos son los planes disponibles para Hazy:</p>
-        <ul class="price-list">
-          <li><strong>Semanal:</strong> 5k ARS / 3.5 USD</li>
-          <li><strong>Mensual:</strong> 10k ARS / 7.5 USD</li>
-          <li><strong>Trimestral:</strong> 27k ARS / 22 USD</li>
-        </ul>
+        <div class="price-plan">
+          <strong>Semanal:</strong> 5k ARS / 3.5 USD
+        </div>
+        <div class="price-plan">
+          <strong>Mensual:</strong> 10k ARS / 7.5 USD
+        </div>
+        <div class="price-plan">
+          <strong>Trimestral:</strong> 27k ARS / 22 USD
+        </div>
         <p><strong>Métodos de Pago:</strong></p>
-        <p><i class="fas fa-money-bill"></i> <strong>Mercado Pago</strong><br>
+        <p>
+          <i class="fas fa-money-bill"></i> <strong>Mercado Pago</strong><br>
           Alias: <em>kilomborp</em><br>
           CVU: <em>0000003100040084912105</em>
         </p>
-        <p><i class="fab fa-paypal"></i> <strong>PayPal</strong><br>
+        <p>
+          <i class="fab fa-paypal"></i> <strong>PayPal</strong><br>
           <a href="https://www.paypal.com/paypalme/luxeliferp" target="_blank" style="color: var(--main-color);">paypal.me/luxeliferp</a>
         </p>
       </div>
     </div>
   </section>
 
+  <section id="changelog" class="animate__animated animate__fadeInUp">
+    <h2 class="section-title">Changelog</h2>
+    <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
+
+    <div class="changelog-container">
+      <div class="changelog-card animate__animated animate__fadeInRight">
+        <h3>Changelog (02/20/2025)</h3>
+        <hr/>
+        <h4>Moderation Commands</h4>
+        <ul>
+          <li>- Added /ban ✅</li>
+          <li>- Added /kick ✅</li>
+          <li>- Added /bloquear ✅</li>
+          <li>- Added /desbloquear ✅</li>
+          <li>- Added /mute ✅</li>
+          <li>- Added /unmute ✅</li>
+        </ul>
+
+        <hr/>
+        <h4>Misc Commands</h4>
+        <ul>
+          <li>- Added /purge ✅</li>
+          <li>- Added /sugerir ✅</li>
+        </ul>
+
+        <hr/>
+        <h4>Verification System ✅</h4>
+
+        <hr/>
+        <h4>Tickets system</h4>
+        <ul>
+          <li>- Added $add</li>
+          <li>- Added $addrole</li>
+          <li>- Added $remove</li>
+          <li>- Added $removerole</li>
+        </ul>
+      </div>
+
+      <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.1s;">
+        <h3>Changelog (02/21/2025)</h3>
+        <hr/>
+        <h4>Hazy Setup (Beta)</h4>
+        <ul>
+          <li>- Added: /setup</li>
+          <li>- Added: /editar</li>
+        </ul>
+
+        <hr/>
+        <h4>Tickets system</h4>
+        <ul>
+          <li>- Added: $rename</li>
+          <li>- Fixed: $add (global perm) ✅</li>
+          <li>- Fixed: $addrole (global perm) ✅</li>
+          <li>- Fixed: $remove (global perm) ✅</li>
+          <li>- Fixed: $removerole (global perm) ✅</li>
+          <li>- Fixed: No cargaba la carpeta prefix-commands.</li>
+        </ul>
+
+        <hr/>
+        <h4>Moderation Commands</h4>
+        <ul>
+          <li>- Added: /unban &lt;id&gt; &lt;razon&gt; (razon es opcional)</li>
+        </ul>
+
+        <hr/>
+        <h4>Added Logs System (Beta)</h4>
+        <ul>
+          <li>- Added: logs /on</li>
+          <li>- Added: logs /off</li>
+        </ul>
+      </div>
+
+      <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.2s;">
+        <h3>Changelog (02/22/2025)</h3>
+        <hr/>
+        <p><em>Hazy</em></p>
+        <h4>All discord channels remodeled ✅</h4>
+        <p>(Thanks @fffelipeee.)<br>(Thanks @cosmo.h)</p>
+
+        <hr/>
+        <h4>Tickets system</h4>
+        <ul>
+          <li>- Fixed: option selection ✅</li>
+        </ul>
+
+        <hr/>
+        <h4>Verification system</h4>
+        <ul>
+          <li>- Fixed ✅</li>
+        </ul>
+
+        <hr/>
+        <h4>Sugerencias</h4>
+        <ul>
+          <li>- No se puede hablar en el canal de sugerencias (solo admins).</li>
+        </ul>
+
+        <hr/>
+        <h4>Auto Assistance</h4>
+        <ul>
+          <li>- Added: Ayuda automática de Hazy.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.3s;">
+        <h3>Changelog (02/23/2025)</h3>
+        <hr/>
+        <p><em>Adrian</em></p>
+        <h4>Giveaway System</h4>
+        <ul>
+          <li>- Added: /sorteo</li>
+        </ul>
+
+        <hr/>
+        <h4>Fixes</h4>
+        <ul>
+          <li>- Fixed: $addrole</li>
+          <li>- Fixed: /sugerir (Bug con perms)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
   <a href="https://discord.gg/hazybot.net" class="support-bubble" target="_blank" title="Soporte en Discord">
