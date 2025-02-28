@@ -5,34 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazy</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
   <style>
     :root {
-      --main-color: #a81e1e; 
+      --main-color: #a81e1e;
       --bg-color: #0b0b0b;
       --text-color: #ffffff;
       --container-width: 1200px;
       --card-bg: rgba(255, 255, 255, 0.02);
       --card-border: rgba(255, 255, 255, 0.1);
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     #particles-js {
       position: fixed;
@@ -42,10 +33,9 @@
       top: 0;
       left: 0;
     }
-
     nav {
       width: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
       backdrop-filter: blur(10px);
       position: fixed;
       top: 0;
@@ -59,6 +49,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
+      flex-wrap: wrap;
     }
     .nav-left h2 {
       font-size: 1.5rem;
@@ -73,12 +64,10 @@
     .nav-right a {
       text-decoration: none;
       color: var(--text-color);
-      margin-left: 20px;
+      margin: 10px 10px;
       transition: color 0.3s;
     }
-    .nav-right a:hover {
-      color: var(--main-color);
-    }
+    .nav-right a:hover { color: var(--main-color); }
     .invite-btn {
       padding: 8px 16px;
       background: var(--main-color);
@@ -88,10 +77,7 @@
       font-weight: bold;
       transition: background 0.3s;
     }
-    .invite-btn:hover {
-      background: #d92020;
-    }
-
+    .invite-btn:hover { background: #d92020; }
     .beta-notification {
       position: fixed;
       top: 80px;
@@ -105,24 +91,10 @@
       animation: fadeInDown 1s;
       max-width: 300px;
     }
-    .beta-notification p {
-      margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-    .beta-notification a {
-      color: #fff;
-      text-decoration: underline;
-    }
-    .close-notification {
-      cursor: pointer;
-      font-weight: bold;
-      margin-left: 10px;
-    }
-    .close-notification:hover {
-      color: #ccc;
-    }
-
+    .beta-notification p { font-size: 0.9rem; line-height: 1.4; }
+    .beta-notification a { color: #fff; text-decoration: underline; }
+    .close-notification { cursor: pointer; font-weight: bold; margin-left: 10px; }
+    .close-notification:hover { color: #ccc; }
     header {
       display: flex;
       align-items: center;
@@ -131,19 +103,13 @@
       height: 100vh;
       padding: 0 20px;
     }
-    .hero-content {
-      max-width: 700px;
-    }
+    .hero-content { max-width: 700px; }
     .hero-content h1 {
       font-size: 4rem;
       margin-bottom: 20px;
       color: var(--main-color);
     }
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6; }
     .hero-content .cta-btn {
       padding: 15px 30px;
       background: var(--main-color);
@@ -155,125 +121,51 @@
       transition: background 0.3s;
       text-decoration: none;
     }
-    .hero-content .cta-btn:hover {
-      background: #d92020;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: var(--container-width);
-      margin: auto;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: var(--main-color);
-    }
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 50px;
-      color: #ccc;
-    }
-
-    .commands-grid {
+    .hero-content .cta-btn:hover { background: #d92020; }
+    section { padding: 60px 20px; max-width: var(--container-width); margin: auto; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--main-color); }
+    .section-subtitle { text-align: center; font-size: 1.1rem; margin-bottom: 50px; color: #ccc; }
+    .commands-grid,
+    .faq-grid,
+    .changelog-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
     }
-    .command-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-left: 3px solid var(--main-color);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .command-card:hover {
-      transform: translateY(-5px);
-    }
-    .command-card h3 {
-      color: var(--main-color);
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-    .command-card ul {
-      list-style: none;
-    }
-    .command-card li {
-      margin: 8px 0;
-      line-height: 1.4;
-    }
-    .command-card li i {
-      margin-right: 8px;
-      color: var(--main-color);
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .faq-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-left: 3px solid var(--main-color);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.3s;
-    }
-    .faq-card:hover {
-      transform: translateY(-5px);
-    }
-    .faq-card h3 {
-      color: var(--main-color);
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-    .faq-card p {
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-    .faq-card .price-list {
-      margin: 15px 0;
-      padding-left: 20px;
-    }
-    .price-plan {
-      background: rgba(168,30,30,0.2);
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-
-    .changelog-container {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      gap: 20px;
-    }
+    .commands-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .changelog-container { grid-template-columns: 1fr; }
+    .command-card,
+    .faq-card,
     .changelog-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-left: 3px solid var(--main-color);
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: transform 0.3s;
+      overflow: hidden;
+      position: relative;
     }
-    .changelog-card:hover {
-      transform: translateY(-5px);
-    }
+    .command-card:hover,
+    .faq-card:hover,
+    .changelog-card:hover { transform: translateY(-5px); }
+    .command-card h3,
+    .faq-card h3,
     .changelog-card h3 {
       color: var(--main-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    .command-card ul,
+    .changelog-card ul { list-style: none; margin-left: 20px; }
+    .command-card li,
+    .changelog-card li { margin: 8px 0; line-height: 1.4; }
+    .command-card li i { margin-right: 8px; color: var(--main-color); }
+    .faq-card p { margin-bottom: 10px; line-height: 1.5; }
+    .price-plan {
+      background: rgba(168,30,30,0.2);
+      padding: 10px;
+      border-radius: 5px;
       margin-bottom: 10px;
     }
     .changelog-card hr {
@@ -281,34 +173,84 @@
       border-top: 1px solid var(--card-border);
       margin: 10px 0;
     }
-    .changelog-card h4 {
-      margin-top: 15px;
-      color: #fff;
-      font-size: 1.1rem;
+    .changelog-card h4 { margin-top: 15px; color: #fff; font-size: 1.1rem; }
+    .chat-container {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 100%;
     }
-    .changelog-card ul {
-      list-style: none;
-      margin-left: 20px;
+    .chat-container iframe {
+      border: none;
+      border-radius: 10px;
+      width: 350px;
+      height: 500px;
     }
-    .changelog-card li {
-      margin: 5px 0;
+    .developer-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
     }
-
-    footer {
-      text-align: center;
+    .developer-card {
+      background: var(--card-bg);
+      border: 2px solid var(--main-color);
       padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #aaa;
+      border-radius: 10px;
+      text-align: center;
+      width: 320px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      position: relative;
     }
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
+    .developer-card:hover { transform: translateY(-5px); }
+    .developer-pfp {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--main-color);
+      animation: pulseBorder 2s infinite;
+      object-fit: cover;
     }
-    footer a {
-      color: var(--main-color);
+    @keyframes pulseBorder {
+      0% { box-shadow: 0 0 0 0 var(--main-color); }
+      70% { box-shadow: 0 0 0 10px rgba(168,30,30, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(168,30,30, 0); }
+    }
+    .developer-card h3 { margin: 15px 0 10px; color: var(--main-color); }
+    .developer-card p { font-size: 0.9rem; margin-bottom: 10px; }
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.7rem;
+      color: var(--text-color);
+      transition: color 0.3s;
+    }
+    .social-links a:hover { color: var(--main-color); }
+    .github-link {
+      border: 2px solid var(--main-color);
+      border-radius: 50%;
+      padding: 5px;
+      display: inline-block;
+      animation: pulsate 2s infinite;
+    }
+    @keyframes pulsate {
+      0% { box-shadow: 0 0 5px var(--main-color); }
+      50% { box-shadow: 0 0 15px var(--main-color); }
+      100% { box-shadow: 0 0 5px var(--main-color); }
+    }
+    .surprise-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: var(--main-color);
+      border-radius: 5px;
       text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: background 0.3s;
     }
-
+    .surprise-btn:hover { background: #d92020; }
     .support-bubble {
       position: fixed;
       bottom: 20px;
@@ -325,10 +267,33 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: transform 0.3s;
       z-index: 9999;
+      animation: bubblePulse 2s infinite;
     }
     .support-bubble:hover {
       transform: scale(1.1);
       background: #d92020;
+    }
+    @keyframes bubblePulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      color: #aaa;
+    }
+    footer p { font-size: 0.9rem; }
+    footer a { color: var(--main-color); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-container { justify-content: center; }
+      .nav-right { margin-top: 10px; }
+      .hero-content h1 { font-size: 3rem; }
+      .hero-content p { font-size: 1rem; }
+      .chat-container iframe { width: 90%; height: 400px; }
+      .developer-card { width: 90%; }
     }
   </style>
 </head>
@@ -354,6 +319,8 @@
         <a href="#commands">Comandos</a>
         <a href="#faq">FAQ</a>
         <a href="#changelog">Changelog</a>
+        <a href="#chat">Chat</a>
+        <a href="#developer">Developer</a>
         <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar Bot</a>
       </div>
     </div>
@@ -370,7 +337,6 @@
   <section id="commands" class="animate__animated animate__fadeInUp">
     <h2 class="section-title">Comandos de Hazy</h2>
     <p class="section-subtitle">Descubre todas las funciones que Hazy te ofrece para gestionar y moderar tu servidor de Discord.</p>
-    
     <div class="commands-grid">
       <div class="command-card animate__animated animate__fadeInLeft">
         <h3>🎟️ Sistema de Tickets</h3>
@@ -384,7 +350,6 @@
           <li><i class="fas fa-edit"></i> $rename - Cambia el nombre de un ticket.</li>
         </ul>
       </div>
-
       <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.1s;">
         <h3>🔨 Moderación</h3>
         <ul>
@@ -396,7 +361,6 @@
           <li><i class="fas fa-trash"></i> /purge [cantidad] - Borra mensajes en masa.</li>
         </ul>
       </div>
-
       <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.2s;">
         <h3>🛠 Administración</h3>
         <ul>
@@ -404,14 +368,12 @@
           <li><i class="fas fa-lock-open"></i> /canal desbloquear - Desbloquea un canal.</li>
         </ul>
       </div>
-
       <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.3s;">
         <h3>💡 Utilidades</h3>
         <ul>
           <li><i class="fas fa-lightbulb"></i> /sugerir [texto] - Envía una sugerencia.</li>
         </ul>
       </div>
-
       <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.4s;">
         <h3>📜 Misc</h3>
         <ul>
@@ -427,7 +389,6 @@
   <section id="faq" class="animate__animated animate__fadeInUp">
     <h2 class="section-title">FAQ / Precios</h2>
     <p class="section-subtitle">Resuelve tus dudas sobre la adquisición y métodos de pago de Hazy.</p>
-    
     <div class="faq-grid">
       <div class="faq-card animate__animated animate__zoomIn">
         <h3>¿Métodos de pago y precios?</h3>
@@ -458,7 +419,6 @@
   <section id="changelog" class="animate__animated animate__fadeInUp">
     <h2 class="section-title">Changelog</h2>
     <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
-
     <div class="changelog-container">
       <div class="changelog-card animate__animated animate__fadeInRight">
         <h3>Changelog (02/20/2025)</h3>
@@ -472,17 +432,14 @@
           <li>- Added /mute ✅</li>
           <li>- Added /unmute ✅</li>
         </ul>
-
         <hr/>
         <h4>Misc Commands</h4>
         <ul>
           <li>- Added /purge ✅</li>
           <li>- Added /sugerir ✅</li>
         </ul>
-
         <hr/>
         <h4>Verification System ✅</h4>
-
         <hr/>
         <h4>Tickets system</h4>
         <ul>
@@ -492,7 +449,6 @@
           <li>- Added $removerole</li>
         </ul>
       </div>
-
       <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.1s;">
         <h3>Changelog (02/21/2025)</h3>
         <hr/>
@@ -501,7 +457,6 @@
           <li>- Added: /setup</li>
           <li>- Added: /editar</li>
         </ul>
-
         <hr/>
         <h4>Tickets system</h4>
         <ul>
@@ -512,13 +467,11 @@
           <li>- Fixed: $removerole (global perm) ✅</li>
           <li>- Fixed: No cargaba la carpeta prefix-commands.</li>
         </ul>
-
         <hr/>
         <h4>Moderation Commands</h4>
         <ul>
           <li>- Added: /unban &lt;id&gt; &lt;razon&gt; (razon es opcional)</li>
         </ul>
-
         <hr/>
         <h4>Added Logs System (Beta)</h4>
         <ul>
@@ -526,38 +479,32 @@
           <li>- Added: logs /off</li>
         </ul>
       </div>
-
       <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.2s;">
         <h3>Changelog (02/22/2025)</h3>
         <hr/>
         <h4>All discord channels remodeled ✅</h4>
         <p>(Thanks @fffelipeee.)<br>(Thanks @cosmo.h)</p>
-
         <hr/>
         <h4>Tickets system</h4>
         <ul>
           <li>- Fixed: option selection ✅</li>
         </ul>
-
         <hr/>
         <h4>Verification system</h4>
         <ul>
           <li>- Fixed ✅</li>
         </ul>
-
         <hr/>
         <h4>Sugerencias</h4>
         <ul>
           <li>- No se puede hablar en el canal de sugerencias (solo admins).</li>
         </ul>
-
         <hr/>
         <h4>Auto Assistance</h4>
         <ul>
           <li>- Added: Ayuda automática de Hazy.</li>
         </ul>
       </div>
-
       <div class="changelog-card animate__animated animate__fadeInRight" style="animation-delay:0.3s;">
         <h3>Changelog (02/23/2025)</h3>
         <hr/>
@@ -565,7 +512,6 @@
         <ul>
           <li>- Added: /sorteo</li>
         </ul>
-
         <hr/>
         <h4>Fixes</h4>
         <ul>
@@ -576,8 +522,34 @@
     </div>
   </section>
 
+  <section id="chat" class="animate__animated animate__fadeInUp">
+    <h2 class="section-title">Chat en Vivo</h2>
+    <p class="section-subtitle">Conecta en tiempo real con nuestra comunidad en Discord.</p>
+    <div class="chat-container">
+      <iframe src="https://discord.com/widget?id=1342200907093377140&theme=dark" allowtransparency="true"></iframe>
+    </div>
+  </section>
+
+  <section id="developer" class="animate__animated animate__fadeInUp">
+    <h2 class="section-title">Developer</h2>
+    <div class="developer-container">
+      <div class="developer-card animate__animated animate__flipInX">
+        <img class="developer-pfp" src="https://images-ext-1.discordapp.net/external/J84IfhAcTlXB2HjCV0wCfRlBWpYWmSPThFuyukd6B-g/https/cdn.discordapp.com/avatars/1096843631513583757/6866b0eed7cf8778116eed14d52aa2fc.webp?format=webp" alt="Adrian PFP">
+        <h3>Adrian</h3>
+        <p>Email: <a href="mailto:adrian@hazybot.net" style="color: var(--main-color);">adrian@hazybot.net</a></p>
+        <p>Discord: <strong>adrian.tf</strong></p>
+        <div class="social-links">
+          <a href="https://discord.com/users/adrian.tf" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+          <a href="https://twitter.com/adrixnlb21" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/Blxsted" target="_blank" class="github-link" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <a class="surprise-btn" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Sorpresa</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>Hazy® 2025 • | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
   <a href="https://discord.gg/hazybot.net" class="support-bubble" target="_blank" title="Soporte en Discord">
@@ -585,43 +557,20 @@
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script>
     particlesJS("particles-js", {
       "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
         "opacity": {
           "value": 0.5,
           "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
+          "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
         },
-        "size": {
-          "value": 2,
-          "random": true
-        },
-        "line_linked": {
-          "enable": false
-        },
+        "size": { "value": 2, "random": true },
+        "line_linked": { "enable": false },
         "move": {
           "enable": true,
           "speed": 1.5,
@@ -630,32 +579,22 @@
           "straight": false,
           "out_mode": "out",
           "bounce": false,
-          "attract": {
-            "enable": false
-          }
+          "attract": { "enable": false }
         }
       },
       "interactivity": {
         "detect_on": "canvas",
         "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": false
-          },
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": false },
           "resize": true
         },
-        "modes": {
-          "repulse": {
-            "distance": 80,
-            "duration": 0.4
-          }
-        }
+        "modes": { "repulse": { "distance": 80, "duration": 0.4 } }
       },
       "retina_detect": true
     });
+
+    gsap.from(".developer-card", { duration: 1, y: 50, opacity: 0, ease: "power2.out", stagger: 0.2 });
   </script>
 </body>
 </html>
