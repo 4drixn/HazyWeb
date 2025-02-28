@@ -54,13 +54,13 @@ nav {
 }
 
 .nav-container {
-  max-width: var(--container-width); 
-  margin: 0 auto;                  
+  width: 100%;         
+  margin: 0;           
+  padding: 0 20px;    
   display: flex;
   align-items: center;
-  justify-content: space-between;   
-  padding: 0 20px;                  
-  height: 100%;                     
+  justify-content: space-between; 
+  height: 100%;
   flex-wrap: wrap;
 }
 
@@ -68,8 +68,8 @@ nav {
   font-size: 1.5rem;
   letter-spacing: 1px;
   cursor: pointer;
-  color: var(--main-color); /
-  margin: 0;               
+  color: var(--main-color);
+  margin: 0;
 }
 
 .nav-left h2 a {
@@ -80,14 +80,14 @@ nav {
 .nav-right {
   display: flex;
   align-items: center;
-  justify-content: flex-end;  
+  justify-content: flex-end;
 }
 
 .nav-right a:link,
 .nav-right a:visited {
   text-decoration: none;
   color: var(--text-color);
-  margin-left: 20px; 
+  margin-left: 20px;
   transition: color 0.3s;
 }
 
