@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hazy</title>
+  <title>Hazy - Bot de Discord</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -56,6 +56,7 @@
       color: var(--main-color);
       letter-spacing: 1px;
       animation: bounce 2s infinite;
+      cursor: pointer;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
@@ -108,6 +109,7 @@
       font-size: 4rem;
       margin-bottom: 20px;
       color: var(--main-color);
+      cursor: pointer;
     }
     .hero-content p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6; }
     .hero-content .cta-btn {
@@ -162,18 +164,27 @@
     .changelog-card li { margin: 8px 0; line-height: 1.4; }
     .command-card li i { margin-right: 8px; color: var(--main-color); }
     .faq-card p { margin-bottom: 10px; line-height: 1.5; }
-    .price-plan {
-      background: rgba(168,30,30,0.2);
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
+    .faq-card {
+      position: relative;
+      z-index: 1;
     }
-    .changelog-card hr {
-      border: 0;
-      border-top: 1px solid var(--card-border);
-      margin: 10px 0;
+    .faq-card::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border: 2px solid var(--main-color);
+      border-radius: 10px;
+      z-index: -1;
+      animation: pulsateBorder 2s infinite;
     }
-    .changelog-card h4 { margin-top: 15px; color: #fff; font-size: 1.1rem; }
+    @keyframes pulsateBorder {
+      0% { border-color: var(--main-color); }
+      50% { border-color: #d92020; }
+      100% { border-color: var(--main-color); }
+    }
     .contact-container {
       max-width: 600px;
       margin: 0 auto;
@@ -307,14 +318,12 @@
     }
     footer p { font-size: 0.9rem; }
     footer a { color: var(--main-color); text-decoration: none; }
-
     @media (max-width: 768px) {
       .nav-container { justify-content: center; }
       .nav-right { margin-top: 10px; }
       .hero-content h1 { font-size: 3rem; }
       .hero-content p { font-size: 1rem; }
-      .developer-card { width: 90%; }
-      .contact-container { width: 90%; }
+      .developer-card, .contact-container { width: 90%; }
     }
   </style>
 </head>
@@ -325,7 +334,7 @@
   <div class="beta-notification animate__animated animate__fadeInDown" id="betaNotification">
     <p>
       Actualmente nos encontramos en <strong>beta</strong>, puedes solicitar tu acceso gratuito a Hazy uniéndote al 
-      <a href="https://discord.gg/hazybot.net" target="_blank">Discord</a>.
+      <a href="https://discord.gg/hazybot" target="_blank">Discord</a>.
       <span class="close-notification" onclick="document.getElementById('betaNotification').style.display='none'">&times;</span>
     </p>
   </div>
@@ -333,13 +342,13 @@
   <nav class="animate__animated animate__fadeInDown">
     <div class="nav-container">
       <div class="nav-left">
-        <h2>Hazy</h2>
+        <h2 id="logo">Hazy</h2>
       </div>
       <div class="nav-right">
         <a href="#inicio">Inicio</a>
         <a href="#developer">Developer</a>
         <a href="#commands">Comandos</a>
-        <a href="#faq">FAQ / Precios</a>
+        <a href="#faq">Precios</a>
         <a href="#changelog">Changelog</a>
         <a href="#contact">Contáctanos</a>
         <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar Bot</a>
@@ -349,7 +358,7 @@
 
   <header id="inicio">
     <div class="hero-content animate__animated animate__fadeInUp">
-      <h1>Hazy</h1>
+      <h1 id="scrambleText">Hazy</h1>
       <p>El bot definitivo para tu servidor de Discord. Gestión, moderación y mucho más, todo en un solo lugar. Simplifica la administración de tu comunidad con nuestro poderoso sistema de tickets, moderación avanzada y utilidades imprescindibles.</p>
       <a class="cta-btn" href="https://invite.hazybot.net" target="_blank">¡Invítame a tu Servidor!</a>
     </div>
@@ -426,12 +435,12 @@
   </section>
 
   <section id="faq" class="animate__animated animate__fadeInUp">
-    <h2 class="section-title">FAQ / Precios</h2>
-    <p class="section-subtitle">Resuelve tus dudas sobre la adquisición y métodos de pago de Hazy.</p>
+    <h2 class="section-title">Precios</h2>
+    <p class="section-subtitle">Conoce nuestros planes y métodos de pago para adquirir Hazy.</p>
     <div class="faq-grid">
       <div class="faq-card animate__animated animate__zoomIn">
-        <h3>¿Métodos de pago y precios?</h3>
-        <p>Estos son los planes disponibles para Hazy:</p>
+        <h3>Planes y métodos de pago</h3>
+        <p>Estos son los planes disponibles:</p>
         <div class="price-plan">
           <strong>Semanal:</strong> 5k ARS / 3.5 USD
         </div>
@@ -578,7 +587,7 @@
     <p>Hazy® 2025 • Made by Hazy Dev Team | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
-  <a href="https://discord.gg/hazybot.net" class="support-bubble" target="_blank" title="Soporte en Discord">
+  <a href="https://discord.gg/hazybot" class="support-bubble" target="_blank" title="Soporte en Discord">
     <i class="fab fa-discord"></i>
   </a>
 
@@ -621,6 +630,72 @@
     });
 
     gsap.from(".developer-card", { duration: 1, y: 50, opacity: 0, ease: "power2.out", stagger: 0.2 });
+
+    class TextScramble {
+      constructor(el) {
+        this.el = el;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.update = this.update.bind(this);
+      }
+      setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = Math.floor(Math.random() * 40);
+          const end = start + Math.floor(Math.random() * 40);
+          this.queue.push({ from, to, start, end });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+      }
+      update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+          let { from, to, start, end, char } = this.queue[i];
+          if (this.frame >= end) {
+            complete++;
+            output += to;
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar();
+              this.queue[i].char = char;
+            }
+            output += `<span class="dud">${char}</span>`;
+          } else {
+            output += from;
+          }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+          this.resolve();
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update);
+          this.frame++;
+        }
+      }
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+      }
+    }
+    const el = document.getElementById('scrambleText');
+    const fx = new TextScramble(el);
+    function scrambleReveal() {
+      fx.setText('Hazy');
+    }
+    scrambleReveal();
+    el.addEventListener('click', () => {
+      fx.setText('????').then(scrambleReveal);
+    });
+    document.querySelector('.nav-left h2').addEventListener('click', () => {
+      fx.setText('????').then(scrambleReveal);
+    });
   </script>
 </body>
 </html>
