@@ -4,18 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hazy - Bot de Discord</title>
-  <!-- Animate.css para animaciones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <!-- FontAwesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Fuente Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset básico */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Roboto', sans-serif; background: #111; color: #fff; line-height: 1.6; }
     
-    /* Header con imagen de fondo y superposición oscura */
     header {
       background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
       height: 100vh;
@@ -44,7 +39,6 @@
       font-size: 1.5rem;
     }
 
-    /* Sección de comandos */
     section {
       padding: 60px 20px;
     }
@@ -95,13 +89,11 @@
       background: #000;
     }
 
-    /* Animaciones de aparición */
     .animate { opacity: 0; transition: opacity 1s ease-in-out; }
     .animate.visible { opacity: 1; }
   </style>
 </head>
 <body>
-  <!-- Cabecera -->
   <header>
     <div class="container animate animate__animated animate__fadeInDown">
       <h1>Hazy</h1>
@@ -109,13 +101,11 @@
     </div>
   </header>
 
-  <!-- Sección de Comandos -->
   <section id="commands">
     <div class="container">
       <h2 class="animate animate__animated animate__fadeInUp">Comandos de Hazy</h2>
       <p class="animate animate__animated animate__fadeInUp">Descubre todos los comandos que Hazy ofrece para gestionar y moderar tu servidor.</p>
       <div class="commands">
-        <!-- Sistema de Tickets -->
         <div class="command-category animate animate__animated animate__zoomIn">
           <h2>🎟️ Sistema de Tickets</h2>
           <ul>
@@ -140,7 +130,6 @@
             <li><i class="fas fa-trash"></i> /purge [cantidad] - Borra mensajes en masa.</li>
           </ul>
         </div>
-        <!-- Administración -->
         <div class="command-category animate animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
           <h2>🛠 Administración</h2>
           <ul>
@@ -148,14 +137,12 @@
             <li><i class="fas fa-lock-open"></i> /canal desbloquear - Desbloquea un canal.</li>
           </ul>
         </div>
-        <!-- Utilidades -->
         <div class="command-category animate animate__animated animate__zoomIn" style="animation-delay: 0.6s;">
           <h2>💡 Utilidades</h2>
           <ul>
             <li><i class="fas fa-lightbulb"></i> /sugerir [texto] - Envía una sugerencia.</li>
           </ul>
         </div>
-        <!-- Misc -->
         <div class="command-category animate animate__animated animate__zoomIn" style="animation-delay: 0.8s;">
           <h2>📜 Misc</h2>
           <ul>
@@ -169,12 +156,10 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>Hazy® 2025•2/22/2025 21:25</p>
   </footer>
 
-  <!-- Script para activar animaciones al hacer scroll -->
   <script>
     const animatables = document.querySelectorAll('.animate');
     const observer = new IntersectionObserver(entries => {
