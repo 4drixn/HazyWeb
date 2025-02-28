@@ -6,6 +6,7 @@
   <title>Hazy - Changelog</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
   <nav class="sr">
     <div class="nav-container">
       <div class="nav-left">
-       <h2 id="logo">Hazy</h2>
+        <h2 id="logo"><a href="index.html">Hazy</a></h2>
       </div>
       <div class="nav-right">
         <a href="index.html">Inicio</a>
@@ -37,127 +38,84 @@
     </div>
   </nav>
   
-  <section id="changelog" class="sr">
-    <h2 class="section-title">Changelog</h2>
-    <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-date">Changelog (02/20/2025)</div>
-        <div class="timeline-content">
-          <h4>Moderation Commands</h4>
-          <ul>
-            <li>- Added /ban ✅</li>
-            <li>- Added /kick ✅</li>
-            <li>- Added /bloquear ✅</li>
-            <li>- Added /desbloquear ✅</li>
-            <li>- Added /mute ✅</li>
-            <li>- Added /unmute ✅</li>
-          </ul>
-          <h4>Misc Commands</h4>
-          <ul>
-            <li>- Added /purge ✅</li>
-            <li>- Added /sugerir ✅</li>
-          </ul>
-          <h4>Verification System</h4>
-          <p>✅</p>
-          <h4>Tickets system</h4>
-          <ul>
-            <li>- Added $add</li>
-            <li>- Added $addrole</li>
-            <li>- Added $remove</li>
-            <li>- Added $removerole</li>
-          </ul>
+  <main>
+    <section id="changelog" class="sr">
+      <h2 class="section-title">Changelog</h2>
+      <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Changelog (02/20/2025)</div>
+          <div class="timeline-content">
+            <h4>Moderation Commands</h4>
+            <ul>
+              <li>- Added /ban ✅</li>
+              <li>- Added /kick ✅</li>
+              <li>- Added /bloquear ✅</li>
+              <li>- Added /desbloquear ✅</li>
+              <li>- Added /mute ✅</li>
+              <li>- Added /unmute ✅</li>
+            </ul>
+            <h4>Misc Commands</h4>
+            <ul>
+              <li>- Added /purge ✅</li>
+              <li>- Added /sugerir ✅</li>
+            </ul>
+            <h4>Verification System</h4>
+            <p>✅</p>
+            <h4>Tickets system</h4>
+            <ul>
+              <li>- Added $add</li>
+              <li>- Added $addrole</li>
+              <li>- Added $remove</li>
+              <li>- Added $removerole</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">Changelog (02/23/2025)</div>
+          <div class="timeline-content">
+            <p><em>Adrian — 2/23/2025 18:47</em></p>
+            <h4>Giveaway System</h4>
+            <ul>
+              <li>- Added: /sorteo</li>
+            </ul>
+            <h4>Fixes</h4>
+            <ul>
+              <li>- Fixed: $addrole</li>
+              <li>- Fixed: /sugerir (Bug con perms)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">Changelog (02/28/2025)</div>
+          <div class="timeline-content">
+            <p><em>fffelipe — 2/28/2025 13:27</em></p>
+            <h4>Administrator Commands</h4>
+            <ul>
+              <li>- Added: /addrole ✅</li>
+              <li>- Added: /temprole ✅</li>
+            </ul>
+            <h4>Website</h4>
+            <ul>
+              <li>- hazybot.net 🌐</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Changelog (02/21/2025)</div>
-        <div class="timeline-content">
-          <h4>Hazy Setup (Beta)</h4>
-          <ul>
-            <li>- Added: /setup</li>
-            <li>- Added: /editar</li>
-          </ul>
-          <h4>Tickets system</h4>
-          <ul>
-            <li>- Added: $rename</li>
-            <li>- Fixed: $add (global perm) ✅</li>
-            <li>- Fixed: $addrole (global perm) ✅</li>
-            <li>- Fixed: $remove (global perm) ✅</li>
-            <li>- Fixed: $removerole (global perm) ✅</li>
-            <li>- Fixed: No cargaba la carpeta prefix-commands.</li>
-          </ul>
-          <h4>Moderation Commands</h4>
-          <ul>
-            <li>- Added: /unban &lt;id&gt; &lt;razon&gt; (opcional)</li>
-          </ul>
-          <h4>Logs System (Beta)</h4>
-          <ul>
-            <li>- Added: logs /on</li>
-            <li>- Added: logs /off</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Changelog (02/22/2025)</div>
-        <div class="timeline-content">
-          <p><em>Adrian — 2/22/2025 5:04</em></p>
-          <h4>All discord channels remodeled</h4>
-          <p>(Thanks @fffelipeee &amp; @cosmo.h)</p>
-          <h4>Tickets system</h4>
-          <ul>
-            <li>- Fixed: option selection ✅</li>
-          </ul>
-          <h4>Verification system</h4>
-          <ul>
-            <li>- Fixed ✅</li>
-          </ul>
-          <h4>Sugerencias</h4>
-          <ul>
-            <li>- No se puede hablar en el canal de sugerencias (solo admins).</li>
-          </ul>
-          <h4>Auto Assistance</h4>
-          <ul>
-            <li>- Added: Ayuda automática de Hazy.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Changelog (02/23/2025)</div>
-        <div class="timeline-content">
-          <p><em>Adrian — 2/23/2025 18:47</em></p>
-          <h4>Giveaway System</h4>
-          <ul>
-            <li>- Added: /sorteo</li>
-          </ul>
-          <h4>Fixes</h4>
-          <ul>
-            <li>- Fixed: $addrole</li>
-            <li>- Fixed: /sugerir (Bug con perms)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-<div class="timeline-item">
-        <div class="timeline-date">Changelog (02/28/2025)</div>
-        <div class="timeline-content">
-          <p><em>fffelipee- — 2/28/2025 13:27</em></p>
-          <h4>Administrator Commands:</h4>
-          <ul>
-            <li>- Added: /addrole ✅</li>
-            <li>- Added: /temprole ✅</li>
-          </ul>
-          <h4>Added Website:</h4>
-          <ul>
-            <li>-hazybot.net 🌐</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+      
+    </section>
+  </main>
   
   <footer class="sr">
     <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
+  
+  <div class="discord-bubble" onclick="window.open('https://discord.gg/hazybot','_blank')">
+    <i class="fab fa-discord"></i>
+  </div>
   
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
