@@ -20,6 +20,8 @@
       --bg-color: #0b0b0b;
       --text-color: #ffffff;
       --container-width: 1200px;
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --card-border: rgba(255, 255, 255, 0.1);
     }
     * {
       margin: 0;
@@ -145,8 +147,8 @@
       gap: 30px;
     }
     .command-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-left: 3px solid var(--main-color);
       padding: 20px;
       border-radius: 10px;
@@ -175,6 +177,41 @@
       color: var(--main-color);
     }
 
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--main-color);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .faq-card:hover {
+      transform: translateY(-5px);
+    }
+    .faq-card h3 {
+      color: var(--main-color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    .faq-card p {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .faq-card .price-list {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -188,6 +225,28 @@
     footer a {
       color: var(--main-color);
       text-decoration: none;
+    }
+
+    .support-bubble {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--main-color);
+      color: #fff;
+      font-size: 2rem;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      z-index: 9999;
+    }
+    .support-bubble:hover {
+      transform: scale(1.1);
+      background: #d92020;
     }
   </style>
 </head>
@@ -203,6 +262,7 @@
       <div class="nav-right">
         <a href="#inicio">Inicio</a>
         <a href="#commands">Comandos</a>
+        <a href="#faq">FAQ</a>
         <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar Bot</a>
       </div>
     </div>
@@ -221,7 +281,7 @@
     <p class="section-subtitle">Descubre todas las funciones que Hazy te ofrece para gestionar y moderar tu servidor de Discord.</p>
     
     <div class="commands-grid">
-      <div class="command-card">
+      <div class="command-card animate__animated animate__fadeInLeft">
         <h3>🎟️ Sistema de Tickets</h3>
         <ul>
           <li><i class="fas fa-ticket-alt"></i> /tickets - Inicia el sistema de tickets.</li>
@@ -234,7 +294,7 @@
         </ul>
       </div>
 
-      <div class="command-card">
+      <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.1s;">
         <h3>🔨 Moderación</h3>
         <ul>
           <li><i class="fas fa-ban"></i> /ban @usuario [razón] - Banea a un usuario.</li>
@@ -246,7 +306,7 @@
         </ul>
       </div>
 
-      <div class="command-card">
+      <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.2s;">
         <h3>🛠 Administración</h3>
         <ul>
           <li><i class="fas fa-lock"></i> /canal bloquear - Bloquea un canal.</li>
@@ -254,14 +314,14 @@
         </ul>
       </div>
 
-      <div class="command-card">
+      <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.3s;">
         <h3>💡 Utilidades</h3>
         <ul>
           <li><i class="fas fa-lightbulb"></i> /sugerir [texto] - Envía una sugerencia.</li>
         </ul>
       </div>
 
-      <div class="command-card">
+      <div class="command-card animate__animated animate__fadeInLeft" style="animation-delay:0.4s;">
         <h3>📜 Misc</h3>
         <ul>
           <li><i class="fas fa-check"></i> /verificar - Inicia el sistema de verificación.</li>
@@ -273,9 +333,38 @@
     </div>
   </section>
 
+  <section id="faq" class="animate__animated animate__fadeInUp">
+    <h2 class="section-title">FAQ</h2>
+    <p class="section-subtitle">Preguntas frecuentes sobre pagos, precios y métodos de pago.</p>
+    
+    <div class="faq-grid">
+      <div class="faq-card animate__animated animate__fadeInRight">
+        <h3>¿Métodos de pago y precios?</h3>
+        <p>Estos son los planes disponibles para Hazy:</p>
+        <ul class="price-list">
+          <li><strong>Semanal:</strong> 5k ARS / 3.5 USD</li>
+          <li><strong>Mensual:</strong> 10k ARS / 7.5 USD</li>
+          <li><strong>Trimestral:</strong> 27k ARS / 22 USD</li>
+        </ul>
+        <p><strong>Métodos de Pago:</strong></p>
+        <p><i class="fas fa-money-bill"></i> <strong>Mercado Pago</strong><br>
+          Alias: <em>kilomborp</em><br>
+          CVU: <em>0000003100040084912105</em>
+        </p>
+        <p><i class="fab fa-paypal"></i> <strong>PayPal</strong><br>
+          <a href="https://www.paypal.com/paypalme/luxeliferp" target="_blank" style="color: var(--main-color);">paypal.me/luxeliferp</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>Hazy® 2025 • 2/22/2025 21:25 | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
+
+  <a href="https://discord.gg/hazybot.net" class="support-bubble" target="_blank" title="Soporte en Discord">
+    <i class="fab fa-discord"></i>
+  </a>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
