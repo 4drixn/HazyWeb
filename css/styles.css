@@ -43,6 +43,7 @@ main {
 
 nav {
   width: 100%;
+  height: 60px; 
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
   position: fixed;
@@ -51,30 +52,34 @@ nav {
   z-index: 1000;
   animation: fadeInUp 1s ease forwards;
 }
+
 .nav-container {
   max-width: var(--container-width);
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;       
   padding: 10px 20px;
   flex-wrap: wrap;
 }
-.nav-left h2 {
-  font-size: 1.5rem;
-  color: var(--main-color);
-  letter-spacing: 1px;
-  cursor: pointer;
+
+.nav-left {
+  margin-right: auto; 
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .nav-right a:link,
 .nav-right a:visited {
   text-decoration: none;
   color: var(--text-color);
-  margin: 10px;
+  margin-left: 20px; 
   transition: color 0.3s;
 }
-
 .nav-right a:hover,
 .nav-right a:active {
   color: var(--main-color);
@@ -95,8 +100,8 @@ nav {
 
 .beta-notification {
   position: fixed;
-  top: 20px;     
-  right: 20px;  
+  top: 80px;  
+  right: 20px;
   background: rgba(168,30,30,0.95);
   color: #fff;
   padding: 15px 20px;
