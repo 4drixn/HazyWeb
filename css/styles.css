@@ -68,7 +68,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-}
+  padding: 0 20px; 
 
 .nav-left h2 {
   font-size: 1.8rem;
@@ -90,8 +90,7 @@ nav {
   justify-content: flex-end;
   gap: 25px;
   flex-grow: 1;
-  margin-left: auto;
-  padding-right: 40px;
+  padding-right: 0;
 }
 
 .nav-right a {
