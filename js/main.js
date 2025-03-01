@@ -144,3 +144,21 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("beforeunload", () => {
   document.body.style.opacity = "0";
 });
+
+const closeNotification = document.querySelector(".close-notification");
+const betaNotification = document.querySelector(".beta-notification");
+
+closeNotification.addEventListener("click", () => {
+  betaNotification.classList.add("hide");
+  setTimeout(() => {
+    betaNotification.remove();
+  }, 500); 
+});
+
+localStorage.setItem("notificationClosed", "true");
+
+window.addEventListener("load", () => {
+  if (localStorage.getItem("notificationClosed") === "true") {
+    betaNotification.remove();
+  }
+});
