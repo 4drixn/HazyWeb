@@ -114,3 +114,19 @@ particlesJS("particles-js", {
       botNotification.style.display = 'none';
     }
   }
+
+<script>
+  async function fetchStats() {
+    try {
+      const response = await fetch('https://api.hazybot.net/api/stats');
+      const data = await response.json();
+      document.getElementById('guildCount').textContent = data.guildCount;
+      document.getElementById('userCount').textContent = data.userCount;
+    } catch (error) {
+      console.error('Error al obtener estadísticas:', error);
+    }
+  }
+
+  setInterval(fetchStats, 10000);
+  fetchStats();
+</script>
