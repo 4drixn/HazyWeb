@@ -102,6 +102,40 @@ nav {
   transform: scale(1.05);
 }
 
+/* Centrar la notificación correctamente */
+.beta-notification {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  max-width: 350px; /* Evita que se deforme en pantallas grandes */
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuye el contenido de manera equilibrada */
+  gap: 10px;
+}
+
+/* Ajustar el botón de cerrar */
+.close-notification {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.close-notification:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
 
 .support-bubble {
   position: fixed;
