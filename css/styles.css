@@ -43,114 +43,219 @@ main {
 
 nav {
   width: 100%;
-  height: 60px;
-  background: rgba(0,0,0,0.15);             
-  backdrop-filter: blur(10px);             
-  -webkit-backdrop-filter: blur(10px);     
-  border: 1px solid rgba(255,255,255,0.1); 
-  border-radius: 8px;                      
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+  height: 70px; 
+  background: rgba(0,0,0,0.3); 
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,0.1); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  animation: fadeInUp 1s ease forwards;
+  animation: fadeInUp 0.8s ease-out forwards;
+  padding: 0 20px; /
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-container {
   width: 100%;
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  flex-wrap: wrap;
-}
-
-.nav-left {
-  margin-left: 20px;
 }
 
 .nav-left h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem; 
+  font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
   color: var(--main-color);
   margin: 0;
+  transition: transform 0.3s ease;
 }
 
-.nav-left h2 a {
-  text-decoration: none;
-  color: var(--main-color);
+.nav-left h2:hover {
+  transform: scale(1.1); 
 }
 
 .nav-right {
-  margin-right: 20px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 20px; 
 }
 
-.nav-right a:link,
-.nav-right a:visited {
+.nav-right a {
   text-decoration: none;
   color: var(--text-color);
-  margin-left: 10px;
-  transition: color 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
 }
 
-.nav-right a:hover,
-.nav-right a:active {
+.nav-right a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-right a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-right a:hover {
   color: var(--main-color);
+  transform: translateY(-2px);
 }
 
 .invite-btn {
-  padding: 8px 16px;
+  padding: 10px 18px;
   background: var(--main-color);
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(255, 0, 0, 0.3);
 }
 
 .invite-btn:hover {
   background: #d92020;
+  transform: scale(1.05);
 }
 
 .beta-notification {
   position: fixed;
-  top: 80px;
+  top: 90px;
   right: 20px;
-  background: rgba(168,30,30,0.95);
+  background: rgba(168, 30, 30, 0.95);
   color: #fff;
   padding: 15px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   z-index: 11000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  max-width: 300px;
-  animation: fadeInUp 1s ease forwards;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 320px;
+  font-size: 1rem;
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.beta-notification.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .beta-notification p {
   font-size: 0.9rem;
   line-height: 1.4;
+  margin: 0;
 }
 
 .beta-notification a {
   color: #fff;
+  font-weight: bold;
   text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.beta-notification a:hover {
+  color: #ff8080;
 }
 
 .close-notification {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 1.2rem;
   cursor: pointer;
-  font-weight: bold;
-  margin-left: 10px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .close-notification:hover {
-  color: #ccc;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 15px;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    display: none;
+  }
+
+  .nav-right a {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-right.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-toggle:hover {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .support-bubble {
