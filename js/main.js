@@ -115,7 +115,6 @@ particlesJS("particles-js", {
     }
   }
 
-<script>
   async function fetchStats() {
     try {
       const response = await fetch('https://api.hazybot.net/api/stats');
@@ -129,4 +128,3 @@ particlesJS("particles-js", {
 
   setInterval(fetchStats, 10000);
   fetchStats();
-</script>
