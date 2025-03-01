@@ -12,13 +12,14 @@
 <body>
   <div id="particles-js"></div>
   
-  <div class="beta-notification">
-    <p>
-      Actualmente nos encontramos en fase <strong>beta</strong>. Solicita tu acceso gratuito uniéndote al discord de 
-      <a href="https://discord.gg/hazybot" target="_blank">Hazy</a>.
-      <span class="close-notification" onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
-    </p>
+<div class="bot-notification" id="botNotification">
+  <img src="hazy-logo.jpg" alt="Hazy Bot" class="bot-avatar" />
+  <div class="bot-message-bubble">
+    <p>¡Hola! Soy Hazy. Actualmente estamos en fase beta.</p>
+    <p>Únete a nuestro Discord para solicitar tu acceso gratuito.</p>
+    <span class="close-bot-notification" onclick="closeBotNotification()">&times;</span>
   </div>
+</div>
   
 <nav class="sr">
   <div class="nav-container">
@@ -122,3 +123,12 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
+<script>
+  function closeBotNotification() {
+    const botNotification = document.getElementById('botNotification');
+    if (botNotification) {
+      botNotification.style.display = 'none';
+    }
+  }
+</script>
