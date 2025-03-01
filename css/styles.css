@@ -1,54 +1,10 @@
-:root {
-  --main-color: #a81e1e;
-  --bg-color: #0b0b0b;
-  --text-color: #ffffff;
-  --container-width: 1200px;
-  --card-bg: rgba(255, 255, 255, 0.02);
-  --card-border: rgba(255, 255, 255, 0.1);
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
-
-body {
-  display: flex;
-  flex-direction: column; 
-  font-family: 'Roboto', sans-serif;
-  background: var(--bg-color);
-  color: var(--text-color);
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-main {
-  flex: 1;
-}
-
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* NAVBAR MEJORADA */
 nav {
   width: 100%;
-  height: 70px; 
-  background: rgba(0, 0, 0, 0.8); /* Hacer el fondo más oscuro para más contraste */
-  backdrop-filter: blur(10px); 
+  height: 75px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   position: fixed;
   top: 0;
@@ -61,24 +17,23 @@ nav {
   justify-content: center;
 }
 
-/* CONTENEDOR PARA CENTRAR LOS ELEMENTOS */
 .nav-container {
   width: 100%;
-  max-width: 1200px; /* Evita que los elementos se expandan demasiado */
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  height: 100%; 
 }
 
-/* LOGO */
 .nav-left h2 {
-  font-size: 1.8rem; 
+  font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
-  color: #ff4444; /* Color rojo llamativo */
+  color: #ff4444;
   margin: 0;
   transition: transform 0.3s ease;
 }
@@ -87,18 +42,16 @@ nav {
   transform: scale(1.1);
 }
 
-/* NAVBAR DERECHA - MENÚ */
 .nav-right {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px; /* Mayor separación entre elementos */
+  gap: 30px;
 }
 
-/* ESTILO DE LOS ENLACES */
 .nav-right a {
   display: inline-block;
-  color: #fff; /* Forzar color blanco */
+  color: #fff;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
@@ -107,7 +60,6 @@ nav {
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* SUBRAYADO ANIMADO AL PASAR EL MOUSE */
 .nav-right a::after {
   content: "";
   position: absolute;
@@ -115,7 +67,7 @@ nav {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background: #ff4444; /* Mismo color que el logo */
+  background: #ff4444;
   transition: width 0.3s ease;
 }
 
@@ -124,14 +76,13 @@ nav {
 }
 
 .nav-right a:hover {
-  color: #ff4444; /* Rojo en hover */
+  color: #ff4444;
   transform: translateY(-2px);
 }
 
-/* BOTÓN INVITAR AL BOT */
 .invite-btn {
   padding: 10px 18px;
-  background: #ff4444; /* Rojo llamativo */
+  background: #ff4444;
   border-radius: 6px;
   text-decoration: none;
   color: #fff;
@@ -147,7 +98,7 @@ nav {
 
 .beta-notification {
   position: fixed;
-  top: 90px;
+  top: 90px; 
   right: 20px;
   background: rgba(168, 30, 30, 0.95);
   color: #fff;
@@ -155,8 +106,12 @@ nav {
   border-radius: 10px;
   z-index: 11000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  max-width: 320px;
+  max-width: 350px;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   animation: slideInRight 0.8s ease-out forwards;
   opacity: 0;
   transform: translateX(100%);
@@ -185,76 +140,23 @@ nav {
 }
 
 .close-notification {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+  position: relative;
+  top: 0;
+  right: 0;
   width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .close-notification:hover {
   background: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-  nav {
-    padding: 0 15px;
-  }
-
-  .nav-right {
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px 0;
-    display: none;
-  }
-
-  .nav-right a {
-    display: block;
-    padding: 12px;
-    text-align: center;
-    width: 100%;
-  }
-
-  .nav-right.active {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: transform 0.3s ease;
-  }
-
-  .nav-toggle:hover {
-    transform: scale(1.1);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes slideInRight {
