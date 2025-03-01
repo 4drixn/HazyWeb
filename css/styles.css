@@ -80,8 +80,15 @@ nav {
   transition: transform 0.3s ease;
 }
 
-.nav-left h2:hover {
-  transform: scale(1.1);
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 40px;       
+  height: auto;      
+  margin-right: 10px; 
 }
 
 .nav-right {
