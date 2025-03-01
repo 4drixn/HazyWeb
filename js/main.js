@@ -1,22 +1,22 @@
 particlesJS("particles-js", {
   particles: {
-    number: { value: 150, density: { enable: true, value_area: 800 } },
+    number: { value: 80, density: { enable: true, value_area: 800 } },
     color: { value: "#ffffff" },
     shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
     opacity: {
-      value: 0.7,
+      value: 1,
       random: true,
-      anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false },
+      anim: { enable: true, speed: 3, opacity_min: 0.4, sync: false },
     },
     size: {
-      value: 2,
+      value: 4,
       random: true,
-      anim: { enable: true, speed: 2, size_min: 0.5, sync: false },
+      anim: { enable: true, speed: 4, size_min: 2, sync: false },
     },
     line_linked: { enable: false },
     move: {
       enable: true,
-      speed: 1.5,
+      speed: 3,
       direction: "none",
       random: true,
       straight: false,
@@ -33,22 +33,22 @@ particlesJS("particles-js", {
       resize: true,
     },
     modes: {
-      bubble: { distance: 100, size: 6, duration: 0.3, opacity: 0.8 },
-      push: { particles_nb: 4 },
+      bubble: { distance: 250, size: 12, duration: 0.6, opacity: 1 },
+      push: { particles_nb: 10 },
     },
   },
   retina_detect: true,
 });
 
 ScrollReveal().reveal(".sr", {
-  duration: 1200,
-  distance: "60px",
+  duration: 1800,
+  distance: "120px",
   easing: "cubic-bezier(0.5, 0, 0, 1)",
   origin: "bottom",
   reset: true,
-  scale: 0.9,
+  scale: 0.85,
   opacity: 0,
-  delay: 200,
+  delay: 500,
 });
 
 class TextScramble {
@@ -121,3 +121,31 @@ el.addEventListener("click", () => {
 document.querySelector(".nav-left h2").addEventListener("click", () => {
   fx.setText("????").then(scrambleReveal);
 });
+
+const cursor = document.createElement("div");
+cursor.classList.add("custom-cursor");
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = `${e.pageX}px`;
+  cursor.style.top = `${e.pageY}px`;
+});
+
+document.addEventListener("click", () => {
+  cursor.classList.add("click");
+  setTimeout(() => cursor.classList.remove("click"), 200);
+});
+
+const background = document.createElement("div");
+background.classList.add("dynamic-background");
+document.body.appendChild(background);
+
+setInterval(() => {
+  const colors = ["#ff4757", "#2ed573", "#1e90ff", "#ffa502", "#ff6b81"];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  background.style.backgroundColor = randomColor;
+  background.style.opacity = "0.1";
+  setTimeout(() => {
+    background.style.opacity = "0";
+  }, 1000);
+}, 3000);
