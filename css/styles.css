@@ -40,14 +40,14 @@ main {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-/* NAVBAR MEJORADA */
+
 nav {
   width: 100%;
-  height: 70px; 
-  background: rgba(0, 0, 0, 0.8); /* Hacer el fondo más oscuro para más contraste */
-  backdrop-filter: blur(10px); 
+  height: 75px; 
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   position: fixed;
   top: 0;
@@ -60,24 +60,23 @@ nav {
   justify-content: center;
 }
 
-/* CONTENEDOR PARA CENTRAR LOS ELEMENTOS */
 .nav-container {
   width: 100%;
-  max-width: 1200px; /* Evita que los elementos se expandan demasiado */
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  height: 100%; 
 }
 
-/* LOGO */
 .nav-left h2 {
-  font-size: 1.8rem; 
+  font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
-  color: #ff4444; /* Color rojo llamativo */
+  color: #ff4444;
   margin: 0;
   transition: transform 0.3s ease;
 }
@@ -86,18 +85,16 @@ nav {
   transform: scale(1.1);
 }
 
-/* NAVBAR DERECHA - MENÚ */
 .nav-right {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px; /* Mayor separación entre elementos */
+  gap: 30px;
 }
 
-/* ESTILO DE LOS ENLACES */
 .nav-right a {
   display: inline-block;
-  color: #fff; /* Forzar color blanco */
+  color: #fff;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
@@ -106,7 +103,6 @@ nav {
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* SUBRAYADO ANIMADO AL PASAR EL MOUSE */
 .nav-right a::after {
   content: "";
   position: absolute;
@@ -114,7 +110,7 @@ nav {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background: #ff4444; /* Mismo color que el logo */
+  background: #ff4444;
   transition: width 0.3s ease;
 }
 
@@ -123,14 +119,13 @@ nav {
 }
 
 .nav-right a:hover {
-  color: #ff4444; /* Rojo en hover */
+  color: #ff4444;
   transform: translateY(-2px);
 }
 
-/* BOTÓN INVITAR AL BOT */
 .invite-btn {
   padding: 10px 18px;
-  background: #ff4444; /* Rojo llamativo */
+  background: #ff4444;
   border-radius: 6px;
   text-decoration: none;
   color: #fff;
@@ -144,21 +139,49 @@ nav {
   transform: scale(1.05);
 }
 
-/* Centrar la notificación correctamente */
 .beta-notification {
   position: fixed;
-  top: 90px;
+  top: 100px; 
   right: 20px;
-  max-width: 350px; /* Evita que se deforme en pantallas grandes */
+  background: rgba(168, 30, 30, 0.95);
+  color: #fff;
   padding: 15px 20px;
   border-radius: 10px;
+  z-index: 11000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 350px;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribuye el contenido de manera equilibrada */
+  justify-content: space-between;
   gap: 10px;
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* Ajustar el botón de cerrar */
+.beta-notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.beta-notification p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.beta-notification a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.beta-notification a:hover {
+  color: #ff8080;
+}
+
 .close-notification {
   position: relative;
   top: 0;
@@ -177,6 +200,17 @@ nav {
 .close-notification:hover {
   background: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .support-bubble {
