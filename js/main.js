@@ -107,3 +107,12 @@ particlesJS("particles-js", {
   document.querySelector('.nav-left h2').addEventListener('click', () => {
     fx.setText('????').then(scrambleReveal);
   });
+
+<script>
+  function closeBotNotification() {
+    const botNotification = document.getElementById('botNotification');
+    if (botNotification) {
+      botNotification.style.display = 'none';
+    }
+  }
+</script>
