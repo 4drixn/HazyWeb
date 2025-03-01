@@ -71,21 +71,21 @@
   <p>Usuarios: <span id="userCount">0</span></p>
 </div>
 
-<script>
-  async function fetchStats() {
-    try {
-      const response = await fetch('https://api.hazybot.net/api/stats');
-      const data = await response.json();
-      document.getElementById('guildCount').textContent = data.guildCount;
-      document.getElementById('userCount').textContent = data.userCount;
-    } catch (error) {
-      console.error('Error al obtener estadísticas:', error);
-    }
-  }
-  
-  setInterval(fetchStats, 10000);
-  fetchStats();
-</script>
+<section id="stats-section" class="sr">
+  <h2 class="section-title">Estadísticas</h2>
+  <div class="stats-container">
+    <div class="stat-card">
+      <i class="fas fa-server"></i>
+      <p class="stat-number" id="guildCount">0</p>
+      <p class="stat-label">Servidores</p>
+    </div>
+    <div class="stat-card">
+      <i class="fas fa-users"></i>
+      <p class="stat-number" id="userCount">0</p>
+      <p class="stat-label">Usuarios</p>
+    </div>
+  </div>
+</section>
 
     <section id="hazy-team" class="sr">
       <h2 class="section-title">Hazy Team</h2>
