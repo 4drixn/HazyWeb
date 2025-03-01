@@ -90,7 +90,8 @@ nav {
   justify-content: flex-end;
   gap: 25px;
   flex-grow: 1;
-  padding-right: 10px;
+  margin-left: auto;
+  padding-right: 40px;
 }
 
 .nav-right a {
