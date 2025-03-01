@@ -54,7 +54,7 @@ nav {
   left: 0;
   z-index: 1000;
   animation: fadeInUp 0.8s ease-out forwards;
-  padding: 0 40px;
+  padding: 0 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -88,8 +88,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 35px;
+  gap: 40px;
   flex-grow: 1;
+  padding-right: 20px;
 }
 
 .nav-right a {
@@ -142,7 +143,7 @@ nav {
 .beta-notification {
   position: fixed;
   top: 100px;
-  right: 40px;
+  right: 60px;
   background: rgba(168, 30, 30, 0.95);
   color: #fff;
   padding: 15px 20px;
