@@ -638,6 +638,7 @@ footer a {
 .stats-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 40px;         
   flex-wrap: wrap;    
 }
@@ -648,13 +649,19 @@ footer a {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 150px;      
+  width: 180px;  
+  height: 150px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 .stat-card i {
@@ -664,13 +671,13 @@ footer a {
 }
 
 .stat-number {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: bold;
   color: var(--main-color);
+  margin-bottom: 5px;
 }
 
 .stat-label {
   font-size: 1rem;
   color: #fff;
-  margin-top: 5px;
-}
+} 
