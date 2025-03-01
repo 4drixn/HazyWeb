@@ -107,3 +107,20 @@ particlesJS("particles-js", {
   document.querySelector('.nav-left h2').addEventListener('click', () => {
     fx.setText('????').then(scrambleReveal);
   });
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+});
+
+document.querySelectorAll("a").forEach(link => {
+    if (link.hostname === window.location.hostname) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault(); 
+            let destination = this.href;
+            document.body.style.opacity = 0; 
+            setTimeout(() => {
+                window.location.href = destination; 
+            }, 300); 
+        });
+    }
+});
