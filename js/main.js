@@ -135,17 +135,3 @@ document.addEventListener("click", () => {
   cursor.classList.add("click");
   setTimeout(() => cursor.classList.remove("click"), 200);
 });
-
-const background = document.createElement("div");
-background.classList.add("dynamic-background");
-document.body.appendChild(background);
-
-setInterval(() => {
-  const colors = ["#ff4757", "#2ed573", "#1e90ff", "#ffa502", "#ff6b81"];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  background.style.backgroundColor = randomColor;
-  background.style.opacity = "0.1";
-  setTimeout(() => {
-    background.style.opacity = "0";
-  }, 1000);
-}, 3000);
