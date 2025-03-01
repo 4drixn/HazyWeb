@@ -539,3 +539,20 @@ footer a {
 .surprise-btn:hover {
   background-color: #e84118;
 }
+
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+a:not(.invite-btn) {
+  transition: opacity 0.3s ease-in-out;
+}
+
+a:not(.invite-btn):hover {
+  opacity: 0.7;
+}
