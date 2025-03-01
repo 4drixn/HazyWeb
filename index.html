@@ -74,7 +74,7 @@
 <script>
   async function fetchStats() {
     try {
-      const response = await fetch('http://186.148.224.93:3000/api/stats');
+      const response = await fetch('https://api.hazybot.net/api/stats');
       const data = await response.json();
       document.getElementById('guildCount').textContent = data.guildCount;
       document.getElementById('userCount').textContent = data.userCount;
