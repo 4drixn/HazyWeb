@@ -632,15 +632,20 @@ footer a {
 
 #stats-section {
   text-align: center;
-  margin: 50px 0;
+  margin: 50px auto; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .stats-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 40px;         
-  flex-wrap: wrap;    
+  align-items: center; 
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 600px; 
 }
 
 .stat-card {
@@ -649,8 +654,8 @@ footer a {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 180px;  
-  height: 150px; 
+  width: 200px; 
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -665,7 +670,7 @@ footer a {
 }
 
 .stat-card i {
-  font-size: 2rem;       
+  font-size: 2rem;
   color: var(--main-color);
   margin-bottom: 10px;
 }
@@ -680,4 +685,4 @@ footer a {
 .stat-label {
   font-size: 1rem;
   color: #fff;
-} 
+}
