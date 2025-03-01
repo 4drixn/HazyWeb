@@ -41,136 +41,117 @@ main {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-:root {
-  --bg-color: #141E30;       
-  --bg-color2: #243B55;    
-  --text-color: #FFFFFF;    
-  --accent-color: #00BFFF;  
+nav {
+  width: 100%;
+  height: 60px;
+  background: rgba(0,0,0,0.15);             
+  backdrop-filter: blur(10px);             
+  -webkit-backdrop-filter: blur(10px);     
+  border: 1px solid rgba(255,255,255,0.1); 
+  border-radius: 8px;                      
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  animation: fadeInUp 1s ease forwards;
 }
 
-body { margin: 0; font-family: sans-serif; background: #f4f4f4; }
-
-.navbar {
-  background: linear-gradient(to right, var(--bg-color), var(--bg-color2));
-  color: var(--text-color);
-  padding: 0.5rem 1rem;       
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;          
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
-}
-
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.nav-items {
-  list-style: none;
+.nav-container {
+  width: 100%;
   margin: 0;
   padding: 0;
-  display: flex;              
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  flex-wrap: wrap;
 }
 
-.nav-items a {
-  display: inline-block;
-  color: var(--text-color);
-  text-decoration: none;
-  padding: 0.5rem 1rem;        
-  position: relative;
-  transition: color 0.3s ease;
+.nav-left {
+  margin-left: 20px;
 }
 
-.nav-items a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--accent-color);
-  transition: width 0.3s ease;
-}
-.nav-items a:hover::after { width: 100%; }
-.nav-items a:hover { color: var(--accent-color); }
-
-.nav-items .btn {
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  transition: opacity 0.3s ease;
-}
-.nav-items .btn:hover { opacity: 0.85; }  
-.nav-items .btn::after { content: none !important; } 
-
-.nav-toggle {
-  display: none;
+.nav-left h2 {
   font-size: 1.5rem;
+  letter-spacing: 1px;
   cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .nav-items {
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: var(--bg-color);
-    flex-direction: column;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  .nav-items.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-  .nav-items a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
-  }
-  .nav-toggle {
-    display: block; 
-    color: var(--text-color);
-  }
-}
-
-.notification {
-  position: fixed;
-  top: 1rem; right: 1rem;
-  background: rgba(50,50,50, 0.95); 
-  color: #fff;
-  padding: 0.75rem 2.5rem 0.75rem 1rem;  
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  opacity: 0;
-  transform: translateX(100%);    
-  pointer-events: none;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-.notification.show {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-.notification p {
+  color: var(--main-color);
   margin: 0;
 }
-.close-btn {
-  position: absolute;
-  top: 8px; right: 10px;
-  font-size: 1.2rem;
-  color: #fff;
-  cursor: pointer;
+
+.nav-left h2 a {
+  text-decoration: none;
+  color: var(--main-color);
 }
-.close-btn:hover { color: var(--accent-color); }
+
+.nav-right {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-right a:link,
+.nav-right a:visited {
+  text-decoration: none;
+  color: var(--text-color);
+  margin-left: 10px;
+  transition: color 0.3s;
+}
+
+.nav-right a:hover,
+.nav-right a:active {
+  color: var(--main-color);
+}
+
+.invite-btn {
+  padding: 8px 16px;
+  background: var(--main-color);
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.invite-btn:hover {
+  background: #d92020;
+}
+
+.beta-notification {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: rgba(168,30,30,0.95);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  z-index: 11000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  max-width: 300px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.beta-notification p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.beta-notification a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.close-notification {
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.close-notification:hover {
+  color: #ccc;
+}
 
 .support-bubble {
   position: fixed;
