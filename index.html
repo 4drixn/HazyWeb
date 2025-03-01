@@ -66,6 +66,27 @@
       </div>
     </header>
 
+<div id="stats">
+  <p>Servidores: <span id="guildCount">0</span></p>
+  <p>Usuarios: <span id="userCount">0</span></p>
+</div>
+
+<script>
+  async function fetchStats() {
+    try {
+      const response = await fetch('http://localhost:3000/api/stats');
+      const data = await response.json();
+      document.getElementById('guildCount').textContent = data.guildCount;
+      document.getElementById('userCount').textContent = data.userCount;
+    } catch (error) {
+      console.error('Error al obtener estadísticas:', error);
+    }
+  }
+  
+  setInterval(fetchStats, 10000);
+  fetchStats();
+</script>
+
     <section id="hazy-team" class="sr">
       <h2 class="section-title">Hazy Team</h2>
       <p class="section-subtitle">Conoce a las personas que hacen posible Hazy</p>
