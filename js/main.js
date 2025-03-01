@@ -1,12 +1,12 @@
 particlesJS("particles-js", {
   particles: {
-    number: { value: 50, density: { enable: true, value_area: 800 } },
+    number: { value: 30, density: { enable: true, value_area: 800 } },
     color: { value: "#ffffff" },
     shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
     opacity: {
       value: 0.8,
       random: true,
-      anim: { enable: true, speed: 1.5, opacity_min: 0.2, sync: false },
+      anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false },
     },
     size: {
       value: 2,
@@ -16,8 +16,8 @@ particlesJS("particles-js", {
     line_linked: { enable: false },
     move: {
       enable: true,
-      speed: 5,
-      direction: "bottom",
+      speed: 1,
+      direction: "none",
       random: true,
       straight: false,
       out_mode: "out",
@@ -136,11 +136,11 @@ document.addEventListener("click", () => {
   setTimeout(() => cursor.classList.remove("click"), 200);
 });
 
-document.addEventListener("selectionchange", () => {
-  const selection = window.getSelection();
-  if (!selection.isCollapsed) {
-    document.body.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-  } else {
-    document.body.style.backgroundColor = "transparent";
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.style.opacity = "1";
+  document.body.style.transition = "opacity 0.5s ease";
+});
+
+window.addEventListener("beforeunload", () => {
+  document.body.style.opacity = "0";
 });
