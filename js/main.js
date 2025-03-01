@@ -1,23 +1,23 @@
 particlesJS("particles-js", {
   particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
+    number: { value: 50, density: { enable: true, value_area: 800 } },
     color: { value: "#ffffff" },
     shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
     opacity: {
-      value: 1,
+      value: 0.8,
       random: true,
-      anim: { enable: true, speed: 3, opacity_min: 0.4, sync: false },
+      anim: { enable: true, speed: 1.5, opacity_min: 0.2, sync: false },
     },
     size: {
-      value: 4,
+      value: 2,
       random: true,
-      anim: { enable: true, speed: 4, size_min: 2, sync: false },
+      anim: { enable: true, speed: 2, size_min: 1, sync: false },
     },
     line_linked: { enable: false },
     move: {
       enable: true,
-      speed: 3,
-      direction: "none",
+      speed: 5,
+      direction: "bottom",
       random: true,
       straight: false,
       out_mode: "out",
@@ -28,27 +28,27 @@ particlesJS("particles-js", {
   interactivity: {
     detect_on: "canvas",
     events: {
-      onhover: { enable: true, mode: "bubble" },
-      onclick: { enable: true, mode: "push" },
+      onhover: { enable: false },
+      onclick: { enable: false },
       resize: true,
     },
     modes: {
-      bubble: { distance: 250, size: 12, duration: 0.6, opacity: 1 },
-      push: { particles_nb: 10 },
+      bubble: { distance: 200, size: 6, duration: 0.4, opacity: 0.8 },
+      push: { particles_nb: 4 },
     },
   },
   retina_detect: true,
 });
 
 ScrollReveal().reveal(".sr", {
-  duration: 1800,
-  distance: "120px",
+  duration: 1600,
+  distance: "100px",
   easing: "cubic-bezier(0.5, 0, 0, 1)",
   origin: "bottom",
   reset: true,
-  scale: 0.85,
+  scale: 0.9,
   opacity: 0,
-  delay: 500,
+  delay: 400,
 });
 
 class TextScramble {
@@ -134,4 +134,13 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("click", () => {
   cursor.classList.add("click");
   setTimeout(() => cursor.classList.remove("click"), 200);
+});
+
+document.addEventListener("selectionchange", () => {
+  const selection = window.getSelection();
+  if (!selection.isCollapsed) {
+    document.body.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+  } else {
+    document.body.style.backgroundColor = "transparent";
+  }
 });
