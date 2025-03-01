@@ -21,38 +21,41 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Hazy - Inicio</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <div id="particles-js"></div>
 
-  <div class="beta-notification">
+  <div class="notification show">
     <p>
       Actualmente nos encontramos en fase <strong>beta</strong>. Solicita tu acceso gratuito uniéndote al Discord de 
       <a href="https://discord.gg/hazybot" target="_blank">Hazy</a>.
-      <span class="close-notification" onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
     </p>
+    <span class="close-btn">&times;</span>
   </div>
 
-  <nav class="sr">
-    <div class="nav-container">
-      <div class="nav-left">
-        <h2 id="logo">Hazy</h2>
-      </div>
-      <div class="nav-right">
-        <a href="index.html">Inicio</a>
-        <a href="comandos.html">Comandos</a>
-        <a href="precios.html">Precios</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="rules.html">HAZY® RULES</a>
-        <a href="contact.html">Contáctanos</a>
-        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
-      </div>
-    </div>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Hazy</div>
+      <ul class="nav-items">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="comandos.html">Comandos</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="rules.html">HAZY® RULES</a></li>
+        <li><a href="contact.html">Contáctanos</a></li>
+        <li><a href="https://invite.hazybot.net" target="_blank" class="btn">Invitar al Bot</a></li>
+      </ul>
+      <div class="nav-toggle">&#9776;</div>
+    </nav>
+  </header>
 
   <main>
     <header id="inicio" class="sr">
