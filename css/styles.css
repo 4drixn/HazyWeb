@@ -150,75 +150,70 @@ nav {
   transform: scale(1.05);
 }
 
-.beta-notification {
+.bot-notification {
   position: fixed;
   top: 100px;
   right: 10px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 11000;
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.bot-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; 
+  margin-right: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.bot-message-bubble {
+  position: relative;
   background: rgba(168, 30, 30, 0.95); 
   color: #fff;
   padding: 15px 20px;
   border-radius: 10px;
-  z-index: 11000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   max-width: 300px;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  animation: slideInRight 0.8s ease-out forwards;
-  opacity: 1;
-  transform: translateX(0);
+  font-size: 0.95rem;
 }
 
-.beta-notification.show {
-  opacity: 1;
-  transform: translateX(0);
+.bot-message-bubble::before {
+  content: "";
+  position: absolute;
+  left: -15px;     
+  top: 20px;        
+  border: 8px solid transparent;
+  border-right-color: rgba(168, 30, 30, 0.95);
 }
 
-.beta-notification p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.beta-notification a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.beta-notification a:hover {
-  color: var(--main-hover-color);
-}
-
-.close-notification {
-  position: relative;
-  top: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.close-bot-notification {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.2rem;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.close-notification:hover {
+.close-bot-notification:hover {
   background: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
 }
 
 @keyframes slideInRight {
-  from {
+  0% {
     opacity: 0;
     transform: translateX(100%);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
