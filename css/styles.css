@@ -43,115 +43,158 @@ main {
 
 nav {
   width: 100%;
-  height: 60px;
-  background: rgba(0,0,0,0.15);             
-  backdrop-filter: blur(10px);             
-  -webkit-backdrop-filter: blur(10px);     
-  border: 1px solid rgba(255,255,255,0.1); 
-  border-radius: 8px;                      
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+  height: 70px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  animation: fadeInUp 1s ease forwards;
-}
-
-.nav-container {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  animation: fadeInDown 0.8s ease-out forwards;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  flex-wrap: wrap;
+  padding: 0 30px;
 }
 
-.nav-left {
-  margin-left: 20px;
+.nav-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  justify-content: space-between;
 }
 
 .nav-left h2 {
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  cursor: pointer;
+  font-size: 1.8rem;
   color: var(--main-color);
+  font-weight: bold;
   margin: 0;
+  transition: transform 0.3s ease-in-out;
 }
 
-.nav-left h2 a {
-  text-decoration: none;
-  color: var(--main-color);
+.nav-left h2:hover {
+  transform: scale(1.05);
 }
 
 .nav-right {
-  margin-right: 20px;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  gap: 20px;
 }
 
-.nav-right a:link,
-.nav-right a:visited {
+.nav-right a {
   text-decoration: none;
   color: var(--text-color);
-  margin-left: 10px;
-  transition: color 0.3s;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.nav-right a:hover,
-.nav-right a:active {
+.nav-right a:hover {
   color: var(--main-color);
+  transform: scale(1.08);
 }
 
 .invite-btn {
-  padding: 8px 16px;
+  padding: 10px 20px;
   background: var(--main-color);
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: background 0.3s;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px var(--main-color);
 }
 
 .invite-btn:hover {
   background: #d92020;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px #d92020;
 }
 
 .beta-notification {
   position: fixed;
-  top: 80px;
-  right: 20px;
-  background: rgba(168,30,30,0.95);
+  top: 100px;
+  right: 30px;
+  background: rgba(168, 30, 30, 0.95);
   color: #fff;
-  padding: 15px 20px;
-  border-radius: 8px;
-  z-index: 11000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  max-width: 300px;
-  animation: fadeInUp 1s ease forwards;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 350px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  animation: fadeInRight 1s ease forwards;
 }
 
 .beta-notification p {
-  font-size: 0.9rem;
-  line-height: 1.4;
+  margin: 0;
+  flex: 1;
 }
 
 .beta-notification a {
   color: #fff;
+  font-weight: bold;
   text-decoration: underline;
 }
 
 .close-notification {
   cursor: pointer;
   font-weight: bold;
-  margin-left: 10px;
+  margin-left: 15px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
 }
 
 .close-notification:hover {
   color: #ccc;
 }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-right {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .beta-notification {
+    top: 90px;
+    right: 10px;
+    max-width: 280px;
+    padding: 12px 18px;
+  }
+}
+
 
 .support-bubble {
   position: fixed;
