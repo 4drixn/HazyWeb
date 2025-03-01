@@ -54,7 +54,7 @@ nav {
   left: 0;
   z-index: 1000;
   animation: fadeInUp 0.8s ease-out forwards;
-  padding: 0 60px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -88,9 +88,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 40px;
+  gap: 25px;
   flex-grow: 1;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .nav-right a {
@@ -143,14 +143,14 @@ nav {
 .beta-notification {
   position: fixed;
   top: 100px;
-  right: 60px;
+  right: 10px;
   background: rgba(168, 30, 30, 0.95);
   color: #fff;
   padding: 15px 20px;
   border-radius: 10px;
   z-index: 11000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  max-width: 350px;
+  max-width: 300px;
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -213,6 +213,7 @@ nav {
     transform: translateX(0);
   }
 }
+
 
 .support-bubble {
   position: fixed;
