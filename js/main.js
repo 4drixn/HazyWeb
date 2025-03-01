@@ -107,3 +107,16 @@ particlesJS("particles-js", {
   document.querySelector('.nav-left h2').addEventListener('click', () => {
     fx.setText('????').then(scrambleReveal);
   });
+
+const navToggle = document.querySelector('.nav-toggle');
+const navItems = document.querySelector('.nav-items');
+const closeBtn = document.querySelector('.close-btn');
+const notification = document.querySelector('.notification');
+
+navToggle.addEventListener('click', () => {
+  navItems.classList.toggle('active');  
+});
+
+closeBtn.addEventListener('click', () => {
+  notification.classList.remove('show'); 
+});
