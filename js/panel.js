@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                 window.location.href = "dashboard.html"; 
             } else {
                 alert("⚠️ No tienes permisos para acceder al panel.");
-                window.location.href = "panel.html"; 
+                window.location.href = "index.html"; 
             }
         } catch (error) {
             console.error("❌ Error en la autenticación:", error);
+            window.location.href = "index.html"; 
         }
     }
 
@@ -49,8 +50,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const userId = localStorage.getItem("user_id");
 
     if (!userToken) {
-        console.warn("🚨 No hay token, redirigiendo a panel.html...");
-        window.location.href = "panel.html";
+        console.warn("🚨 No hay token, redirigiendo a index.html...");
+        window.location.href = "index.html";
         return;
     }
 
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.warn("🚨 Usuario no autorizado, cerrando sesión...");
         localStorage.removeItem("discord_token");
         localStorage.removeItem("user_id");
-        window.location.href = "panel.html";
+        window.location.href = "index.html";
         return;
     }
 
@@ -80,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log("🔹 Cerrando sesión...");
         localStorage.removeItem("discord_token");
         localStorage.removeItem("user_id");
-        window.location.href = "panel.html";
+        window.location.href = "index.html";
     });
 
     document.getElementById("sendMessage")?.addEventListener("click", function () {
