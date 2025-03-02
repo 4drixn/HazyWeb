@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
 
+    const ADMIN_IDS = ["TU_DISCORD_ID", "OTRO_ADMIN_ID"];
+
     if (code) {
         try {
             const response = await fetch("https://api-panel.hazybot.net/auth", {
@@ -17,11 +19,13 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
 
             const data = await response.json();
-            if (data.token) {
+            if (data.token && ADMIN_IDS.includes(data.user.id)) {
                 localStorage.setItem("discord_token", data.token);
-                window.location.href = "panel.html"; 
+                localStorage.setItem("user_id", data.user.id);
+                window.location.href = "dashboard.html"; 
             } else {
-                alert("Error al autenticar.");
+                alert("No tienes permisos para acceder al panel.");
+                window.location.href = "panel.html"; 
             }
         } catch (error) {
             console.error("Error en la autenticación:", error);
@@ -29,42 +33,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     const userToken = localStorage.getItem("discord_token");
-    if (userToken) {
-        authSection.style.display = "none";
-        dashboardSection.style.display = "block";
+    const userId = localStorage.getItem("user_id");
 
-        fetch("https://api-panel.hazybot.net/bot-status")
-            .then(response => response.json())
-            .then(data => botStatus.textContent = data.status || "Desconocido")
-            .catch(error => console.error("Error al obtener estado del bot:", error));
+    if (!userToken || !ADMIN_IDS.includes(userId)) {
+        console.warn("Acceso denegado. Redirigiendo...");
+        window.location.href = "panel.html";
+        return;
     }
 
-    loginBtn.addEventListener("click", function () {
-        window.location.href = "https://discord.com/api/oauth2/authorize?client_id=1342201886727475200&redirect_uri=https://www.hazybot.net/panel.html&response_type=code&scope=identify";
-    });
+    authSection.style.display = "none";
+    dashboardSection.style.display = "block";
 
-    logoutBtn.addEventListener("click", function () {
-        localStorage.removeItem("discord_token");
-        window.location.href = "panel.html";
-    });
-
-    document.getElementById("sendMessage").addEventListener("click", function () {
-        fetch("https://api-panel.hazybot.net/send-message", {
-            method: "POST",
-            headers: { "Authorization": `Bearer ${userToken}` }
-        })
-            .then(response => response.json())
-            .then(data => alert(data.message))
-            .catch(error => console.error("Error:", error));
-    });
-
-    document.getElementById("kickUser").addEventListener("click", function () {
-        fetch("https://api-panel.hazybot.net/kick-user", {
-            method: "POST",
-            headers: { "Authorization": `Bearer ${userToken}` }
-        })
-            .then(response => response.json())
-            .then(data => alert(data.message))
-            .catch(error => console.error("Error:", error));
-    });
-});
+    fetch("https://api-p
