@@ -42,16 +42,18 @@
   </nav>
 
   <main>
-    <header class="sr hero-content">
-      <h1>Panel de Control</h1>
-      <p>Accede con tu cuenta de Discord para gestionar Hazy.</p>
-      <button id="loginBtn" class="cta-btn">Iniciar sesión con Discord</button>
+    <header class="sr">
+      <div class="hero-content">
+        <h1>Panel de Control</h1>
+        <p>Accede con tu cuenta de Discord para gestionar Hazy.</p>
+        <button id="loginBtn" class="cta-btn">Iniciar sesión con Discord</button>
+      </div>
     </header>
 
-    <section id="dashboard" class="hidden">
+    <section id="dashboard" style="display: none;">
       <h2>Dashboard</h2>
       <p>Estado del bot: <span id="botStatus">Desconocido</span></p>
-      <button id="logoutBtn" class="cta-btn">Cerrar sesión</button>
+      <button id="logoutBtn">Cerrar sesión</button>
     </section>
   </main>
 
