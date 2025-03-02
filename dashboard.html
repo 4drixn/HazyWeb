@@ -14,6 +14,57 @@
   <title>Hazy - Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+
+    #dashboard {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .cta-btn {
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+      background-color: #cc0000;
+    }
+
+    footer {
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
   <nav class="sr">
@@ -31,13 +82,15 @@
   </nav>
 
   <main>
-    <section id="dashboard" style="display: none;">
+    <section id="dashboard">
       <h2>Dashboard</h2>
       <p>Estado del bot: <span id="botStatus">Cargando...</span></p>
 
-      <button id="sendMessage" class="cta-btn">Enviar mensaje</button>
-      <button id="kickUser" class="cta-btn">Expulsar usuario</button>
-      <button id="logoutBtn" class="cta-btn logout">Cerrar sesión</button>
+      <div class="btn-group">
+        <button id="sendMessage" class="cta-btn">Enviar mensaje</button>
+        <button id="kickUser" class="cta-btn">Expulsar usuario</button>
+        <button id="logoutBtn" class="cta-btn">Cerrar sesión</button>
+      </div>
     </section>
   </main>
 
@@ -47,12 +100,6 @@
     </p>
   </footer>
 
-  <div class="support-bubble" onclick="window.open('https://discord.gg/hazybot','_blank')">
-    <i class="fab fa-discord"></i>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
