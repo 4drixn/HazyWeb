@@ -693,19 +693,20 @@ footer a {
 }
 
 button {
-    padding: 10px 15px;
+    padding: 12px 20px;
     font-size: 16px;
-    margin: 10px;
+    margin: 15px;
     cursor: pointer;
-    background-color: #FF4444;
+    background-color: #b30000;
     border: none;
     color: white;
     border-radius: 5px;
     transition: background 0.3s ease;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: #cc0000;
+    background-color: #800000; 
 }
 
 .container {
