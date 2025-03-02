@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    console.log("✅ Autenticación en curso...");
+    console.log("✅ Iniciando autenticación...");
 
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (code) {
         try {
-            console.log("🔹 Código OAuth recibido, autenticando...");
+            console.log("🔹 Código OAuth recibido:", code);
 
             const response = await fetch("https://api-panel.hazybot.net/auth", {
                 method: "POST",
@@ -21,9 +21,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             if (!data || !data.token || !data.user || !data.user.id) {
                 console.error("❌ Error: No se recibió un user.id válido.");
-                alert("⚠️ Error en la autenticación. Intenta de nuevo.");
+                alert("⚠️ Error en la autenticación. Revisa la consola.");
                 localStorage.clear();
-                window.location.href = "index.html";
                 return;
             }
 
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         } catch (error) {
             console.error("❌ Error en la autenticación:", error);
-            alert("⚠️ Error en la autenticación. Intenta de nuevo.");
+            alert("⚠️ Error en la autenticación. Revisa la consola.");
             localStorage.clear();
             window.location.href = "index.html";
         }
