@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     const userToken = localStorage.getItem("discord_token");
     const userId = localStorage.getItem("user_id");
 
-    // ✅ Mostrar botón de login si no hay token
     if (!userToken) {
         authSection.style.display = "block";
         dashboardSection.style.display = "none";
@@ -26,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         dashboardSection.style.display = "block";
     }
 
-    // ✅ Evento para iniciar sesión
     if (loginBtn) {
         loginBtn.addEventListener("click", function () {
             console.log("🔹 Redirigiendo a Discord OAuth...");
@@ -34,7 +32,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     }
 
-    // ✅ Manejo de autenticación con código de Discord
     if (code) {
         try {
             console.log("🔹 Código OAuth recibido, autenticando...");
@@ -65,12 +62,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    // ✅ Si el usuario no está autenticado y NO ha intentado iniciar sesión, permitir login
     if (!userToken) {
         return;
     }
 
-    // ✅ Si el usuario no es admin, sacarlo del panel
     if (!userId || !ADMIN_IDS.includes(userId)) {
         console.warn("🚨 Usuario no autorizado, redirigiendo...");
         localStorage.clear();
@@ -82,7 +77,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     authSection.style.display = "none";
     dashboardSection.style.display = "block";
 
-    // ✅ Obtener estado del bot
     fetch(`${API_BASE}/bot-status`, {
         headers: { "Authorization": `Bearer ${userToken}` }
     })
@@ -93,7 +87,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
     .catch(error => console.error("❌ Error al obtener estado del bot:", error));
 
-    // ✅ Botón de logout
     if (logoutBtn) {
         logoutBtn.addEventListener("click", function () {
             console.log("🔹 Cerrando sesión...");
