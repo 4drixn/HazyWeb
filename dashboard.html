@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta property="og:title" content="Hazy - Dashboard">
+  <meta property="og:description" content="Dashboard para gestionar Hazy.">
+  <meta property="og:url" content="https://www.hazybot.net/dashboard.html">
+  <meta property="og:type" content="website">
+  
+  <meta name="theme-color" content="#FF4444">
+  <link rel="icon" href="https://4drixn.github.io/Website/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hazy - Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="sr">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo" />
+        <h2 id="logo">Hazy</h2>
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Inicio</a>
+        <a href="panel.html" class="active">Panel</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <p>Estado del bot: <span id="botStatus">Cargando...</span></p>
+
+      <button id="sendMessage" class="cta-btn">Enviar mensaje</button>
+      <button id="kickUser" class="cta-btn">Expulsar usuario</button>
+      <button id="logoutBtn" class="cta-btn logout">Cerrar sesión</button>
+    </section>
+  </main>
+
+  <footer class="sr">
+    <p>Hazy® 2025 • Made By Adrian | 
+      <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+    </p>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
