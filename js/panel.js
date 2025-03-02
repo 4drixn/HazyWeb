@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         } catch (error) {
             console.error("❌ Error en la autenticación:", error);
             localStorage.clear();
-            window.location.href = "index.html";
         }
     }
 
