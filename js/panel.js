@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const loginBtn = document.getElementById("loginBtn");
-    const authSection = document.getElementById("auth");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const authSection = document.querySelector(".hero-content");
     const dashboardSection = document.getElementById("dashboard");
     const botStatus = document.getElementById("botStatus");
 
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             const data = await response.json();
             if (data.token) {
                 localStorage.setItem("discord_token", data.token);
-                window.location.href = "panel.html";
+                window.location.href = "panel.html"; 
             } else {
                 alert("Error al autenticar.");
             }
@@ -40,6 +41,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     loginBtn.addEventListener("click", function () {
         window.location.href = "https://discord.com/api/oauth2/authorize?client_id=1342201886727475200&redirect_uri=https://www.hazybot.net/panel.html&response_type=code&scope=identify";
+    });
+
+    logoutBtn.addEventListener("click", function () {
+        localStorage.removeItem("discord_token");
+        window.location.href = "panel.html";
     });
 
     document.getElementById("sendMessage").addEventListener("click", function () {
