@@ -40,6 +40,22 @@
       margin-bottom: 20px;
     }
 
+    label {
+      font-size: 16px;
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      background-color: #222;
+      color: white;
+      margin-bottom: 10px;
+    }
+
     .btn-group {
       display: flex;
       justify-content: center;
@@ -85,6 +101,21 @@
     <section id="dashboard">
       <h2>Dashboard</h2>
       <p>Estado del bot: <span id="botStatus">Cargando...</span></p>
+
+      <h3>⚙️ Configuración del Servidor</h3>
+      <label for="ticketChannel">Canal de Tickets (ID)</label>
+      <input type="text" id="ticketChannel" placeholder="Ejemplo: 123456789012345678">
+
+      <label for="logChannel">Canal de Logs (ID)</label>
+      <input type="text" id="logChannel" placeholder="Ejemplo: 987654321098765432">
+
+      <label for="verificationChannel">Canal de Verificación (ID)</label>
+      <input type="text" id="verificationChannel" placeholder="Ejemplo: 123123123123123123">
+
+      <label for="suggestionChannel">Canal de Sugerencias (ID)</label>
+      <input type="text" id="suggestionChannel" placeholder="Ejemplo: 321321321321321321">
+
+      <button id="saveSettings" class="cta-btn">Guardar Configuración</button>
 
       <div class="btn-group">
         <button id="sendMessage" class="cta-btn">Enviar mensaje</button>
