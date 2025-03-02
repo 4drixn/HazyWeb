@@ -1,27 +1,26 @@
 document.addEventListener("DOMContentLoaded", async function () {
+    console.log("✅ Script cargado correctamente");
+
     const loginBtn = document.getElementById("loginBtn");
     const logoutBtn = document.getElementById("logoutBtn");
     const authSection = document.querySelector(".hero-content");
     const dashboardSection = document.getElementById("dashboard");
     const botStatus = document.getElementById("botStatus");
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("code");
-
     const ADMIN_IDS = ["1096843631513583757", "786094453772386324", "823695181362364438"];
 
     const isIndexPage = window.location.pathname.includes("index.html");
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+
     const userToken = localStorage.getItem("discord_token");
     const userId = localStorage.getItem("user_id");
 
-    if (userToken && ADMIN_IDS.includes(userId)) {
-        authSection.style.display = "none";
-        dashboardSection.style.display = "block";
-    }
-
     if (code) {
         try {
+            console.log("🔹 Código OAuth recibido, autenticando...");
+
             const response = await fetch("https://api-panel.hazybot.net/auth", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -29,35 +28,43 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
 
             const data = await response.json();
+            console.log("🔹 Respuesta de autenticación:", data);
 
             if (data.token && ADMIN_IDS.includes(data.user.id)) {
+                console.log("✅ Usuario autorizado como admin");
+
                 localStorage.setItem("discord_token", data.token);
                 localStorage.setItem("user_id", data.user.id);
                 window.location.href = "dashboard.html"; 
+                return;
             } else {
                 alert("⚠️ No tienes permisos para acceder al panel.");
-                if (!isIndexPage) window.location.href = "index.html";
+                window.location.href = "index.html"; 
+                return;
             }
         } catch (error) {
             console.error("❌ Error en la autenticación:", error);
-            if (!isIndexPage) window.location.href = "index.html";
+            window.location.href = "index.html"; 
+            return;
         }
     }
 
     if (!userToken) {
-        console.warn("🚨 No hay token. Mostrando solo login.");
-        dashboardSection.style.display = "none";  
+        console.warn("🚨 No hay token, mostrando login.");
+        dashboardSection.style.display = "none";
+        authSection.style.display = "block";
         return;
     }
 
-    if (!ADMIN_IDS.includes(userId)) {
-        console.warn("🚨 Usuario no autorizado, cerrando sesión...");
+    if (!userId || !ADMIN_IDS.includes(userId)) {
+        console.warn("🚨 Usuario no autorizado, cerrando sesión.");
         localStorage.removeItem("discord_token");
         localStorage.removeItem("user_id");
-        if (!isIndexPage) window.location.href = "index.html";
+        window.location.href = "index.html";
         return;
     }
 
+    console.log("✅ Usuario autenticado, mostrando dashboard");
     authSection.style.display = "none";
     dashboardSection.style.display = "block";
 
@@ -67,10 +74,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     .then(response => response.json())
     .then(data => {
         botStatus.textContent = data.status || "Desconocido";
+        console.log("✅ Estado del bot:", data.status);
     })
     .catch(error => console.error("❌ Error al obtener estado del bot:", error));
 
     logoutBtn?.addEventListener("click", function () {
+        console.log("🔹 Cerrando sesión...");
         localStorage.removeItem("discord_token");
         localStorage.removeItem("user_id");
         window.location.href = "index.html";
