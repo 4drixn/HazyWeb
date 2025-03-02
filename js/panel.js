@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (loginBtn) {
         console.log("🔹 Botón de login encontrado, agregando evento...");
-        loginBtn.addEventListener("click", function () {
-            console.log("🟢 Redirigiendo a Discord OAuth...");
-            window.location.href = `https://discord.com/api/oauth2/authorize?client_id=1342201886727475200&redirect_uri=${encodeURIComponent("https://www.hazybot.net/panel.html")}&response_type=code&scope=identify`;
+loginBtn.addEventListener("click", function () {
+    console.log("🟢 Redirigiendo a Discord OAuth...");
+    window.location.href = "https://discord.com/api/oauth2/authorize?client_id=1342201886727475200&redirect_uri=https://www.hazybot.net/panel.html&response_type=code&scope=identify";
+});
         });
     } else {
         console.error("❌ Error: No se encontró el botón de login.");
