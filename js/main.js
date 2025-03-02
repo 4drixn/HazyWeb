@@ -107,3 +107,26 @@ particlesJS("particles-js", {
   document.querySelector('.nav-left h2').addEventListener('click', () => {
     fx.setText('????').then(scrambleReveal);
   });
+
+async function fetchStats() {
+    try {
+        const response = await fetch('https://api.hazybot.net/api/stats');
+        const data = await response.json();
+
+        const guildCountElement = document.getElementById('guildCount');
+        if (guildCountElement) {
+            guildCountElement.textContent = data.guildCount || 0;
+        }
+
+        const userCountElement = document.getElementById('userCount');
+        if (userCountElement) {
+            userCountElement.textContent = data.userCount || 0;
+        }
+    } catch (error) {
+        console.error('Error al obtener las estadísticas:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchStats);
+
+setInterval(fetchStats, 30000); 
