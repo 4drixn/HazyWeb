@@ -17,7 +17,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     const userToken = localStorage.getItem("discord_token");
     const userId = localStorage.getItem("user_id");
 
-    // ✅ Botón de login con Discord
+    // ✅ Mostrar botón de login si no hay token
+    if (!userToken) {
+        authSection.style.display = "block";
+        dashboardSection.style.display = "none";
+    } else {
+        authSection.style.display = "none";
+        dashboardSection.style.display = "block";
+    }
+
+    // ✅ Evento para iniciar sesión
     if (loginBtn) {
         loginBtn.addEventListener("click", function () {
             console.log("🔹 Redirigiendo a Discord OAuth...");
@@ -48,20 +57,24 @@ document.addEventListener("DOMContentLoaded", async function () {
             } else {
                 alert("⚠️ No tienes permisos para acceder al panel.");
                 localStorage.clear();
-                window.location.href = "index.html";
+                window.location.href = "panel.html";
             }
         } catch (error) {
             console.error("❌ Error en la autenticación:", error);
             localStorage.clear();
-            window.location.href = "index.html";
         }
     }
 
-    // ✅ Si el usuario no está autenticado, redirigirlo al index
-    if (!userToken || !userId || !ADMIN_IDS.includes(userId)) {
+    // ✅ Si el usuario no está autenticado y NO ha intentado iniciar sesión, permitir login
+    if (!userToken) {
+        return;
+    }
+
+    // ✅ Si el usuario no es admin, sacarlo del panel
+    if (!userId || !ADMIN_IDS.includes(userId)) {
         console.warn("🚨 Usuario no autorizado, redirigiendo...");
         localStorage.clear();
-        window.location.href = "index.html";
+        window.location.href = "panel.html";
         return;
     }
 
@@ -85,7 +98,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         logoutBtn.addEventListener("click", function () {
             console.log("🔹 Cerrando sesión...");
             localStorage.clear();
-            window.location.href = "index.html";
+            window.location.href = "panel.html";
         });
     }
 });
