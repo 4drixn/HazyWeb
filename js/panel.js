@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     const userToken = localStorage.getItem("discord_token");
     const userId = localStorage.getItem("user_id");
 
-    // 🔥 🟢 ✅ CORREGIDO: Eliminado el paréntesis extra que rompía el código
     if (loginBtn) {
         console.log("🔹 Botón de login encontrado, agregando evento...");
         loginBtn.addEventListener("click", function () {
