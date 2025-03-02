@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    console.log("✅ Script cargado correctamente"); 
+    console.log("✅ Script cargado correctamente");
 
     const loginBtn = document.getElementById("loginBtn");
     const logoutBtn = document.getElementById("logoutBtn");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
 
-   const ADMIN_IDS = ["1096843631513583757", "786094453772386324", "823695181362364438"];
+    const ADMIN_IDS = ["1096843631513583757", "786094453772386324", "823695181362364438"];
 
     if (code) {
         try {
@@ -48,8 +48,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     const userToken = localStorage.getItem("discord_token");
     const userId = localStorage.getItem("user_id");
 
-    if (!userToken || !ADMIN_IDS.includes(userId)) {
-        console.warn("🚨 Acceso denegado. Redirigiendo a panel.html...");
+    if (!userToken) {
+        console.warn("🚨 No hay token, redirigiendo a panel.html...");
+        window.location.href = "panel.html";
+        return;
+    }
+
+    if (!userId || !ADMIN_IDS.includes(userId)) {
+        console.warn("🚨 Usuario no autorizado, cerrando sesión...");
+        localStorage.removeItem("discord_token");
+        localStorage.removeItem("user_id");
         window.location.href = "panel.html";
         return;
     }
