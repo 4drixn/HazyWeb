@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const ADMIN_IDS = ["1096843631513583757", "786094453772386324", "823695181362364438"];
     const API_BASE = "https://api-panel.hazybot.net";
-    const REDIRECT_URI = "https://www.hazybot.net/panel.html"; 
+    const REDIRECT_URI = "https://www.hazybot.net/panel.html";
 
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const userToken = localStorage.getItem("discord_token");
     const userId = localStorage.getItem("user_id");
 
+    // ✅ Botón de login con Discord
     if (loginBtn) {
         loginBtn.addEventListener("click", function () {
             console.log("🔹 Redirigiendo a Discord OAuth...");
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     }
 
+    // ✅ Manejo de autenticación con código de Discord
     if (code) {
         try {
             console.log("🔹 Código OAuth recibido, autenticando...");
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             const data = await response.json();
             console.log("🔹 Respuesta de autenticación:", data);
 
-            if (data.token && ADMIN_IDS.includes(data.user.id)) {
+            if (data.token && data.user && ADMIN_IDS.includes(data.user.id)) {
                 console.log("✅ Usuario autorizado como admin");
 
                 localStorage.setItem("discord_token", data.token);
@@ -51,10 +53,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         } catch (error) {
             console.error("❌ Error en la autenticación:", error);
             localStorage.clear();
+            window.location.href = "index.html";
         }
     }
 
-    if (!userToken || !ADMIN_IDS.includes(userId)) {
+    // ✅ Si el usuario no está autenticado, redirigirlo al index
+    if (!userToken || !userId || !ADMIN_IDS.includes(userId)) {
         console.warn("🚨 Usuario no autorizado, redirigiendo...");
         localStorage.clear();
         window.location.href = "index.html";
@@ -65,6 +69,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     authSection.style.display = "none";
     dashboardSection.style.display = "block";
 
+    // ✅ Obtener estado del bot
     fetch(`${API_BASE}/bot-status`, {
         headers: { "Authorization": `Bearer ${userToken}` }
     })
@@ -75,6 +80,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
     .catch(error => console.error("❌ Error al obtener estado del bot:", error));
 
+    // ✅ Botón de logout
     if (logoutBtn) {
         logoutBtn.addEventListener("click", function () {
             console.log("🔹 Cerrando sesión...");
