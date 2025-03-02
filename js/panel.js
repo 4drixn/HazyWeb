@@ -3,15 +3,16 @@ document.getElementById("loginBtn").addEventListener("click", function() {
 });
 
 document.getElementById("sendMessage").addEventListener("click", function() {
-    fetch("https://TU_BACKEND_URL/send-message", { method: "POST" })
+    fetch("https://api-panel.hazybot.net/send-message", { method: "POST" })
         .then(response => response.json())
         .then(data => alert(data.message))
         .catch(error => console.error("Error:", error));
 });
 
 document.getElementById("kickUser").addEventListener("click", function() {
-    fetch("https://TU_BACKEND_URL/kick-user", { method: "POST" })
+    fetch("https://api-panel.hazybot.net/kick-user", { method: "POST" })
         .then(response => response.json())
         .then(data => alert(data.message))
         .catch(error => console.error("Error:", error));
 });
+
