@@ -5,39 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazy - Changelog</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div id="particles-js"></div>
   
-<div class="bot-notification" id="botNotification">
-  <img src="hazy-logo.jpg" alt="Hazy Bot" class="bot-avatar" />
-  <div class="bot-message-bubble">
-    <p>¡Hola! Soy Hazy. Actualmente estamos en fase beta.</p>
-    <p>Únete a nuestro Discord para solicitar tu acceso gratuito.</p>
-    <span class="close-bot-notification" onclick="closeBotNotification()">&times;</span>
+  <div class="bot-notification" id="botNotification">
+    <img src="hazy-logo.jpg" alt="Hazy Bot" class="bot-avatar" />
+    <div class="bot-message-bubble">
+      <p>¡Hola! Soy Hazy. Actualmente estamos en fase beta.</p>
+      <p>Únete a nuestro Discord para solicitar tu acceso gratuito.</p>
+      <span class="close-bot-notification" onclick="closeBotNotification()">&times;</span>
+    </div>
   </div>
-</div>
   
-<nav class="sr">
-  <div class="nav-container">
-    <div class="nav-left">
-      <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo" />
-      <h2 id="logo">Hazy</h2>
+  <nav class="sr">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo" />
+        <h2 id="logo">Hazy</h2>
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Inicio</a>
+        <a href="comandos.html">Comandos</a>
+        <a href="precios.html">Precios</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="rules.html">Rules</a>
+        <a href="contact.html">Contáctanos</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+      </div>
     </div>
-    <div class="nav-right">
-      <a href="index.html">Inicio</a>
-      <a href="comandos.html">Comandos</a>
-      <a href="precios.html">Precios</a>
-      <a href="changelog.html">Changelog</a>
-      <a href="rules.html">Rules</a>
-      <a href="contact.html">Contáctanos</a>
-      <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
-    </div>
-  </div>
-</nav>
+  </nav>
   
   <main>
     <section id="changelog" class="sr">
@@ -105,7 +107,6 @@
             </ul>
           </div>
         </div>
-      </div>
 
         <div class="timeline-item">
           <div class="timeline-date">Changelog (03/03/2025)</div>
@@ -124,13 +125,14 @@
             </ul>
           </div>
         </div>
-
-      
+      </div>
     </section>
   </main>
   
   <footer class="sr">
-    <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+    <p>Hazy® 2025 • Made By Adrian | 
+      <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+    </p>
   </footer>
   
   <div class="support-bubble" onclick="window.open('https://discord.gg/hazybot','_blank')">
@@ -140,14 +142,14 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    function closeBotNotification() {
+      const botNotification = document.getElementById('botNotification');
+      if (botNotification) {
+        botNotification.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
-
-<script>
-  function closeBotNotification() {
-    const botNotification = document.getElementById('botNotification');
-    if (botNotification) {
-      botNotification.style.display = 'none';
-    }
-  }
-</script>
