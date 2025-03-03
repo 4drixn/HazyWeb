@@ -686,3 +686,59 @@ footer a {
   font-size: 1rem;
   color: #fff;
 }
+
+.accordion {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 1rem;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion-header i {
+  transition: transform 0.2s ease;
+}
+
+.accordion-header i.rotate {
+  transform: rotate(180deg);
+}
+
+.accordion-header.active {
+  color: #A81E1E;
+}
+
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-content .timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #A81E1E;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.accordion-header span {
+  pointer-events: none; 
+}
