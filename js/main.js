@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     Particle.prototype.draw = function () {
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function initParticles() {
         particles = [];
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 90; i++) {
             const size = Math.random() * 2 + 1;
             const x = Math.random() * canvas.width;
             const y = Math.random() * canvas.height;
-            const speedX = (Math.random() - 0.5) * 1;
-            const speedY = (Math.random() - 0.5) * 1;
+            const speedX = (Math.random() - 0.5) * 0.8;
+            const speedY = (Math.random() - 0.5) * 0.8;
             particles.push(new Particle(x, y, size, speedX, speedY));
         }
     }
@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Efecto en sidebar al pasar el mouse
     const sidebar = document.querySelector(".sidebar");
     sidebar.addEventListener("mouseenter", () => {
-        sidebar.style.width = "200px";
+        sidebar.style.width = "210px";
     });
     sidebar.addEventListener("mouseleave", () => {
-        sidebar.style.width = "80px";
+        sidebar.style.width = "85px";
     });
 });
