@@ -14,112 +14,117 @@
   <meta name="twitter:title" content="Hazy - Discord Bot">
   <meta name="twitter:description" content="Gestiona tu servidor de Discord con Hazy, el bot más completo y fácil de usar.">
   <meta name="twitter:image" content="https://4drixn.github.io/Website/hazy-logo.jpg">
-
   <meta name="theme-color" content="#FF4444">
 
   <link rel="icon" href="https://4drixn.github.io/Website/favicon.ico" type="image/x-icon">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hazy - Inicio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Hazy - Revolución</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Fondo de partículas -->
   <div id="particles-js"></div>
 
-<div class="bot-notification" id="botNotification">
-  <img src="hazy-logo.jpg" alt="Hazy Bot" class="bot-avatar" />
-  <div class="bot-message-bubble">
-    <p>¡Hola! Soy Hazy. Actualmente estamos en fase beta.</p>
-    <p>Únete a nuestro Discord para solicitar tu acceso gratuito.</p>
-    <span class="close-bot-notification" onclick="closeBotNotification()">&times;</span>
-  </div>
-</div>
-
-<nav class="sr">
-  <div class="nav-container">
-    <div class="nav-left">
-      <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo" />
-      <h2 id="logo">Hazy</h2>
-    </div>
-    <div class="nav-right">
-      <a href="index.html">Inicio</a>
-      <a href="comandos.html">Comandos</a>
-      <a href="precios.html">Precios</a>
-      <a href="changelog.html">Changelog</a>
-      <a href="rules.html">Rules</a>
-      <a href="contact.html">Contáctanos</a>
-      <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+  <!-- Notificación del Bot -->
+  <div class="bot-notification" id="botNotification">
+    <img src="hazy-logo.jpg" alt="Hazy Bot" class="bot-avatar" />
+    <div class="bot-message-bubble">
+      <p>¡Hola! Soy Hazy. Estamos en fase beta.</p>
+      <p>Únete a nuestro Discord para acceder gratis.</p>
+      <span class="close-bot-notification" onclick="closeBotNotification()">&times;</span>
     </div>
   </div>
-</nav>
 
-  <main>
-    <header id="inicio" class="sr">
-      <div class="hero-content">
-        <h1 id="scrambleText">Hazy</h1>
-        <p>El bot definitivo para tu servidor de Discord. Gestión, moderación y mucho más, en un solo lugar. Simplifica la administración de tu comunidad.</p>
+  <!-- Menú de navegación -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo" />
+        <h2 id="logo">Hazy</h2>
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Inicio</a>
+        <a href="comandos.html">Comandos</a>
+        <a href="precios.html">Precios</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="rules.html">Rules</a>
+        <a href="contact.html">Contáctanos</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+      </div>
+      <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="inicio">
+    <div class="hero-content">
+      <h1 id="scrambleText">Hazy</h1>
+      <p>El bot definitivo para tu servidor de Discord. Gestión, moderación y más en un solo lugar.</p>
+      <div class="hero-buttons">
         <a class="cta-btn" href="https://invite.hazybot.net" target="_blank">¡Invítame a tu Servidor!</a>
         <a class="cta-btn" href="https://discord.gg/hazybot" target="_blank">Únete al Servidor</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <section id="hazy-team" class="sr">
-      <h2 class="section-title">Hazy Team</h2>
-      <p class="section-subtitle">Conoce a las personas que hacen posible Hazy</p>
-      
-      <div class="developer-container">
-        <div class="developer-card">
-          <img class="developer-pfp" src="https://i.imgur.com/U7rYa0q.png" alt="homeR PFP">
-          <h3>homeR</h3>
-          <p>Discord: <strong>homer.lua</strong></p>
-          <div class="social-links">
-            <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
-            <a href="https://github.com/homerARG" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          </div>
+  <!-- Sección del equipo -->
+  <section id="hazy-team">
+    <h2 class="section-title">Hazy Team</h2>
+    <p class="section-subtitle">Conoce a las personas detrás de Hazy</p>
+    <div class="developer-container">
+      <div class="developer-card">
+        <img class="developer-pfp" src="https://i.imgur.com/U7rYa0q.png" alt="homeR PFP">
+        <h3>homeR</h3>
+        <p>Discord: <strong>homer.lua</strong></p>
+        <div class="social-links">
+          <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+          <a href="https://github.com/homerARG" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
         </div>
-
-        <div class="developer-card">
-          <img class="developer-pfp" src="https://i.imgur.com/3VvdJmH.png" alt="Adrian PFP">
-          <h3>Adrian</h3>
-          <p>Discord: <strong>adrian.tf</strong></p>
-          <div class="social-links">
-            <a href="https://discord.com/users/adrian.tf" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
-            <a href="https://github.com/4drixn" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com/adrixnlb21" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-          </div>
-          <button class="surprise-btn" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">
-            🎁 Sorpresa
-          </button>
+      </div>
+      <div class="developer-card">
+        <img class="developer-pfp" src="https://i.imgur.com/3VvdJmH.png" alt="Adrian PFP">
+        <h3>Adrian</h3>
+        <p>Discord: <strong>adrian.tf</strong></p>
+        <div class="social-links">
+          <a href="https://discord.com/users/adrian.tf" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+          <a href="https://github.com/4drixn" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://twitter.com/adrixnlb21" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
         </div>
-
-        <div class="developer-card">
-          <img class="developer-pfp" src="https://i.imgur.com/qtyERGr.jpeg" alt="Felipe PFP">
-          <h3>Felipe</h3>
-          <p>Discord: <strong>fffelipeee</strong></p>
-          <div class="social-links">
-            <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
-            <a href="https://github.com/fffelipeee" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          </div>
+        <button class="surprise-btn" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">
+          🎁 Sorpresa
+        </button>
+      </div>
+      <div class="developer-card">
+        <img class="developer-pfp" src="https://i.imgur.com/qtyERGr.jpeg" alt="Felipe PFP">
+        <h3>Felipe</h3>
+        <p>Discord: <strong>fffelipeee</strong></p>
+        <div class="social-links">
+          <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+          <a href="https://github.com/fffelipeee" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
         </div>
-      </div> 
-    </section>
-  </main>
+      </div>
+    </div>
+  </section>
 
-  <footer class="sr">
-    <p>Hazy® 2025 • Made By Adrian | 
-      <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
-    </p>
+  <!-- Footer -->
+  <footer>
+    <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
   </footer>
 
+  <!-- Soporte (botón flotante de Discord) -->
   <div class="support-bubble" onclick="window.open('https://discord.gg/hazybot','_blank')">
     <i class="fab fa-discord"></i>
   </div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- Opcional: Incluir GSAP y ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
