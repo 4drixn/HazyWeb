@@ -1,9 +1,10 @@
 /* =========================================================================
-   REDISEÑO DE main.js
-   Manteniendo el fetchStats, textScramble y partículas, con mejoras
+   Redesigned main.js
+   - Mantiene todas las funciones originales (TextScramble, fetchStats, etc.)
+   - Añade animaciones y mejoras de compatibilidad
    ========================================================================= */
 
-/* Partículas con particles.js (código original) */
+/* Partículas (mantener configuración original) */
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 200, "density": { "enable": true, "value_area": 800 } },
@@ -39,7 +40,7 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
-/* ScrollReveal original */
+/* ScrollReveal en elementos con clase .sr (mantener) */
 ScrollReveal().reveal('.sr', {
   duration: 1000,
   distance: '50px',
@@ -48,9 +49,7 @@ ScrollReveal().reveal('.sr', {
   reset: false
 });
 
-/* -----------------------------------------------------------------------
-   TextScramble Class (conservar funcionalidad original)
-   ----------------------------------------------------------------------- */
+/* ========== TextScramble (conservar) ========== */
 class TextScramble {
   constructor(el) {
     this.el = el;
@@ -105,9 +104,7 @@ class TextScramble {
   }
 }
 
-/* -----------------------------------------------------------------------
-   Inicializar el efecto scramble en #scrambleText
-   ----------------------------------------------------------------------- */
+/* Aplicar el scramble a #scrambleText */
 const el = document.getElementById('scrambleText');
 if (el) {
   const fx = new TextScramble(el);
@@ -118,18 +115,16 @@ if (el) {
   el.addEventListener('click', () => {
     fx.setText('????').then(scrambleReveal);
   });
-  // Animación al hacer click en el logo nav-left h2
-  const navLogo = document.querySelector('.nav-left h2');
-  if (navLogo) {
-    navLogo.addEventListener('click', () => {
+  /* También en el logo del nav */
+  const navTitle = document.querySelector('.nav-left h2');
+  if (navTitle) {
+    navTitle.addEventListener('click', () => {
       fx.setText('????').then(scrambleReveal);
     });
   }
 }
 
-/* -----------------------------------------------------------------------
-   Fetch de estadísticas (mantener funcionalidad)
-   ----------------------------------------------------------------------- */
+/* ========== Fetch de estadísticas (mantener) ========== */
 async function fetchStats() {
   try {
     const response = await fetch('https://api.hazybot.net/api/stats');
@@ -151,42 +146,11 @@ async function fetchStats() {
 document.addEventListener('DOMContentLoaded', fetchStats);
 setInterval(fetchStats, 30000);
 
-/* -----------------------------------------------------------------------
-   GSAP Animations (Opcional, si deseas animaciones más avanzadas)
-   ----------------------------------------------------------------------- */
-// Verifica si gsap está disponible (por si no la incluiste en tu HTML)
-if (typeof gsap !== 'undefined') {
-  // Ejemplo: animar el header al cargar
-  gsap.from('header', {
-    duration: 1.5,
-    opacity: 0,
-    y: -50,
-    ease: "power2.out"
-  });
-  // Ejemplo: animar secciones al hacer scroll con ScrollTrigger
-  if (typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('section', {
-      scrollTrigger: {
-        trigger: 'section',
-        start: 'top 80%',
-      },
-      duration: 1,
-      y: 80,
-      opacity: 0,
-      ease: "power2.out",
-      stagger: 0.2
-    });
-  }
-}
-
-/* -----------------------------------------------------------------------
-   Función para cerrar la notificación del Bot (si existe)
-   ----------------------------------------------------------------------- */
+/* ========== Función para cerrar la notificación del Bot ========== */
 function closeBotNotification() {
   const botNotification = document.getElementById('botNotification');
   if (botNotification) {
     botNotification.style.display = 'none';
   }
 }
-window.closeBotNotification = closeBotNotification; // Exponerla en window para onclick
+window.closeBotNotification = closeBotNotification; // Exponerla para onclick
