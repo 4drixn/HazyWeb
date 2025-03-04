@@ -3,49 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Hazy">
-  <meta property="og:description" content="Gestiona tu servidor de Discord con Hazy, el bot más completo y fácil de usar.">
-  <meta property="og:image" content="https://4drixn.github.io/Website/hazy-logo.jpg">
-  <meta name="theme-color" content="#A81E1E">
-  
-  <title>Hazy - Inicio</title>
+  <title>Hazy - Nuevo Diseño</title>
   <link rel="stylesheet" href="css/styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script defer src="js/main.js"></script>
 </head>
 <body>
-  <div id="particles-js"></div>
-
-  <nav class="navbar">
-    <div class="logo">
-      <img src="hazy-logo.jpg" alt="Hazy Logo">
-      <h1>Hazy</h1>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="comandos.html">Comandos</a></li>
-      <li><a href="precios.html">Precios</a></li>
-      <li><a href="changelog.html">Changelog</a></li>
-      <li><a href="rules.html">Rules</a></li>
-      <li><a href="contact.html">Contáctanos</a></li>
-      <li><a class="invite-btn" href="https://invite.hazybot.net">Invitar Bot</a></li>
+  <div id="background-animation"></div>
+  
+  <nav>
+    <div class="logo">Hazy</div>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#features">Características</a></li>
+      <li><a href="#pricing">Precios</a></li>
+      <li><a href="#team">Equipo</a></li>
+      <li><a href="#contact">Contacto</a></li>
+      <li><a href="https://invite.hazybot.net" class="cta">Invitar Bot</a></li>
     </ul>
   </nav>
+  
+  <header id="inicio">
+    <h1 class="animated-text">Hazy</h1>
+    <p>La evolución definitiva para la gestión de servidores en Discord.</p>
+    <a href="https://invite.hazybot.net" class="button">Invitar</a>
+    <a href="https://discord.gg/hazybot" class="button secondary">Discord</a>
+  </header>
 
-  <main>
-    <section class="hero">
-      <h1 class="title">Hazy</h1>
-      <p class="subtitle">El bot definitivo para tu servidor de Discord. Gestión, moderación y mucho más en un solo lugar.</p>
-      <div class="buttons">
-        <a href="https://invite.hazybot.net" class="btn">Invitar</a>
-        <a href="https://discord.gg/hazybot" class="btn-outline">Discord</a>
-      </div>
-    </section>
-  </main>
+  <section id="features">
+    <h2>Características</h2>
+    <div class="feature-grid">
+      <div class="feature-card">Moderación Avanzada</div>
+      <div class="feature-card">Automatización</div>
+      <div class="feature-card">Música & Radio</div>
+      <div class="feature-card">IA Integrada</div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Precios</h2>
+    <div class="pricing-container">
+      <div class="price-card">Gratis</div>
+      <div class="price-card">Pro - $9.99</div>
+    </div>
+  </section>
 
   <footer>
-    <p>Hazy® 2025 • <a href="https://invite.hazybot.net">Invitar al Bot</a></p>
+    <p>&copy; 2025 Hazy - Todos los derechos reservados.</p>
   </footer>
-
-  <script src="js/main.js"></script>
 </body>
 </html>
