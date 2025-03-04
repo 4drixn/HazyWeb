@@ -1,8 +1,8 @@
 /* =========================================================================
-   Nuevo main.js - Revamp total de animaciones e interactividad
+   Nuevo main.js - Rediseño Total de la Interactividad y Animaciones
    ========================================================================= */
 
-/* Inicialización de partículas (se mantiene la configuración básica) */
+/* Inicialización de partículas */
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 200, "density": { "enable": true, "value_area": 800 } },
@@ -47,9 +47,9 @@ ScrollReveal().reveal('.sr', {
   reset: false
 });
 
-/* ==================== */
-/*  TextScramble Efecto */
-/* ==================== */
+/* ====================
+   TextScramble Efecto
+   ==================== */
 class TextScramble {
   constructor(el) {
     this.el = el;
@@ -122,14 +122,13 @@ if (scrambleEl) {
   }
 }
 
-/* ==================== */
-/*  Fetch de Estadísticas  */
-/* ==================== */
+/* ====================
+   Fetch de Estadísticas
+   ==================== */
 async function fetchStats() {
   try {
     const response = await fetch('https://api.hazybot.net/api/stats');
     const data = await response.json();
-
     const guildCountElement = document.getElementById('guildCount');
     if (guildCountElement) {
       guildCountElement.textContent = data.guildCount || 0;
@@ -145,9 +144,9 @@ async function fetchStats() {
 document.addEventListener('DOMContentLoaded', fetchStats);
 setInterval(fetchStats, 30000);
 
-/* ==================== */
-/*  GSAP Animaciones    */
-/* ==================== */
+/* ====================
+   GSAP Animaciones Avanzadas
+   ==================== */
 if (typeof gsap !== 'undefined') {
   gsap.from("header", {
     duration: 1.5,
@@ -171,9 +170,9 @@ if (typeof gsap !== 'undefined') {
   }
 }
 
-/* ==================== */
-/*  Toggle de menú móvil  */
-/* ==================== */
+/* ====================
+   Toggle de Menú Móvil
+   ==================== */
 const menuToggle = document.querySelector('.menu-toggle');
 const navRight = document.querySelector('.nav-right');
 if (menuToggle && navRight) {
@@ -182,9 +181,9 @@ if (menuToggle && navRight) {
   });
 }
 
-/* ==================== */
-/*  Cerrar Notificación  */
-/* ==================== */
+/* ====================
+   Cerrar Notificación del Bot
+   ==================== */
 function closeBotNotification() {
   const botNotification = document.getElementById('botNotification');
   if (botNotification) {
