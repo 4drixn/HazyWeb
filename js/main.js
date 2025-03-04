@@ -1,73 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Efecto de partículas en el fondo
-    const canvas = document.getElementById("background");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let particles = [];
-
-    function Particle(x, y, size, speedX, speedY) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.speedX = speedX;
-        this.speedY = speedY;
-    }
-
-    Particle.prototype.update = function () {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    };
-
-    Particle.prototype.draw = function () {
-        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-    };
-
-    function initParticles() {
-        particles = [];
-        for (let i = 0; i < 90; i++) {
-            const size = Math.random() * 2 + 1;
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height;
-            const speedX = (Math.random() - 0.5) * 0.8;
-            const speedY = (Math.random() - 0.5) * 0.8;
-            particles.push(new Particle(x, y, size, speedX, speedY));
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 150, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ffffff" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.7, "random": true },
+            "size": { "value": 1.8, "random": true },
+            "line_linked": { "enable": false },
+            "move": { "enable": true, "speed": 0.5 }
+        },
+        "interactivity": {
+            "events": {
+                "onhover": { "enable": true, "mode": "repulse" },
+                "onclick": { "enable": false }
+            }
         }
-    }
-
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let particle of particles) {
-            particle.update();
-            particle.draw();
-        }
-        requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
-
-    window.addEventListener("resize", function () {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        initParticles();
     });
 
-    // Efecto en sidebar al pasar el mouse
-    const sidebar = document.querySelector(".sidebar");
-    sidebar.addEventListener("mouseenter", () => {
-        sidebar.style.width = "210px";
-    });
-    sidebar.addEventListener("mouseleave", () => {
-        sidebar.style.width = "85px";
-    });
+    // Animación de entrada para el título
+    const title = document.querySelector('.title');
+    title.style.opacity = 0;
+    setTimeout(() => {
+        title.style.transition = "opacity 1.5s ease-in-out";
+        title.style.opacity = 1;
+    }, 500);
 });
