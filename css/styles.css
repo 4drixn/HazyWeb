@@ -8,14 +8,14 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    background: linear-gradient(135deg, #121212, #1E1E2E);
     color: white;
     display: flex;
 }
 
 .sidebar {
-    width: 80px;
-    background: #0f3460;
+    width: 85px;
+    background: #181A2B;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -25,50 +25,49 @@ body {
 }
 
 .sidebar:hover {
-    width: 200px;
+    width: 210px;
 }
 
 .sidebar .logo img {
-    width: 50px;
+    width: 60px;
     transition: 0.3s;
 }
 
 .sidebar:hover .logo img {
-    width: 100px;
+    width: 120px;
 }
 
 .sidebar nav {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
 }
 
 .sidebar nav a {
-    color: white;
+    color: #D1D1E9;
     text-decoration: none;
     font-size: 16px;
-    opacity: 0.8;
     transition: 0.3s;
 }
 
 .sidebar:hover nav a {
     font-size: 18px;
-    opacity: 1;
+    color: #FFFFFF;
 }
 
 .invite-btn {
     margin-top: auto;
-    background: #00adb5;
+    background: #FF457E;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 18px;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: 0.3s;
 }
 
 .invite-btn:hover {
-    background: #008c9e;
+    background: #E03A6E;
 }
 
 .hero {
@@ -81,42 +80,48 @@ body {
 }
 
 .hero-title {
-    font-size: 60px;
+    font-size: 65px;
     font-weight: 700;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 20px rgba(255, 69, 126, 0.7);
     animation: fadeIn 1.5s ease-in-out;
+    color: #FF457E;
 }
 
 .hero-subtitle {
     font-size: 20px;
     margin-top: 10px;
-    opacity: 0.8;
+    opacity: 0.9;
+    color: #CFCFEA;
 }
 
 .hero-buttons {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .btn {
-    background: #ff004c;
-    padding: 10px 20px;
+    background: #FF457E;
+    padding: 12px 22px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    font-weight: bold;
+    color: white;
 }
 
 .btn:hover {
-    background: #d6003e;
+    background: #E03A6E;
 }
 
 .btn-outline {
     background: none;
     border: 2px solid white;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 22px;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    font-weight: bold;
+    color: white;
 }
 
 .btn-outline:hover {
