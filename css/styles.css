@@ -1,142 +1,139 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+:root {
+  --main-color: #A81E1E;
+  --hover-color: #8E1B1B;
+  --bg-color: #0B0B0B;
+  --text-color: #FFF;
 }
 
 body {
-    background: linear-gradient(135deg, #121212, #1E1E2E);
-    color: white;
-    display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
-.sidebar {
-    width: 85px;
-    background: #181A2B;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    transition: width 0.3s;
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-.sidebar:hover {
-    width: 210px;
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-.sidebar .logo img {
-    width: 60px;
-    transition: 0.3s;
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-.sidebar:hover .logo img {
-    width: 120px;
+.logo img {
+  width: 40px;
+  margin-right: 10px;
 }
 
-.sidebar nav {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-.sidebar nav a {
-    color: #D1D1E9;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.sidebar:hover nav a {
-    font-size: 18px;
-    color: #FFFFFF;
+.nav-links a:hover {
+  color: var(--main-color);
 }
 
 .invite-btn {
-    margin-top: auto;
-    background: #FF457E;
-    color: white;
-    padding: 12px 18px;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: 0.3s;
+  background: var(--main-color);
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s;
 }
 
 .invite-btn:hover {
-    background: #E03A6E;
+  background: var(--hover-color);
 }
 
+/* HERO */
 .hero {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
 }
 
-.hero-title {
-    font-size: 65px;
-    font-weight: 700;
-    text-shadow: 0 0 20px rgba(255, 69, 126, 0.7);
-    animation: fadeIn 1.5s ease-in-out;
-    color: #FF457E;
+.title {
+  font-size: 5rem;
+  color: var(--main-color);
+  text-shadow: 0px 0px 20px rgba(255, 69, 126, 0.7);
 }
 
-.hero-subtitle {
-    font-size: 20px;
-    margin-top: 10px;
-    opacity: 0.9;
-    color: #CFCFEA;
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
-.hero-buttons {
-    margin-top: 25px;
+.buttons {
+  margin-top: 20px;
+}
+
+.btn, .btn-outline {
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .btn {
-    background: #FF457E;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
-    color: white;
+  background: var(--main-color);
+  color: white;
 }
 
 .btn:hover {
-    background: #E03A6E;
+  background: var(--hover-color);
 }
 
 .btn-outline {
-    background: none;
-    border: 2px solid white;
-    padding: 12px 22px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
-    color: white;
+  border: 2px solid white;
+  color: white;
 }
 
 .btn-outline:hover {
-    background: white;
-    color: black;
+  background: white;
+  color: black;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ccc;
 }
