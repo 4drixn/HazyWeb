@@ -1,10 +1,8 @@
 /* =========================================================================
-   Redesigned main.js
-   - Mantiene todas las funciones originales (TextScramble, fetchStats, etc.)
-   - Añade animaciones y mejoras de compatibilidad
+   Nuevo main.js - Revamp total de animaciones e interactividad
    ========================================================================= */
 
-/* Partículas (mantener configuración original) */
+/* Inicialización de partículas (se mantiene la configuración básica) */
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 200, "density": { "enable": true, "value_area": 800 } },
@@ -40,7 +38,7 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
-/* ScrollReveal en elementos con clase .sr (mantener) */
+/* ScrollReveal para animar elementos con clase .sr */
 ScrollReveal().reveal('.sr', {
   duration: 1000,
   distance: '50px',
@@ -49,7 +47,9 @@ ScrollReveal().reveal('.sr', {
   reset: false
 });
 
-/* ========== TextScramble (conservar) ========== */
+/* ==================== */
+/*  TextScramble Efecto */
+/* ==================== */
 class TextScramble {
   constructor(el) {
     this.el = el;
@@ -104,18 +104,16 @@ class TextScramble {
   }
 }
 
-/* Aplicar el scramble a #scrambleText */
-const el = document.getElementById('scrambleText');
-if (el) {
-  const fx = new TextScramble(el);
+const scrambleEl = document.getElementById('scrambleText');
+if (scrambleEl) {
+  const fx = new TextScramble(scrambleEl);
   function scrambleReveal() {
     fx.setText('Hazy');
   }
   scrambleReveal();
-  el.addEventListener('click', () => {
+  scrambleEl.addEventListener('click', () => {
     fx.setText('????').then(scrambleReveal);
   });
-  /* También en el logo del nav */
   const navTitle = document.querySelector('.nav-left h2');
   if (navTitle) {
     navTitle.addEventListener('click', () => {
@@ -124,7 +122,9 @@ if (el) {
   }
 }
 
-/* ========== Fetch de estadísticas (mantener) ========== */
+/* ==================== */
+/*  Fetch de Estadísticas  */
+/* ==================== */
 async function fetchStats() {
   try {
     const response = await fetch('https://api.hazybot.net/api/stats');
@@ -134,23 +134,61 @@ async function fetchStats() {
     if (guildCountElement) {
       guildCountElement.textContent = data.guildCount || 0;
     }
-
     const userCountElement = document.getElementById('userCount');
     if (userCountElement) {
       userCountElement.textContent = data.userCount || 0;
     }
   } catch (error) {
-    console.error('Error al obtener las estadísticas:', error);
+    console.error('Error al obtener estadísticas:', error);
   }
 }
 document.addEventListener('DOMContentLoaded', fetchStats);
 setInterval(fetchStats, 30000);
 
-/* ========== Función para cerrar la notificación del Bot ========== */
+/* ==================== */
+/*  GSAP Animaciones    */
+/* ==================== */
+if (typeof gsap !== 'undefined') {
+  gsap.from("header", {
+    duration: 1.5,
+    opacity: 0,
+    y: -50,
+    ease: "power2.out"
+  });
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from("section", {
+      scrollTrigger: {
+        trigger: "section",
+        start: "top 80%"
+      },
+      duration: 1,
+      y: 80,
+      opacity: 0,
+      ease: "power2.out",
+      stagger: 0.2
+    });
+  }
+}
+
+/* ==================== */
+/*  Toggle de menú móvil  */
+/* ==================== */
+const menuToggle = document.querySelector('.menu-toggle');
+const navRight = document.querySelector('.nav-right');
+if (menuToggle && navRight) {
+  menuToggle.addEventListener('click', () => {
+    navRight.classList.toggle('active');
+  });
+}
+
+/* ==================== */
+/*  Cerrar Notificación  */
+/* ==================== */
 function closeBotNotification() {
   const botNotification = document.getElementById('botNotification');
   if (botNotification) {
     botNotification.style.display = 'none';
   }
 }
-window.closeBotNotification = closeBotNotification; // Exponerla para onclick
+window.closeBotNotification = closeBotNotification;
