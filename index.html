@@ -1,179 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta property="og:title" content="Hazy">
+  <meta property="og:description" content="Gestiona tu servidor de Discord con Hazy, el bot más completo y fácil de usar.">
+  <meta property="og:url" content="https://www.hazybot.net/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://4drixn.github.io/Website/hazy-logo.jpg">
+  <meta property="og:image:width" content="256">
+  <meta property="og:image:height" content="256">
+  <meta property="og:image:alt" content="Hazy.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hazy - Discord Bot">
+  <meta name="twitter:description" content="Gestiona tu servidor de Discord con Hazy, el bot más completo y fácil de usar.">
+  <meta name="twitter:image" content="https://4drixn.github.io/Website/hazy-logo.jpg">
+  <meta name="theme-color" content="#FF4444">
+  <link rel="icon" href="https://4drixn.github.io/Website/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hazy 3.0 - Un Nuevo Universo</title>
-
-  <!-- Metadatos -->
-  <meta name="description" content="Hazy 3.0 - Rediseño total, parallax, 3D, pastel-neón. Nada que ver con la versión anterior.">
-  <meta property="og:title" content="Hazy 3.0">
-  <meta property="og:description" content="La mejor página nunca antes vista, con efectos 3D y scroll animado.">
-  <meta property="og:image" content="https://4drixn.github.io/Website/hazy-logo.jpg">
-  <meta name="theme-color" content="#AAB7FF">
-
-  <!-- Fuentes y estilos -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://4drixn.github.io/Website/favicon.ico" type="image/x-icon">
+  <title>Hazy - Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Librerías de animación y 3D -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
-
-<!-- Fondo de partículas personalizadas (canvas) -->
-<canvas id="particlesCanvas"></canvas>
-
-<!-- Barra lateral (vertical) con toggle en móvil -->
-<aside class="side-nav" id="sideNav">
-  <div class="nav-logo-container">
-    <img src="https://4drixn.github.io/Website/hazy-logo.jpg" alt="Hazy 3.0" class="side-nav-logo">
-    <h2 class="side-nav-title">HAZY 3.0</h2>
+  <div id="particles-js"></div>
+  <div class="bot-notification" id="botNotification">
+    <img src="hazy-logo.jpg" alt="Hazy Bot" class="bot-avatar">
+    <div class="bot-message-bubble">
+      <p>¡Hola! Soy Hazy. Actualmente estamos en fase beta.</p>
+      <p>Únete a nuestro Discord para solicitar tu acceso gratuito.</p>
+      <span class="close-bot-notification" onclick="closeBotNotification()">&times;</span>
+    </div>
   </div>
-  <nav class="side-menu" id="sideMenu">
-    <a href="#panel-hero" class="side-link">Inicio</a>
-    <a href="#panel-about" class="side-link">About</a>
-    <a href="#panel-commands" class="side-link">Commands</a>
-    <a href="#panel-team" class="side-link">Team</a>
-    <a href="#panel-stats" class="side-link">Stats</a>
-    <a href="#panel-faq" class="side-link">FAQ</a>
-    <a href="#panel-contact" class="side-link">Contact</a>
-    <a href="https://invite.hazybot.net" target="_blank" class="btn-pastel">Invitar Bot</a>
+  <nav class="sr">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo">
+        <h2 id="logo">Hazy</h2>
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Inicio</a>
+        <a href="comandos.html">Comandos</a>
+        <a href="precios.html">Precios</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="rules.html">Rules</a>
+        <a href="contact.html">Contáctanos</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+      </div>
+    </div>
   </nav>
-  <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
-</aside>
-
-<!-- Contenedor principal de panels (scroll horizontal/vertical) -->
-<main class="main-panels" id="mainPanels">
-  
-  <!-- Panel 1: Hero con 3D (planeta giratorio) -->
-  <section class="panel hero-panel" id="panel-hero">
-    <!-- Canvas Three.js para planeta -->
-    <canvas id="planetCanvas"></canvas>
-    <div class="hero-text">
-      <h1 class="hero-title">HAZY <span>3.0</span></h1>
-      <p class="hero-subtitle">El bot definitivo con un rediseño futurista pastel-neón.<br>¡Nada que ver con la versión anterior!</p>
-      <div class="hero-buttons">
-        <a href="https://invite.hazybot.net" target="_blank" class="btn-neon">Invitar</a>
-        <a href="https://discord.gg/hazybot" target="_blank" class="btn-glass">Discord</a>
+  <main>
+    <header id="inicio" class="sr">
+      <div class="hero-content">
+        <h1 id="scrambleText">Hazy</h1>
+        <p>El bot definitivo para tu servidor de Discord. Gestión, moderación y mucho más, en un solo lugar.</p>
+        <a class="cta-btn" href="https://invite.hazybot.net" target="_blank">¡Invítame a tu Servidor!</a>
+        <a class="cta-btn" href="https://discord.gg/hazybot" target="_blank">Únete al Servidor</a>
       </div>
-    </div>
-  </section>
-
-  <!-- Panel 2: About con glassmorphism y parallax -->
-  <section class="panel about-panel" id="panel-about">
-    <div class="panel-content glass-box">
-      <h2>About Hazy 3.0</h2>
-      <p>Hazy 3.0 es la evolución definitiva. Presenta animaciones 3D, parallax multicapas, 
-         microinteracciones y un estilo pastel-neón sin precedentes.</p>
-      <p>Completamente distinto a cualquier diseño anterior. Bienvenido a la revolución.</p>
-    </div>
-  </section>
-
-  <!-- Panel 3: Commands con tarjetas flotantes -->
-  <section class="panel commands-panel" id="panel-commands">
-    <h2 class="panel-title pastel-text">Comandos</h2>
-    <div class="commands-grid">
-      <div class="command-card hover-3d">
-        <h3>/moderate</h3>
-        <p>Modera tu servidor con IA y funciones automáticas.</p>
-      </div>
-      <div class="command-card hover-3d">
-        <h3>/music</h3>
-        <p>Reproduce música de alta calidad con un simple comando.</p>
-      </div>
-      <div class="command-card hover-3d">
-        <h3>/stats</h3>
-        <p>Obtén estadísticas detalladas de tu comunidad.</p>
-      </div>
-      <div class="command-card hover-3d">
-        <h3>/ai</h3>
-        <p>Despliega un chat inteligente para tus usuarios.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Panel 4: Team con tarjetas en diagonal -->
-  <section class="panel team-panel" id="panel-team">
-    <h2 class="panel-title glitch-text" data-text="Team">Team</h2>
-    <div class="team-container">
-      <div class="team-card diagonal-card">
-        <img src="https://i.imgur.com/U7rYa0q.png" alt="homeR" class="team-avatar">
-        <h3>homeR</h3>
-        <p>Discord: homer.lua</p>
-      </div>
-      <div class="team-card diagonal-card">
-        <img src="https://i.imgur.com/3VvdJmH.png" alt="Adrian" class="team-avatar">
-        <h3>Adrian</h3>
-        <p>Discord: adrian.tf</p>
-      </div>
-      <div class="team-card diagonal-card">
-        <img src="https://i.imgur.com/qtyERGr.jpeg" alt="Felipe" class="team-avatar">
-        <h3>Felipe</h3>
-        <p>Discord: fffelipeee</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Panel 5: Stats con contadores animados -->
-  <section class="panel stats-panel" id="panel-stats">
-    <h2 class="panel-title pastel-text">Estadísticas</h2>
-    <div class="stats-grid">
-      <div class="stat-box glass-box">
-        <h3>Servidores</h3>
-        <p id="guildCount" class="stat-number">0</p>
-      </div>
-      <div class="stat-box glass-box">
-        <h3>Usuarios</h3>
-        <p id="userCount" class="stat-number">0</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Panel 6: FAQ con accordion 3D -->
-  <section class="panel faq-panel" id="panel-faq">
-    <h2 class="panel-title glitch-text" data-text="FAQ">FAQ</h2>
-    <div class="faq-accordion">
-      <div class="faq-item">
-        <button class="faq-header">¿Es completamente distinto a la versión anterior?<i class="fas fa-chevron-down"></i></button>
-        <div class="faq-content">
-          <p>¡Sí! Este diseño no se parece en nada al antiguo. Nueva paleta, nueva estructura, nuevas animaciones.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-header">¿Usa animaciones 3D y parallax?<i class="fas fa-chevron-down"></i></button>
-        <div class="faq-content">
-          <p>Así es. Contamos con Three.js para el planeta giratorio, fondos parallax y scroll animado con GSAP.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Panel 7: Contact -->
-  <section class="panel contact-panel" id="panel-contact">
-    <div class="panel-content glass-box">
-      <h2>Contacto</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Tu nombre" required>
-        <input type="email" placeholder="Tu correo" required>
-        <textarea placeholder="Mensaje" rows="5" required></textarea>
-        <button type="submit" class="btn-pastel">Enviar</button>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<!-- Soporte bubble -->
-<div class="support-bubble" onclick="window.open('https://discord.gg/hazybot','_blank')">
-  <i class="fab fa-discord"></i>
-</div>
-
-<!-- main.js -->
-<script src="js/main.js"></script>
-
+    </header>
+  </main>
+  <footer class="sr">
+    <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+  </footer>
+  <div class="support-bubble" onclick="window.open('https://discord.gg/hazybot','_blank')">
+    <i class="fab fa-discord"></i>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
