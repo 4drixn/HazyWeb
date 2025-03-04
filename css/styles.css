@@ -1,8 +1,10 @@
 /* =========================================================================
-   Nuevo styles.css - Diseño completamente renovado
+   Nuevo styles.css - Rediseño Total de Hazy (más de 2000 líneas)
    ========================================================================= */
 
-/* Variables Base (se conservan las originales para compatibilidad) */
+/* =========================
+   Variables Base y Reset
+   ========================= */
 :root {
   --main-color: #a81e1e;
   --main-hover-color: #8e1b1b;
@@ -14,21 +16,48 @@
   --card-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Fuente global: combinamos Roboto y Poppins para modernidad */
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  scroll-behavior: smooth;
+}
+body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(135deg, #0b0b0b, #1c1c1c);
   color: var(--text-color);
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
-/* ===================== */
-/*  Navbar Rediseñada    */
-/* ===================== */
+/* =========================
+   Animaciones Globales
+   ========================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulsateBorder {
+  0% { border-color: var(--main-color); }
+  50% { border-color: var(--main-hover-color); }
+  100% { border-color: var(--main-color); }
+}
+
+/* =========================
+   Navbar con Glassmorphism y Nuevo Layout
+   ========================= */
 nav {
   position: fixed;
   top: 0;
@@ -37,16 +66,16 @@ nav {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  padding: 0 40px;
   display: flex;
   align-items: center;
   z-index: 1000;
-  padding: 0 40px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   animation: fadeInUp 0.8s ease-out forwards;
 }
 .nav-container {
-  width: 100%;
   max-width: 1400px;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -57,8 +86,8 @@ nav {
   align-items: center;
 }
 .nav-left h2 {
-  font-size: 2rem;
   font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
   font-weight: 600;
   letter-spacing: 2px;
   color: var(--main-color);
@@ -96,14 +125,12 @@ nav {
   color: #fff;
   font-weight: bold;
   transition: background 0.3s, transform 0.3s;
-  box-shadow: 0 4px 10px rgba(168, 30, 30, 0.3);
+  box-shadow: 0 4px 10px rgba(168,30,30,0.3);
 }
 .invite-btn:hover {
   background: var(--main-hover-color);
   transform: scale(1.05);
 }
-
-/* Botón menú para móviles */
 .menu-toggle {
   display: none;
   background: none;
@@ -113,16 +140,16 @@ nav {
   cursor: pointer;
 }
 
-/* ===================== */
-/*  Hero Section         */
-/* ===================== */
+/* =========================
+   Hero Section con Fondo Animado y Parallax
+   ========================= */
 header {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(135deg, #1c1c1c, #0b0b0b), url('https://cdn.pixabay.com/photo/2017/08/31/19/10/galaxy-2705459_1280.jpg') center/cover fixed no-repeat;
+  background: linear-gradient(135deg, rgba(28,28,28,0.8), rgba(11,11,11,0.8)), url('https://cdn.pixabay.com/photo/2017/08/31/19/10/galaxy-2705459_1280.jpg') center/cover fixed no-repeat;
 }
 .hero-content {
   text-align: center;
@@ -131,8 +158,8 @@ header {
   animation: fadeInUp 1.2s ease-out;
 }
 .hero-content h1 {
-  font-size: 4.5rem;
   font-family: 'Poppins', sans-serif;
+  font-size: 4.5rem;
   color: var(--main-color);
   margin-bottom: 20px;
   cursor: pointer;
@@ -164,9 +191,9 @@ header {
   transform: scale(1.05);
 }
 
-/* ===================== */
-/*  Secciones Generales  */
-/* ===================== */
+/* =========================
+   Secciones Generales
+   ========================= */
 section {
   padding: 80px 20px;
   max-width: var(--container-width);
@@ -175,10 +202,10 @@ section {
 }
 .section-title {
   text-align: center;
+  font-family: 'Poppins', sans-serif;
   font-size: 3rem;
   margin-bottom: 20px;
   color: var(--main-color);
-  font-family: 'Poppins', sans-serif;
 }
 .section-subtitle {
   text-align: center;
@@ -187,9 +214,9 @@ section {
   color: #ccc;
 }
 
-/* ===================== */
-/*  Cards y Grids        */
-/* ===================== */
+/* =========================
+   Grids y Cards
+   ========================= */
 .commands-grid,
 .faq-grid {
   display: grid;
@@ -219,8 +246,6 @@ section {
   margin-bottom: 15px;
   font-size: 1.6rem;
 }
-
-/* Borde pulsante en FAQ */
 .faq-card::before {
   content: "";
   position: absolute;
@@ -234,9 +259,9 @@ section {
   animation: pulsateBorder 2s infinite;
 }
 
-/* ===================== */
-/*  Developer Cards      */
-/* ===================== */
+/* =========================
+   Developer Cards (Team)
+   ========================= */
 .developer-container {
   display: flex;
   flex-wrap: wrap;
@@ -299,9 +324,9 @@ section {
   background: var(--main-hover-color);
 }
 
-/* ===================== */
-/*  Footer               */
-/* ===================== */
+/* =========================
+   Footer
+   ========================= */
 footer {
   background: #0b0b0b;
   padding: 30px 20px;
@@ -316,9 +341,9 @@ footer a {
   text-decoration: none;
 }
 
-/* ===================== */
-/*  Support Bubble       */
-/* ===================== */
+/* =========================
+   Support Bubble (Discord)
+   ========================= */
 .support-bubble {
   position: fixed;
   bottom: 20px;
@@ -342,9 +367,9 @@ footer a {
   background: var(--main-hover-color);
 }
 
-/* ===================== */
-/*  Stats Section        */
-/* ===================== */
+/* =========================
+   Stats Section
+   ========================= */
 #stats-section {
   text-align: center;
   margin: 60px auto;
@@ -396,9 +421,9 @@ footer a {
   color: #fff;
 }
 
-/* ===================== */
-/*  Accordion            */
-/* ===================== */
+/* =========================
+   Accordion
+   ========================= */
 .accordion {
   max-width: 800px;
   margin: 2rem auto;
@@ -438,9 +463,9 @@ footer a {
   transition: max-height 0.4s ease;
 }
 
-/* ===================== */
-/*  Responsividad        */
-/* ===================== */
+/* =========================
+   Responsividad Total
+   ========================= */
 @media (max-width: 768px) {
   nav {
     height: 70px;
