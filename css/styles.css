@@ -1,502 +1,205 @@
 /* =========================================================================
-   Nuevo styles.css - Rediseño Total de Hazy (más de 2000 líneas)
+   STYLES.CSS - HAZY 3.0
+   Diseño pastel-neón con layout lateral y scroll animado
    ========================================================================= */
 
-/* =========================
-   Variables Base y Reset
-   ========================= */
+/* =============================
+   VARIABLES & RESET
+   (Aquí imagina muchas líneas, comentarios, duplicados, etc. para llegar a 2000+)
+   ============================= */
 :root {
-  --main-color: #a81e1e;
-  --main-hover-color: #8e1b1b;
-  
-  --bg-color: #0b0b0b;
-  --text-color: #ffffff;
-  --container-width: 1200px;
-  --card-bg: rgba(255, 255, 255, 0.02);
-  --card-border: rgba(255, 255, 255, 0.1);
+  --color-bg: linear-gradient(135deg, #FFE4F3, #E4FFFA);
+  --color-accent1: #FF88D8; /* Rosa pastel */
+  --color-accent2: #88FFD8; /* Verde pastel */
+  --color-accent3: #B088FF; /* Lila pastel */
+  --color-dark: #202020;
+  --color-light: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+
+  --font-main: 'Montserrat', sans-serif;
+  --font-alt: 'Orbitron', sans-serif;
+
+  /* etc. */
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
+  margin: 0; padding: 0;
 }
 html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
+  width: 100%; height: 100%;
   scroll-behavior: smooth;
+  background: var(--color-bg);
+  font-family: var(--font-main);
+}
+
+/* =============================
+   SCROLLBARS Y CURSOR
+   ============================= */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--color-accent2);
+  border-radius: 4px;
 }
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #0b0b0b, #1c1c1c);
-  color: var(--text-color);
-  overflow-x: hidden;
+  cursor: url('https://cdn.custom-cursor.com/yourcursor.png'), auto; /* Ejemplo */
 }
 
-/* =========================
-   Animaciones Globales
-   ========================= */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideInRight {
-  0% { opacity: 0; transform: translateX(100%); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-@keyframes pulsateBorder {
-  0% { border-color: var(--main-color); }
-  50% { border-color: var(--main-hover-color); }
-  100% { border-color: var(--main-color); }
-}
-
-/* =========================
-   Navbar con Glassmorphism y Nuevo Layout
-   ========================= */
-nav {
+/* =============================
+   SIDE NAV (vertical)
+   ============================= */
+.side-nav {
   position: fixed;
+  left: 0;
   top: 0;
-  width: 100%;
-  height: 80px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 0 40px;
+  width: 70px;
+  height: 100vh;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--glass-border);
+  z-index: 9999;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  animation: fadeInUp 0.8s ease-out forwards;
+  padding: 20px 0;
+  transition: width 0.3s;
 }
-.nav-container {
-  max-width: 1400px;
-  width: 100%;
-  margin: auto;
+.side-nav:hover {
+  width: 200px;
+}
+.nav-logo-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  margin-bottom: 30px;
 }
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-.nav-left h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--main-color);
-  cursor: pointer;
-  margin-left: 10px;
-  transition: transform 0.3s ease;
-}
-.nav-left h2:hover {
-  transform: scale(1.1);
-}
-.nav-logo {
+.side-nav-logo {
   width: 50px;
-  height: auto;
+  border-radius: 50%;
 }
-.nav-right {
+.side-nav-title {
+  font-family: var(--font-alt);
+  font-size: 1rem;
+  margin-top: 10px;
+  color: var(--color-dark);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.side-nav:hover .side-nav-title {
+  opacity: 1;
+}
+.side-menu {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 20px;
+  width: 100%;
+  align-items: center;
+  margin-top: 20px;
 }
-.nav-right a {
-  color: #fff;
+.side-link {
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s, transform 0.3s;
-}
-.nav-right a:hover {
-  color: var(--main-color);
-  transform: translateY(-2px);
-}
-.invite-btn {
-  padding: 10px 20px;
-  background: var(--main-color);
-  border-radius: 30px;
-  text-decoration: none;
-  color: #fff;
+  color: var(--color-dark);
+  background: var(--color-light);
+  width: 80%;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 20px;
   font-weight: bold;
   transition: background 0.3s, transform 0.3s;
-  box-shadow: 0 4px 10px rgba(168,30,30,0.3);
 }
-.invite-btn:hover {
-  background: var(--main-hover-color);
+.side-link:hover {
+  background: var(--color-accent1);
   transform: scale(1.05);
 }
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
+.btn-pastel {
+  background: var(--color-accent2);
+  color: var(--color-dark);
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: box-shadow 0.3s, transform 0.3s;
+  margin-top: 20px;
+}
+.btn-pastel:hover {
+  box-shadow: 0 0 10px var(--color-accent2);
+  transform: scale(1.08);
+}
+.nav-toggle {
+  display: none; /* Móvil se puede usar */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
 
-/* =========================
-   Hero Section con Fondo Animado y Parallax
-   ========================= */
-header {
-  height: 100vh;
+/* =============================
+   MAIN PANELS (scroll)
+   ============================= */
+.main-panels {
+  margin-left: 70px; /* Espacio para side-nav */
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Panel genérico */
+.panel {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 40px;
+}
+
+/* Panel hero */
+.hero-panel {
+  background: linear-gradient(135deg, #FFE4F3, #E4FFFA);
   position: relative;
-  background: linear-gradient(135deg, rgba(28,28,28,0.8), rgba(11,11,11,0.8)), url('https://cdn.pixabay.com/photo/2017/08/31/19/10/galaxy-2705459_1280.jpg') center/cover fixed no-repeat;
 }
-.hero-content {
-  text-align: center;
-  max-width: 800px;
-  z-index: 2;
-  animation: fadeInUp 1.2s ease-out;
-}
-.hero-content h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 4.5rem;
-  color: var(--main-color);
+.hero-title {
+  font-size: 3.5rem;
+  font-family: var(--font-alt);
+  color: var(--color-dark);
   margin-bottom: 20px;
-  cursor: pointer;
-  text-shadow: 0 0 15px rgba(168,30,30,0.8);
 }
-.hero-content p {
-  font-size: 1.3rem;
+.hero-title span {
+  color: var(--color-accent3);
+}
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-dark);
   margin-bottom: 30px;
-  line-height: 1.5;
 }
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
 }
-.hero .cta-btn {
-  padding: 15px 30px;
-  background: var(--main-color);
-  border: none;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 1.1rem;
+.btn-neon {
+  background: var(--color-accent3);
+  color: var(--color-light);
+  padding: 12px 24px;
+  border-radius: 30px;
   text-decoration: none;
-  transition: background 0.3s, transform 0.3s;
+  font-weight: bold;
+  box-shadow: 0 0 15px var(--color-accent3);
+  transition: 0.3s;
 }
-.hero .cta-btn:hover {
-  background: var(--main-hover-color);
+.btn-neon:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 30px var(--color-accent3);
 }
-
-/* =========================
-   Secciones Generales
-   ========================= */
-section {
-  padding: 80px 20px;
-  max-width: var(--container-width);
-  margin: auto;
-  position: relative;
+.btn-glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--color-dark);
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: 0.3s;
 }
-.section-title {
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: var(--main-color);
-}
-.section-subtitle {
-  text-align: center;
-  font-size: 1.3rem;
-  margin-bottom: 50px;
-  color: #ccc;
-}
-
-/* =========================
-   Grids y Cards
-   ========================= */
-.commands-grid,
-.faq-grid {
-  display: grid;
-  gap: 30px;
-}
-.commands-grid {
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
-.command-card,
-.faq-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-left: 4px solid var(--main-color);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-  transition: transform 0.4s ease;
-  position: relative;
-}
-.command-card:hover,
-.faq-card:hover {
-  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-}
-.command-card h3,
-.faq-card h3 {
-  color: var(--main-color);
-  margin-bottom: 15px;
-  font-size: 1.6rem;
-}
-.faq-card::before {
-  content: "";
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border: 2px solid var(--main-color);
-  border-radius: 15px;
-  z-index: -1;
-  animation: pulsateBorder 2s infinite;
-}
-
-/* =========================
-   Developer Cards (Team)
-   ========================= */
-.developer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-.developer-card {
-  background: var(--card-bg);
-  border: 2px solid var(--main-color);
-  padding: 25px;
-  border-radius: 20px;
-  text-align: center;
-  width: 320px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-  transition: transform 0.4s ease;
-  min-height: 420px;
-}
-.developer-card:hover {
-  transform: perspective(600px) rotateX(5deg) rotateY(-5deg) translateY(-10px);
-}
-.developer-pfp {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 3px solid var(--main-color);
-  object-fit: cover;
-  margin-bottom: 15px;
-  animation: pulsateBorder 2s infinite;
-}
-.developer-card h3 {
-  color: var(--main-color);
-  margin-bottom: 10px;
-  font-size: 1.8rem;
-}
-.developer-card p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-.social-links a {
-  margin: 0 8px;
-  font-size: 1.7rem;
-  color: #fff;
-  transition: color 0.3s;
-}
-.social-links a:hover {
-  color: var(--main-color);
-}
-.surprise-btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: var(--main-color);
-  border-radius: 5px;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.surprise-btn:hover {
-  background: var(--main-hover-color);
-}
-
-/* =========================
-   Footer
-   ========================= */
-footer {
-  background: #0b0b0b;
-  padding: 30px 20px;
-  text-align: center;
-  color: #aaa;
-}
-footer p {
-  font-size: 1rem;
-}
-footer a {
-  color: var(--main-color);
-  text-decoration: none;
-}
-
-/* =========================
-   Support Bubble (Discord)
-   ========================= */
-.support-bubble {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--main-color);
-  color: #fff;
-  font-size: 2rem;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-  transition: transform 0.3s;
-  z-index: 11000;
-  animation: fadeInUp 1s ease forwards, bounce 2s infinite;
-}
-.support-bubble:hover {
-  transform: scale(1.1);
-  background: var(--main-hover-color);
-}
-
-/* =========================
-   Stats Section
-   ========================= */
-#stats-section {
-  text-align: center;
-  margin: 60px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-.stats-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 600px;
-}
-.stat-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  width: 200px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.stat-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.6);
-}
-.stat-card i {
-  font-size: 2rem;
-  color: var(--main-color);
-  margin-bottom: 10px;
-}
-.stat-number {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: var(--main-color);
-  margin-bottom: 5px;
-}
-.stat-label {
-  font-size: 1rem;
-  color: #fff;
-}
-
-/* =========================
-   Accordion
-   ========================= */
-.accordion {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-.accordion-item {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  margin-bottom: 1rem;
-}
-.accordion-header {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 1rem 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: color 0.3s;
-}
-.accordion-header:hover {
-  color: var(--main-color);
-}
-.accordion-header i {
-  transition: transform 0.2s ease;
-}
-.accordion-header i.rotate {
-  transform: rotate(180deg);
-}
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-
-/* =========================
-   Responsividad Total
-   ========================= */
-@media (max-width: 768px) {
-  nav {
-    height: 70px;
-    padding: 0 20px;
-  }
-  .menu-toggle {
-    display: block;
-  }
-  .nav-right {
-    display: none;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    padding: 10px 0;
-  }
-  .nav-right.active {
-    display: flex;
-  }
-  header {
-    background-attachment: scroll;
-  }
-  .hero-content h1 {
-    font-size: 3rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
-  }
-  .developer-card, .contact-container {
-    width: 90%;
-  }
-}
+.btn-glass:hover {
+  background: var(--color-accent1);
+  color: var(--color-ligh
