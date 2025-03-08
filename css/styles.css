@@ -1,15 +1,14 @@
-/* ===== Reset & Base Styles ===== */
 :root {
-  --main-color: #FF2E63;
-  --main-hover: #FF427F;
+  --main-color: #ff2e63;
+  --main-hover: #ff427f;
   --bg-color: #0f0f0f;
   --text-color: #ffffff;
-  --glass-bg: rgba(15, 15, 15, 0.65);
-  --neon-glow: 0 0 15px var(--main-color);
   --container-width: 1400px;
-  --gradient: linear-gradient(45deg, #FF2E63, #FFAC41);
+  --neon-glow: 0 0 15px var(--main-color);
+  --gradient: linear-gradient(45deg, #ff2e63, #ffac41);
 }
 
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -25,59 +24,79 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   overflow-x: hidden;
 }
 
-/* ===== Page Transition ===== */
-.page-transition {
-  position: fixed;
+/* Uiverse.io Button Styles */
+.uiverse-btn {
+  position: relative;
+  padding: 15px 30px;
+  border: none;
+  background: var(--main-color);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.uiverse-btn::before {
+  content: '';
+  position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: var(--bg-color);
-  z-index: 9999;
-  animation: fadeOut 1s forwards;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
+  transition: 0.5s;
 }
 
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
+.uiverse-btn:hover::before {
+  left: 100%;
 }
 
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 3px solid #FFF;
-  border-radius: 50%;
-  display: inline-block;
-  animation: rotation 1s linear infinite;
-  border-bottom-color: var(--main-color);
+.uiverse-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--neon-glow);
 }
 
-@keyframes rotation {
+/* Uiverse.io Card Styles */
+.uiverse-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.uiverse-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, var(--main-color), transparent);
+  animation: rotate 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* ===== Particles Container ===== */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-}
-
-/* ===== Modern Navbar ===== */
-nav {
-  background: var(--glass-bg);
+/* Animated Navigation */
+.nav-glass {
+  background: rgba(15, 15, 15, 0.65);
   backdrop-filter: blur(12px);
   position: fixed;
   top: 20px;
@@ -95,52 +114,12 @@ nav {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-container {
-  width: 100%;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav-glass:hover {
+  box-shadow: var(--neon-glow);
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.nav-left h2 {
-  font-size: 2rem;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  position: relative;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
-}
-
-.nav-link::after {
+/* Hover Underline Animation */
+.hover-underline::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -151,67 +130,30 @@ nav {
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.hover-underline:hover::after {
   width: 100%;
 }
 
-.invite-btn {
-  position: relative;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: var(--main-color);
-  color: white;
-  font-weight: 600;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.invite-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+/* Particle Background */
+#particles-js {
+  position: fixed;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.3),
-    transparent
-  );
-  transition: 0.5s;
+  z-index: -1;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
 }
 
-.invite-btn:hover::before {
-  left: 100%;
-}
-
-.invite-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--neon-glow);
-}
-
-/* ===== Hero Section ===== */
+/* Hero Section */
 .hero-section {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
-}
-
-.hero-content {
-  text-align: center;
-  z-index: 1;
-  max-width: 800px;
-  padding: 2rem;
 }
 
 .hero-title {
   font-size: 5rem;
-  margin-bottom: 1.5rem;
   background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -224,139 +166,48 @@ nav {
   100% { background-position: 100% 50%; }
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.cta-container {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-/* ===== Team Section ===== */
-.team-section {
-  padding: 5rem 2rem;
-}
-
-.developer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: var(--container-width);
-  margin: 0 auto;
-}
-
-.developer-card {
-  background: var(--glass-bg);
+/* Team Cards */
+.team-card {
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(12px);
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.developer-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, var(--main-color), transparent);
-  animation: rotate 4s linear infinite;
-  z-index: -1;
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--neon-glow);
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Support Bubble Animation */
+.support-bubble {
+  animation: float 3s ease-in-out infinite;
 }
 
-.developer-pfp {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 3px solid var(--main-color);
-  transition: transform 0.3s ease;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-.developer-card:hover .developer-pfp {
-  transform: scale(1.1) rotate(5deg);
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social-links a {
-  color: white;
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.social-links a:hover {
-  color: var(--main-color);
-  transform: translateY(-3px);
-}
-
-/* ===== Footer ===== */
-footer {
-  margin-top: auto;
-  padding: 2rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  text-align: center;
-}
-
-/* ===== Media Queries ===== */
-@media (max-width: 768px) {
-  nav {
-    top: 10px;
-    height: 60px;
-    padding: 0 1rem;
-  }
-
-  .nav-right {
-    display: none;
-  }
-
-  .hero-title {
-    font-size: 3rem;
-  }
-
-  .developer-card {
-    width: 100%;
-  }
-}
-
-/* ===== Custom Cursor ===== */
-.cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--main-color);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 999;
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.3s ease;
 }
 
-.cursor-follower {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: var(--main-color);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 998;
-  transition: all 0.1s ease;
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: all 0.3s ease;
 }
