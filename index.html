@@ -1,52 +1,86 @@
-<!-- Add this in body -->
-<div class="floating-shapes">
-  <div style="width: 300px; height: 300px; top: 20%; left: 10%;"></div>
-  <div style="width: 200px; height: 200px; top: 60%; right: 15%;"></div>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Hazy">
+  <meta property="og:description" content="Next Generation Discord Management">
+  <meta property="og:image" content="https://4drixn.github.io/Website/hazy-logo.jpg">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<!-- Updated Hero Section -->
-<header>
-  <div class="hero-content">
-    <h1 class="gradient-text">Hazy</h1>
-    <p class="hero-subtitle">Next Generation Discord Management</p>
-    <div class="cta-container">
-      <a href="#" class="neon-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Get Started
-      </a>
-    </div>
+  <title>Hazy - Discord Bot</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Page Transition -->
+  <div class="page-transition">
+    <span class="loader"></span>
   </div>
-</header>
 
-<!-- New Features Section -->
-<section id="features">
-  <h2 class="section-title">Why Choose Hazy?</h2>
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🚀</div>
-      <h3>Lightning Fast</h3>
-      <p>Optimized performance with 99.9% uptime</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🛡️</div>
-      <h3>Advanced Security</h3>
-      <p>AI-powered moderation and protection</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">💎</div>
-      <h3>Premium Features</h3>
-      <p>Exclusive tools for power users</p>
-    </div>
-  </div>
-</section>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
 
-<!-- Updated Team Section -->
-<section id="team">
-  <h2 class="section-title">Meet the Team</h2>
-  <div class="developer-grid">
-    <!-- Team members cards with new hover effects -->
-  </div>
-</section>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo">
+        <h2>Hazy</h2>
+      </div>
+      <div class="nav-right">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="comandos.html" class="nav-link">Commands</a>
+        <a href="precios.html" class="nav-link">Pricing</a>
+        <a href="https://discord.gg/hazybot" class="invite-btn" target="_blank">Join Discord</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Hazy</h1>
+      <p class="hero-subtitle">Next Generation Discord Management System</p>
+      <div class="cta-container">
+        <a href="https://invite.hazybot.net" class="invite-btn" target="_blank">Invite Bot</a>
+        <a href="https://discord.gg/hazybot" class="invite-btn" target="_blank">Join Server</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="developer-grid">
+      <!-- Repeat for each team member -->
+      <div class="developer-card">
+        <img src="https://i.imgur.com/U7rYa0q.png" alt="Developer" class="developer-pfp">
+        <h3>homeR</h3>
+        <p>Lead Developer</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+      <!-- Add other team members similarly -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Hazy. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
