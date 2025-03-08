@@ -1,44 +1,4 @@
-// Page Transition
-window.addEventListener('beforeunload', function() {
-  document.querySelector('.page-transition').style.animation = 'none';
-  document.querySelector('.page-transition').style.opacity = '1';
-});
-
-window.addEventListener('load', function() {
-  setTimeout(() => {
-    document.querySelector('.page-transition').style.display = 'none';
-  }, 1000);
-});
-
-// Custom Cursor
-const cursor = document.querySelector('.cursor');
-const cursorFollower = document.querySelector('.cursor-follower');
-
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  
-  gsap.to(cursorFollower, {
-    duration: 0.3,
-    left: e.clientX - 4 + 'px',
-    top: e.clientY - 4 + 'px'
-  });
-});
-
-// Hover Effects
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'scale(1.5)';
-    cursor.style.borderColor = '#FF2E63';
-  });
-  
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'scale(1)';
-    cursor.style.borderColor = '#FF2E63';
-  });
-});
-
-// Particles Initialization
+// Particle.js initialization
 particlesJS('particles-js', {
   particles: {
     number: { value: 150, density: { enable: true, value_area: 800 } },
@@ -74,31 +34,17 @@ particlesJS('particles-js', {
   retina_detect: true
 });
 
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+// Hover animations
+document.querySelectorAll('.hover-grow').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    el.style.transform = 'scale(1.2)';
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'scale(1)';
   });
 });
 
-// GSAP Animations
-gsap.from('nav', { duration: 1, y: -100, opacity: 0, ease: 'power4.out' });
-gsap.from('.hero-title', { duration: 1.5, opacity: 0, y: 50, ease: 'elastic.out' });
-gsap.from('.developer-card', {
-  duration: 1,
-  opacity: 0,
-  y: 50,
-  stagger: 0.2,
-  scrollTrigger: {
-    trigger: '.team-section',
-    start: 'top center'
-  }
-});
-
-// Intersection Observer
+// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -107,4 +53,14 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.developer-card').forEach(el => observer.observe(el));
+document.querySelectorAll('.uiverse-card').forEach(el => observer.observe(el));
+
+// Page transitions
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.body.classList.add('page-exit');
+    setTimeout(() => {
+      window.location.href = link.href;
+    }, 300);
+  });
