@@ -1,213 +1,160 @@
-:root {
-  --main-color: #ff2e63;
-  --main-hover: #ff427f;
-  --bg-color: #0f0f0f;
-  --text-color: #ffffff;
-  --container-width: 1400px;
-  --neon-glow: 0 0 15px var(--main-color);
-  --gradient: linear-gradient(45deg, #ff2e63, #ffac41);
-}
-
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg-color);
-  color: var(--text-color);
-  overflow-x: hidden;
-}
-
-/* Uiverse.io Button Styles */
-.uiverse-btn {
+/* ===== Uiverse.io Components ===== */
+/* Gradient Button - https://uiverse.io/vinodjangid07/gross-cat-75 */
+.uv-btn-gradient {
   position: relative;
   padding: 15px 30px;
   border: none;
+  outline: none;
   background: var(--main-color);
-  color: white;
-  font-weight: 600;
-  border-radius: 8px;
-  overflow: hidden;
   cursor: pointer;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.uiverse-btn::before {
-  content: '';
+.uv-btn-gradient::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+  inset: -3px;
+  background: linear-gradient(45deg, var(--main-color), #ff6b6b, #ff2e63);
+  border-radius: 10px;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.uv-btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(168, 30, 30, 0.5);
+}
+
+.uv-btn-gradient:hover::after {
+  opacity: 1;
+}
+
+/* Hover Card - https://uiverse.io/vinodjangid07/calm-cat-56 */
+.uv-card-hover {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s, box-shadow 0.3s;
+}
+
+.uv-card-hover::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 150%;
   background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.3),
-    transparent
+    to right,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.4)
   );
-  transition: 0.5s;
+  transform: rotate(45deg);
+  left: -110%;
+  top: -20%;
 }
 
-.uiverse-btn:hover::before {
-  left: 100%;
+.uv-card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
 
-.uiverse-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--neon-glow);
+.uv-card-hover:hover::before {
+  animation: uv-shine 1.2s;
 }
 
-/* Uiverse.io Card Styles */
-.uiverse-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 2rem;
+@keyframes uv-shine {
+  100% {
+    left: 200%;
+  }
+}
+
+/* Glowing Border - https://uiverse.io/vinodjangid07/real-quelea-18 */
+.uv-border-glow {
+  position: relative;
+  border: 1px solid transparent !important;
+  background: var(--card-bg) !important;
+}
+
+.uv-border-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--main-color), var(--main-hover-color));
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: uv-border-glow 3s linear infinite;
+}
+
+@keyframes uv-border-glow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* ===== Enhanced Original Elements ===== */
+.nav-right a {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-right a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-right a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.developer-card {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.uiverse-card::before {
-  content: '';
+.developer-card::after {
+  content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, var(--main-color), transparent);
-  animation: rotate 4s linear infinite;
-  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(168,30,30,0.1) 50%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.developer-card:hover::after {
+  opacity: 1;
+  animation: uv-shine 1.2s;
 }
 
-/* Animated Navigation */
-.nav-glass {
-  background: rgba(15, 15, 15, 0.65);
-  backdrop-filter: blur(12px);
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95%;
-  height: 80px;
-  border-radius: 16px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-glass:hover {
-  box-shadow: var(--neon-glow);
-}
-
-/* Hover Underline Animation */
-.hover-underline::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--main-color);
-  transition: width 0.3s ease;
-}
-
-.hover-underline:hover::after {
-  width: 100%;
-}
-
-/* Particle Background */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-}
-
-/* Hero Section */
-.hero-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.hero-title {
-  font-size: 5rem;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientShift 5s infinite alternate;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-/* Team Cards */
-.team-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 1rem;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--neon-glow);
-}
-
-/* Support Bubble Animation */
 .support-bubble {
   animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
-}
-
-/* Page Transitions */
-.page-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.3s ease;
-}
-
-.page-exit {
-  opacity: 1;
-}
-
-.page-exit-active {
-  opacity: 0;
-  transition: all 0.3s ease;
 }
