@@ -1,12 +1,11 @@
 :root {
-  --main-color: #ff2e63;
-  --main-hover-color: #ff6b6b;
-  --bg-color: #0f0f0f;
+  --main-color: #ff6b6b;
+  --main-hover-color: #ff2e63;
+  --bg-color: #1a1a1a;
   --text-color: #ffffff;
-  --container-width: 1200px;
   --card-bg: rgba(255, 255, 255, 0.05);
   --card-border: rgba(255, 255, 255, 0.1);
-  --neon-glow: 0 0 20px rgba(255, 46, 99, 0.5);
+  --neon-glow: 0 0 20px rgba(255, 107, 107, 0.5);
 }
 
 /* === Base Styles === */
@@ -36,7 +35,6 @@ nav {
   height: 80px;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -55,7 +53,7 @@ nav {
 
 .nav-container {
   width: 100%;
-  max-width: var(--container-width);
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -78,7 +76,7 @@ nav {
 .nav-left h2 {
   font-size: 1.8rem;
   font-weight: bold;
-  background: linear-gradient(45deg, var(--main-color), #ff6b6b);
+  background: linear-gradient(45deg, var(--main-color), #ff2e63);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
@@ -137,7 +135,7 @@ nav {
 }
 
 /* === Hero Section === */
-header {
+.hero-section {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -153,7 +151,7 @@ header {
 .hero-content h1 {
   font-size: 4rem;
   margin-bottom: 20px;
-  background: linear-gradient(45deg, var(--main-color), #ff6b6b);
+  background: linear-gradient(45deg, var(--main-color), #ff2e63);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientShift 5s infinite alternate;
@@ -198,27 +196,31 @@ header {
 }
 
 /* === Team Section === */
-.developer-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 40px;
+.team-section {
+  padding: 80px 20px;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.developer-card {
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 300px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.developer-card::before {
+.team-card::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -235,12 +237,12 @@ header {
   100% { transform: rotate(360deg); }
 }
 
-.developer-card:hover {
+.team-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(255, 46, 99, 0.3);
 }
 
-.developer-pfp {
+.team-pfp {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -249,13 +251,13 @@ header {
   margin-bottom: 15px;
 }
 
-.developer-card h3 {
+.team-card h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: var(--main-color);
 }
 
-.developer-card p {
+.team-card p {
   font-size: 0.9rem;
   margin-bottom: 10px;
   opacity: 0.8;
@@ -274,10 +276,9 @@ header {
 
 /* === Footer === */
 footer {
-  margin-top: auto;
   text-align: center;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   color: #aaa;
 }
 
