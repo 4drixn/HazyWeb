@@ -1,4 +1,3 @@
-// Original Particles Config
 (function() {
   var lastTime = 0;
   var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -57,7 +56,6 @@ particlesJS("particles-js", {
   retina_detect: true
 });
 
-// Original ScrollReveal
 ScrollReveal().reveal('.sr', {
   duration: 1000,
   distance: '50px',
@@ -66,7 +64,6 @@ ScrollReveal().reveal('.sr', {
   reset: false
 });
 
-// Original TextScramble
 class TextScramble {
   constructor(el) {
     this.el = el;
@@ -132,27 +129,4 @@ el.addEventListener('click', () => {
 });
 document.querySelector('.nav-left h2').addEventListener('click', () => {
   fx.setText('????').then(scrambleReveal);
-});
-
-// New Enhancements
-document.addEventListener('DOMContentLoaded', () => {
-  // Navbar Scroll Effect
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
-  // Card Hover Effects
-  document.querySelectorAll('.developer-card, .command-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--x', e.clientX - rect.left);
-      card.style.setProperty('--y', e.clientY - rect.top);
-    });
-  });
-
-  // Close Notification
-  window.closeBotNotification = function() {
-    document.getElementById('botNotification').style.display = 'none';
-  };
 });
