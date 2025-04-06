@@ -1,220 +1,140 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hazy - Changelog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <div id="particles-js"></div>
-  
-  <nav class="sr">
-    <div class="nav-container">
-      <div class="nav-left">
-        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo" />
-        <h2 id="logo">Hazy</h2>
-      </div>
-      <div class="nav-right">
-        <a href="index.html">Inicio</a>
-        <a href="comandos.html">Comandos</a>
-        <a href="precios.html">Precios</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="rules.html">Rules</a>
-        <a href="contact.html">Contáctanos</a>
-        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
-      </div>
+<main>
+  <section id="changelog" class="changelog-section">
+    <h2 class="section-title">Changelog</h2>
+    <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
+
+    <!-- Buscador -->
+    <input
+      type="search"
+      id="changelog-search"
+      placeholder="Buscar cambios…"
+      class="changelog-search"
+      aria-label="Buscar en el changelog"
+    />
+
+    <div class="accordion" id="changelog-accordion">
+
+      <!-- 04/06/2025 -->
+      <article class="accordion-item">
+        <header class="accordion-header">
+          <button class="accordion-toggle" aria-expanded="false">
+            <time datetime="2025-04-06">06/04/2025</time>
+            <span class="badge badge-tickets">Tickets System</span>
+            <span class="badge badge-temp">Temp‑roles</span>
+            <span class="badge badge-polls">Polls</span>
+            <span class="badge badge-giveaways">Giveaways</span>
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+        </header>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Tickets System:</strong> Transcript system remade (Cleaner and shows more information) ✅</li>
+            <li><strong>Temp roles System:</strong> Updated & Added Database ✅</li>
+            <li><strong>Polls System:</strong> Updated & Added Database ✅</li>
+            <li><strong>Giveaways System:</strong> Updated & Added Database ✅</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 03/03/2025 -->
+      <article class="accordion-item">
+        <header class="accordion-header">
+          <button class="accordion-toggle" aria-expanded="false">
+            <time datetime="2025-03-03">03/03/2025</time>
+            <span class="badge badge-website">Website</span>
+            <span class="badge badge-polls">Poll System</span>
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+        </header>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Website</strong></li>
+            <li><strong>Poll System:</strong> Added: <code>/poll</code></li>
+            <li><strong>Fixes:</strong> Fixed: <code>/sugerir</code> (Bug con perms)</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 02/28/2025 -->
+      <article class="accordion-item">
+        <header class="accordion-header">
+          <button class="accordion-toggle" aria-expanded="false">
+            <time datetime="2025-02-28">28/02/2025</time>
+            <span class="badge badge-admin">Administrator Commands</span>
+            <span class="badge badge-website">Website</span>
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+        </header>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Administrator Commands:</strong> Added: <code>/addrole</code>, <code>/temprole</code> ✅</li>
+            <li><strong>Website:</strong> hazybot.net 🌐</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 02/23/2025 -->
+      <article class="accordion-item">
+        <header class="accordion-header">
+          <button class="accordion-toggle" aria-expanded="false">
+            <time datetime="2025-02-23">23/02/2025</time>
+            <span class="badge badge-giveaway">Giveaway System</span>
+            <span class="badge badge-fixes">Fixes</span>
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+        </header>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Giveaway System:</strong> Added: <code>/sorteo</code></li>
+            <li><strong>Fixes:</strong> Fixed: <code>$addrole</code>, <code>/sugerir</code> (Bug con perms)</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 02/20/2025 -->
+      <article class="accordion-item">
+        <header class="accordion-header">
+          <button class="accordion-toggle" aria-expanded="false">
+            <time datetime="2025-02-20">20/02/2025</time>
+            <span class="badge badge-moderation">Moderation Commands</span>
+            <span class="badge badge-misc">Misc Commands</span>
+            <span class="badge badge-verification">Verification System</span>
+            <span class="badge badge-tickets">Tickets System</span>
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+        </header>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Moderation Commands:</strong> Added <code>/ban</code>, <code>/kick</code>, <code>/bloquear</code>, <code>/desbloquear</code>, <code>/mute</code>, <code>/unmute</code> ✅</li>
+            <li><strong>Misc Commands:</strong> Added <code>/purge</code>, <code>/sugerir</code> ✅</li>
+            <li><strong>Verification System:</strong> ✅</li>
+            <li><strong>Tickets system:</strong> Added <code>$add</code>, <code>$addrole</code>, <code>$remove</code>, <code>$removerole</code></li>
+          </ul>
+        </div>
+      </article>
+
     </div>
-  </nav>
-  
-  <main>
-    <section id="changelog" class="sr">
-      <h2 class="section-title">Changelog</h2>
-      <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
-      
-      <div class="accordion">
+  </section>
+</main>
 
-        <div class="accordion-item">
-          <button class="accordion-header active">
-            <span>Changelog (03/03/2025)</span>
-            <i class="fas fa-chevron-down rotate"></i>
-          </button>
-          <div class="accordion-content" style="max-height: 9999px;">
-            <div class="timeline-content">
-              <h4>Website</h4>
-              <h4>Poll System</h4>
-              <ul>
-                <li>- Added: /poll</li>
-              </ul>
-              <h4>Fixes</h4>
-              <ul>
-                <li>- Fixed: /sugerir (Bug con perms)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <span>Changelog (02/28/2025)</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="timeline-content">
-              <p><em>fffelipe — 2/28/2025 13:27</em></p>
-              <h4>Administrator Commands</h4>
-              <ul>
-                <li>- Added: /addrole ✅</li>
-                <li>- Added: /temprole ✅</li>
-              </ul>
-              <h4>Website</h4>
-              <ul>
-                <li>- hazybot.net 🌐</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <span>Changelog (02/23/2025)</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="timeline-content">
-              <p><em>Adrian — 2/23/2025 18:47</em></p>
-              <h4>Giveaway System</h4>
-              <ul>
-                <li>- Added: /sorteo</li>
-              </ul>
-              <h4>Fixes</h4>
-              <ul>
-                <li>- Fixed: $addrole</li>
-                <li>- Fixed: /sugerir (Bug con perms)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <span>Changelog (02/20/2025)</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="timeline-content">
-              <h4>Moderation Commands</h4>
-              <ul>
-                <li>- Added /ban ✅</li>
-                <li>- Added /kick ✅</li>
-                <li>- Added /bloquear ✅</li>
-                <li>- Added /desbloquear ✅</li>
-                <li>- Added /mute ✅</li>
-                <li>- Added /unmute ✅</li>
-              </ul>
-              <h4>Misc Commands</h4>
-              <ul>
-                <li>- Added /purge ✅</li>
-                <li>- Added /sugerir ✅</li>
-              </ul>
-              <h4>Verification System</h4>
-              <p>✅</p>
-              <h4>Tickets system</h4>
-              <ul>
-                <li>- Added $add</li>
-                <li>- Added $addrole</li>
-                <li>- Added $remove</li>
-                <li>- Added $removerole</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <span>Changelog (04/06/2025)</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="timeline-content">
-              <h4>Tickets System</h4>
-              <ul>
-                <li>- Transcript system remade (Cleaner and shows more information) ✅</li>
-              </ul>
-              <h4>Temp roles System</h4>
-              <ul>
-                <li>- Updated ✅</li>
-                <li>- Added Database ✅</li>
-              </ul>
-              <h4>Polls System</h4>
-              <ul>
-                <li>- Updated ✅</li>
-                <li>- Added Database ✅</li>
-              </ul>
-              <h4>Giveaways System</h4>
-              <ul>
-                <li>- Updated ✅</li>
-                <li>- Added Database ✅</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div> 
-      
-    </section>
-  </main>
-  
-  <footer class="sr">
-    <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
-  </footer>
-  
-  <div class="support-bubble" onclick="window.open('https://discord.gg/hazybot','_blank')">
-    <i class="fab fa-discord"></i>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="js/main.js"></script>
-
-  <script>
-    function closeBotNotification() {
-      const botNotification = document.getElementById('botNotification');
-      if (botNotification) {
-        botNotification.style.display = 'none';
-      }
-    }
-
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-    accordionHeaders.forEach(header => {
-      header.addEventListener('click', () => {
-        const item = header.parentElement;
-        const content = item.querySelector('.accordion-content');
-        const icon = header.querySelector('i');
-
-        if (header.classList.contains('active')) {
-          header.classList.remove('active');
-          content.style.maxHeight = null;
-          icon.classList.remove('rotate');
-        } else {
-          document.querySelectorAll('.accordion-header.active').forEach(activeHeader => {
-            activeHeader.classList.remove('active');
-            activeHeader.querySelector('i').classList.remove('rotate');
-            activeHeader.parentElement.querySelector('.accordion-content').style.maxHeight = null;
-          });
-
-          header.classList.add('active');
-          content.style.maxHeight = content.scrollHeight + 'px';
-          icon.classList.add('rotate');
-        }
-      });
+<!-- Añade esto al final de tu body o en tu JS -->
+<script>
+  // Acordeón
+  document.querySelectorAll('.accordion-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      const content = btn.closest('.accordion-item').querySelector('.accordion-content');
+      content.style.maxHeight = expanded ? null : content.scrollHeight + 'px';
     });
-  </script>
-</body>
-</html>
+  });
+
+  // Búsqueda
+  document.getElementById('changelog-search').addEventListener('input', e => {
+    const term = e.target.value.toLowerCase();
+    document.querySelectorAll('.accordion-item').forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(term) ? '' : 'none';
+    });
+  });
+</script>
