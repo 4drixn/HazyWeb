@@ -1,22 +1,222 @@
-<main>
-  <section id="changelog" class="changelog-section">
-    <h2 class="section-title">Changelog</h2>
-    <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hazy - Changelog</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <style>
 
-    <!-- Buscador -->
-    <input
-      type="search"
-      id="changelog-search"
-      placeholder="Buscar cambios…"
-      class="changelog-search"
-      aria-label="Buscar en el changelog"
-    />
+    :root {
+      --main-color: #a81e1e;
+      --main-hover-color: #8e1b1b;
+      --bg-color: #0b0b0b;
+      --text-color: #ffffff;
+      --container-width: 1200px;
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --card-border: rgba(255, 255, 255, 0.1);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    html, body {
+      width: 100%; height: 100%;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
 
-    <div class="accordion" id="changelog-accordion">
+    nav {
+      width: 100%; height: 75px;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; padding: 0 40px;
+      position: fixed; top: 0; left: 0; z-index: 100;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-container {
+      max-width: var(--container-width);
+      width: 100%; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-left { display: flex; align-items: center; }
+    .nav-left img { width: 40px; margin-right: 10px; }
+    .nav-left h2 {
+      font-size: 1.8rem; color: var(--main-color);
+    }
+    .nav-right {
+      display: flex; gap: 25px; align-items: center;
+    }
+    .nav-right a {
+      padding: 10px 15px; position: relative;
+      transition: color .3s;
+    }
+    .nav-right a::after {
+      content: ""; position: absolute;
+      left: 0; bottom: -4px; width: 0; height: 2px;
+      background: var(--main-color); transition: width .3s;
+    }
+    .nav-right a:hover {
+      color: var(--main-color);
+    }
+    .nav-right a:hover::after { width: 100%; }
+    .invite-btn {
+      padding: 10px 18px; background: var(--main-color);
+      border-radius: 6px; font-weight: bold;
+      box-shadow: 0 3px 8px rgba(168,30,30,0.3);
+      transition: transform .2s, background .3s;
+    }
+    .invite-btn:hover {
+      background: var(--main-hover-color);
+      transform: scale(1.05);
+    }
 
-      <!-- 04/06/2025 -->
-      <article class="accordion-item">
-        <header class="accordion-header">
+    main {
+      padding: 100px 20px 60px;
+      max-width: var(--container-width);
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--main-color);
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+    .changelog-search {
+      width: 100%; max-width: 400px;
+      margin: 0 auto 2rem; display: block;
+      padding: 10px 15px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 5px;
+      color: var(--text-color);
+      font-size: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      margin-left: 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 12px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .badge-tickets       { background: rgba(168,30,30,0.1);    color: var(--main-color); }
+    .badge-temp          { background: rgba(30,168,30,0.1);    color: #1ea81e; }
+    .badge-polls         { background: rgba(30,30,168,0.1);    color: #1e1ea8; }
+    .badge-giveaways     { background: rgba(168,30,168,0.1);   color: #a81ea8; }
+    .badge-website       { background: rgba(168,168,30,0.1);   color: #a8a81e; }
+    .badge-admin         { background: rgba(30,168,168,0.1);   color: #1ea8a8; }
+    .badge-moderation    { background: rgba(168,80,30,0.1);    color: #a8501e; }
+    .badge-misc          { background: rgba(80,30,168,0.1);    color: #501ea8; }
+    .badge-verification  { background: rgba(30,80,168,0.1);    color: #1e50a8; }
+
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .accordion-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 1rem;
+    }
+    .accordion-toggle {
+      all: unset;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+    .accordion-toggle time {
+      font-weight: bold;
+      color: var(--main-color);
+    }
+    .accordion-toggle .icon {
+      transition: transform 0.2s ease;
+    }
+    .accordion-toggle[aria-expanded="true"] .icon {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease;
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+    }
+    .accordion-content ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .accordion-content li {
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      color: #aaa;
+      margin-top: 60px;
+    }
+    footer a { color: var(--main-color); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="hazy-logo.jpg" alt="Hazy Logo">
+        <h2>Hazy</h2>
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Inicio</a>
+        <a href="comandos.html">Comandos</a>
+        <a href="precios.html">Precios</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="rules.html">Rules</a>
+        <a href="contact.html">Contáctanos</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="changelog">
+      <h2 class="section-title">Changelog</h2>
+      <p class="section-subtitle">Mantente al día con las últimas actualizaciones y mejoras de Hazy.</p>
+
+      <input
+        type="search"
+        id="changelog-search"
+        placeholder="Buscar cambios…"
+        class="changelog-search"
+        aria-label="Buscar en el changelog"
+      />
+
+      <div class="accordion" id="changelog-accordion">
+
+        <article class="accordion-item">
           <button class="accordion-toggle" aria-expanded="false">
             <time datetime="2025-04-06">06/04/2025</time>
             <span class="badge badge-tickets">Tickets System</span>
@@ -25,75 +225,63 @@
             <span class="badge badge-giveaways">Giveaways</span>
             <i class="fas fa-chevron-down icon"></i>
           </button>
-        </header>
-        <div class="accordion-content">
-          <ul>
-            <li><strong>Tickets System:</strong> Transcript system remade (Cleaner and shows more information) ✅</li>
-            <li><strong>Temp roles System:</strong> Updated & Added Database ✅</li>
-            <li><strong>Polls System:</strong> Updated & Added Database ✅</li>
-            <li><strong>Giveaways System:</strong> Updated & Added Database ✅</li>
-          </ul>
-        </div>
-      </article>
+          <div class="accordion-content">
+            <ul>
+              <li><strong>Tickets System:</strong> Transcript system remade (Cleaner and shows more information) ✅</li>
+              <li><strong>Temp roles System:</strong> Updated & Added Database ✅</li>
+              <li><strong>Polls System:</strong> Updated & Added Database ✅</li>
+              <li><strong>Giveaways System:</strong> Updated & Added Database ✅</li>
+            </ul>
+          </div>
+        </article>
 
-      <!-- 03/03/2025 -->
-      <article class="accordion-item">
-        <header class="accordion-header">
+        <article class="accordion-item">
           <button class="accordion-toggle" aria-expanded="false">
             <time datetime="2025-03-03">03/03/2025</time>
             <span class="badge badge-website">Website</span>
             <span class="badge badge-polls">Poll System</span>
             <i class="fas fa-chevron-down icon"></i>
           </button>
-        </header>
-        <div class="accordion-content">
-          <ul>
-            <li><strong>Website</strong></li>
-            <li><strong>Poll System:</strong> Added: <code>/poll</code></li>
-            <li><strong>Fixes:</strong> Fixed: <code>/sugerir</code> (Bug con perms)</li>
-          </ul>
-        </div>
-      </article>
+          <div class="accordion-content">
+            <ul>
+              <li><strong>Website</strong></li>
+              <li><strong>Poll System:</strong> Added: <code>/poll</code></li>
+              <li><strong>Fixes:</strong> Fixed: <code>/sugerir</code> (Bug con perms)</li>
+            </ul>
+          </div>
+        </article>
 
-      <!-- 02/28/2025 -->
-      <article class="accordion-item">
-        <header class="accordion-header">
+        <article class="accordion-item">
           <button class="accordion-toggle" aria-expanded="false">
             <time datetime="2025-02-28">28/02/2025</time>
             <span class="badge badge-admin">Administrator Commands</span>
             <span class="badge badge-website">Website</span>
             <i class="fas fa-chevron-down icon"></i>
           </button>
-        </header>
-        <div class="accordion-content">
-          <ul>
-            <li><strong>Administrator Commands:</strong> Added: <code>/addrole</code>, <code>/temprole</code> ✅</li>
-            <li><strong>Website:</strong> hazybot.net 🌐</li>
-          </ul>
-        </div>
-      </article>
+          <div class="accordion-content">
+            <ul>
+              <li><strong>Administrator Commands:</strong> Added: <code>/addrole</code>, <code>/temprole</code> ✅</li>
+              <li><strong>Website:</strong> hazybot.net 🌐</li>
+            </ul>
+          </div>
+        </article>
 
-      <!-- 02/23/2025 -->
-      <article class="accordion-item">
-        <header class="accordion-header">
+        <article class="accordion-item">
           <button class="accordion-toggle" aria-expanded="false">
             <time datetime="2025-02-23">23/02/2025</time>
-            <span class="badge badge-giveaway">Giveaway System</span>
-            <span class="badge badge-fixes">Fixes</span>
+            <span class="badge badge-giveaways">Giveaway System</span>
+            <span class="badge badge-misc">Fixes</span>
             <i class="fas fa-chevron-down icon"></i>
           </button>
-        </header>
-        <div class="accordion-content">
-          <ul>
-            <li><strong>Giveaway System:</strong> Added: <code>/sorteo</code></li>
-            <li><strong>Fixes:</strong> Fixed: <code>$addrole</code>, <code>/sugerir</code> (Bug con perms)</li>
-          </ul>
-        </div>
-      </article>
+          <div class="accordion-content">
+            <ul>
+              <li><strong>Giveaway System:</strong> Added: <code>/sorteo</code></li>
+              <li><strong>Fixes:</strong> Fixed: <code>$addrole</code>, <code>/sugerir</code> (Bug con perms)</li>
+            </ul>
+          </div>
+        </article>
 
-      <!-- 02/20/2025 -->
-      <article class="accordion-item">
-        <header class="accordion-header">
+        <article class="accordion-item">
           <button class="accordion-toggle" aria-expanded="false">
             <time datetime="2025-02-20">20/02/2025</time>
             <span class="badge badge-moderation">Moderation Commands</span>
@@ -102,39 +290,39 @@
             <span class="badge badge-tickets">Tickets System</span>
             <i class="fas fa-chevron-down icon"></i>
           </button>
-        </header>
-        <div class="accordion-content">
-          <ul>
-            <li><strong>Moderation Commands:</strong> Added <code>/ban</code>, <code>/kick</code>, <code>/bloquear</code>, <code>/desbloquear</code>, <code>/mute</code>, <code>/unmute</code> ✅</li>
-            <li><strong>Misc Commands:</strong> Added <code>/purge</code>, <code>/sugerir</code> ✅</li>
-            <li><strong>Verification System:</strong> ✅</li>
-            <li><strong>Tickets system:</strong> Added <code>$add</code>, <code>$addrole</code>, <code>$remove</code>, <code>$removerole</code></li>
-          </ul>
-        </div>
-      </article>
+          <div class="accordion-content">
+            <ul>
+              <li><strong>Moderation Commands:</strong> Added <code>/ban</code>, <code>/kick</code>, <code>/bloquear</code>, <code>/desbloquear</code>, <code>/mute</code>, <code>/unmute</code> ✅</li>
+              <li><strong>Misc Commands:</strong> Added <code>/purge</code>, <code>/sugerir</code> ✅</li>
+              <li><strong>Verification System:</strong> ✅</li>
+              <li><strong>Tickets system:</strong> Added <code>$add</code>, <code>$addrole</code>, <code>$remove</code>, <code>$removerole</code></li>
+            </ul>
+          </div>
+        </article>
 
-    </div>
-  </section>
-</main>
+      </div>
+    </section>
+  </main>
 
-<!-- Añade esto al final de tu body o en tu JS -->
-<script>
-  // Acordeón
-  document.querySelectorAll('.accordion-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', !expanded);
-      const content = btn.closest('.accordion-item').querySelector('.accordion-content');
-      content.style.maxHeight = expanded ? null : content.scrollHeight + 'px';
+  <footer>
+    <p>Hazy® 2025 • Made By Adrian | <a href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.accordion-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        const content = btn.closest('.accordion-item').querySelector('.accordion-content');
+        content.style.maxHeight = expanded ? null : content.scrollHeight + 'px';
+      });
     });
-  });
-
-  // Búsqueda
-  document.getElementById('changelog-search').addEventListener('input', e => {
-    const term = e.target.value.toLowerCase();
-    document.querySelectorAll('.accordion-item').forEach(item => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(term) ? '' : 'none';
+    document.getElementById('changelog-search').addEventListener('input', e => {
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(term) ? '' : 'none';
+      });
     });
-  });
-</script>
+  </script>
+</body>
+</html>
