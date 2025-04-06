@@ -4,159 +4,152 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazy - Changelog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
     :root {
       --main-color: #a81e1e;
-      --main-hover-color: #8e1b1b;
-      --bg-color: #0b0b0b;
-      --text-color: #f0f0f0;
-      --card-bg: rgba(0, 0, 0, 0.6);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --container-width: 800px;
+      --main-hover: #8e1b1b;
+      --bg: #0b0b0b;
+      --text: #e0e0e0;
+      --card-bg: rgba(255,255,255,0.05);
+      --card-border: rgba(255,255,255,0.15);
+      --width: 800px;
     }
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body {
-      background: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Roboto', sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
+    html, body {
+      height:100%;
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Roboto', sans-serif;
+      display:flex;
+      flex-direction:column;
     }
-    /* Particles */
+    a { text-decoration:none; color:inherit; }
+
     #particles-js {
-      position: fixed;
-      width: 100%; height: 100%;
-      top: 0; left: 0;
-      z-index: -1;
+      position:fixed; top:0; left:0;
+      width:100%; height:100%; z-index:-1;
     }
-    /* Nav */
+
     nav {
-      position: fixed; top:0; left:0; right:0;
-      height: 60px;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(10px);
-      display: flex; align-items:center;
-      padding: 0 40px; z-index:100;
+      height:60px;
+      backdrop-filter:blur(8px);
+      background:rgba(0,0,0,0.7);
+      display:flex; align-items:center;
+      padding:0 40px; flex-shrink:0;
+      border-bottom:1px solid var(--card-border);
     }
-    .nav-container { width:100%; max-width:1200px; margin:auto; display:flex; align-items:center; justify-content:space-between; }
+    .nav-container {
+      max-width:var(--width); width:100%;
+      margin:auto; display:flex; align-items:center; justify-content:space-between;
+    }
     .nav-left { display:flex; align-items:center; }
     .nav-left img { width:32px; margin-right:8px; }
-    .nav-left h2 { color: var(--main-color); font-size:1.5rem; }
+    .nav-left h2 { color:var(--main-color); font-weight:700; }
     .nav-right a {
-      color:#fff; margin-left:20px; position:relative;
-      transition:color .3s;
+      margin-left:24px; position:relative; font-weight:500;
+      transition:color .2s;
     }
     .nav-right a::after {
-      content:""; position:absolute; left:0; bottom:-3px;
+      content:""; position:absolute; bottom:-4px; left:0;
       width:0; height:2px; background:var(--main-color);
-      transition:width .3s;
+      transition:width .2s;
     }
     .nav-right a:hover { color:var(--main-color); }
     .nav-right a:hover::after { width:100%; }
     .invite-btn {
-      background:var(--main-color); padding:8px 14px; border-radius:4px;
-      color:#fff; font-weight:700; margin-left:20px;
-      transition:background .3s;
+      background:var(--main-color); padding:8px 16px; border-radius:4px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.4); font-weight:700;
+      transition:background .2s, transform .2s;
     }
-    .invite-btn:hover { background:var(--main-hover-color); }
+    .invite-btn:hover {
+      background:var(--main-hover); transform:scale(1.05);
+    }
 
     main {
-      padding: 100px 20px 60px;
-      max-width: var(--container-width);
-      margin: 0 auto;
+      flex:1;
+      padding:80px 20px 40px;
+      max-width:var(--width); width:100%;
+      margin:auto;
     }
     .section-title {
-      text-align:center;
-      font-size:2.5rem;
-      color:var(--main-color);
-      margin-bottom:10px;
+      text-align:center; font-size:2.8rem; color:var(--main-color);
+      margin-bottom:8px;
     }
     .section-subtitle {
-      text-align:center;
-      color:#ccc;
-      margin-bottom:30px;
+      text-align:center; color:#aaa; margin-bottom:32px;
     }
 
-    /* Contenedor semitransparente */
     .changelog-wrapper {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    }
-
-    /* Buscador */
-    .changelog-search {
-      width:100%; padding:10px 15px;
-      margin-bottom:30px;
-      background:rgba(255,255,255,0.05);
+      background:var(--card-bg);
       border:1px solid var(--card-border);
-      border-radius:4px;
-      color:#ddd;
-      font-size:1rem;
-    }
-    .changelog-search::placeholder { color:#777; }
-
-    /* Badges */
-    .badge {
-      display:inline-block; padding:3px 8px;
-      margin-left:6px; font-size:.75rem;
       border-radius:12px;
-      background: rgba(255,255,255,0.1);
-      color:#fff; font-weight:500;
+      padding:32px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 8px 24px rgba(0,0,0,0.5);
     }
-    .badge-tickets    { background: #a81e1e; }
-    .badge-temp       { background: #1ea81e; }
-    .badge-polls      { background: #1e1ea8; }
-    .badge-giveaways  { background: #a81ea8; }
-    .badge-website    { background: #a8a81e; }
-    .badge-admin      { background: #1ea8a8; }
-    .badge-moderation { background: #a8501e; }
-    .badge-misc       { background: #501ea8; }
-    .badge-verification { background: #1e50a8; }
 
-    /* Acordeón */
-    .accordion-item + .accordion-item { margin-top:20px; }
+    .changelog-search {
+      width:100%; padding:12px 16px;
+      margin-bottom:32px;
+      background:rgba(255,255,255,0.1);
+      border:1px solid var(--card-border);
+      border-radius:6px;
+      color:#ddd; font-size:1rem;
+    }
+    .changelog-search::placeholder { color:#888; }
+
+    .badge {
+      display:inline-block; padding:4px 10px;
+      margin-left:8px; font-size:.75rem; font-weight:500;
+      border-radius:12px; background:rgba(255,255,255,0.1);
+      color:#fff; text-transform:uppercase;
+    }
+    .badge-tickets    { background:#a81e1e; }
+    .badge-temp       { background:#1ea81e; }
+    .badge-polls      { background:#1e1ea8; }
+    .badge-giveaways  { background:#a81ea8; }
+    .badge-website    { background:#a8a81e; }
+    .badge-admin      { background:#1ea8a8; }
+    .badge-moderation { background:#a8501e; }
+    .badge-misc       { background:#501ea8; }
+    .badge-verification { background:#1e50a8; }
+
+    .accordion-item + .accordion-item { margin-top:24px; }
     .accordion-toggle {
       width:100%; background:transparent; border:none;
       display:flex; align-items:center; justify-content:space-between;
-      font-size:1rem; font-weight:700; color:var(--text-color);
-      padding:12px 0; cursor:pointer;
+      padding:12px 0; font-size:1rem; font-weight:600;
       border-bottom:1px solid var(--card-border);
+      cursor:pointer; transition:background .2s;
     }
     .accordion-toggle:hover { background:rgba(255,255,255,0.05); }
-    .accordion-toggle time { color:var(--main-color); }
+    .accordion-toggle time { color:var(--main-color); font-weight:700; }
     .accordion-toggle .icon { transition:transform .2s; }
     .accordion-toggle[aria-expanded="true"] .icon { transform:rotate(180deg); }
-
     .accordion-content {
       max-height:0; overflow:hidden;
       transition:max-height .3s ease;
-      padding-left:10px;
+      margin-top:8px; padding-left:12px;
     }
-    .accordion-content ul {
-      list-style:none; margin-top:10px;
-    }
+    .accordion-content ul { list-style:none; }
     .accordion-content li {
-      margin-bottom:8px; line-height:1.4;
+      margin-bottom:8px; line-height:1.5;
     }
 
     footer {
-      text-align:center; padding:20px;
-      color:#aaa; margin-top:40px;
-      background: rgba(0,0,0,0.8);
+      flex-shrink:0;
+      text-align:center; padding:16px 0;
+      background:rgba(0,0,0,0.8); color:#aaa;
+      border-top:1px solid var(--card-border);
     }
     footer a { color:var(--main-color); }
   </style>
 </head>
 <body>
   <div id="particles-js"></div>
+
   <nav>
     <div class="nav-container">
       <div class="nav-left">
@@ -182,11 +175,11 @@
       <input
         type="search"
         id="changelog-search"
-        placeholder="Buscar cambios…"
         class="changelog-search"
+        placeholder="Buscar cambios…"
         aria-label="Buscar en el changelog"
       />
-      <div class="accordion" id="changelog-accordion">
+      <div class="accordion">
         <!-- 06/04/2025 -->
         <div class="accordion-item">
           <button class="accordion-toggle" aria-expanded="false">
@@ -282,7 +275,6 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Acordeón
     document.querySelectorAll('.accordion-toggle').forEach(btn => {
       btn.addEventListener('click', () => {
         const open = btn.getAttribute('aria-expanded') === 'true';
@@ -291,11 +283,10 @@
         c.style.maxHeight = open ? '0' : c.scrollHeight + 'px';
       });
     });
-    // Búsqueda
     document.getElementById('changelog-search').addEventListener('input', e => {
-      const t = e.target.value.toLowerCase();
-      document.querySelectorAll('.accordion-item').forEach(it => {
-        it.style.display = it.textContent.toLowerCase().includes(t) ? '' : 'none';
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(term) ? '' : 'none';
       });
     });
   </script>
