@@ -616,3 +616,93 @@ footer a {
 .accordion-header span {
   pointer-events: none;
 }
+
+/* ————————————————————————
+   Buscador de changelog
+   ———————————————————————— */
+.changelog-search {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  margin: 0 auto 2rem;
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* ————————————————————————
+   Badges (etiquetas de sección)
+   ———————————————————————— */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.badge-tickets    { background: rgba(168,30,30,0.1); color: var(--main-color); }
+.badge-temp       { background: rgba(30,168,30,0.1); color: #1ea81e; }
+.badge-polls      { background: rgba(30,30,168,0.1); color: #1e1ea8; }
+.badge-giveaways  { background: rgba(168,30,168,0.1); color: #a81ea8; }
+.badge-website    { background: rgba(168,168,30,0.1); color: #a8a81e; }
+.badge-admin      { background: rgba(30,168,168,0.1); color: #1ea8a8; }
+.badge-moderation { background: rgba(168,80,30,0.1); color: #a8501e; }
+.badge-misc       { background: rgba(80,30,168,0.1); color: #501ea8; }
+.badge-verification { background: rgba(30,80,168,0.1); color: #1e50a8; }
+.badge-giveaway   { /* si quieres otro color */ }
+
+/* ————————————————————————
+   Acordeón (toggle + contenido)
+   ———————————————————————— */
+.accordion-toggle {
+  all: unset;               /* quita márgenes, padding y fuente por defecto */
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.accordion-toggle time {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.accordion-toggle .icon {
+  transition: transform 0.2s ease;
+}
+.accordion-toggle[aria-expanded="true"] .icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  padding-left: 1rem;
+}
+.accordion-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+.accordion-content li {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+/* ————————————————————————
+   Separación entre items
+   ———————————————————————— */
+.accordion-item + .accordion-item {
+  margin-top: 1.5rem;
+}
