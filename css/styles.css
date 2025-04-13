@@ -39,11 +39,6 @@ main {
   z-index: -1;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 nav {
   width: 100%;
   height: 75px;
@@ -55,7 +50,6 @@ nav {
   top: 0;
   left: 0;
   z-index: 1000;
-  animation: fadeInUp 0.8s ease-out forwards;
   padding: 0 40px;
   display: flex;
   align-items: center;
@@ -143,6 +137,7 @@ nav {
   background: var(--main-hover-color);
   transform: scale(1.05);
 }
+
 section {
   padding: 60px 20px;
   max-width: var(--container-width);
@@ -184,174 +179,8 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-.commands-grid,
-.faq-grid {
-  display: grid;
-  gap: 30px;
-}
 
-.commands-grid {
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
-
-.command-card,
-.faq-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-left: 3px solid var(--main-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s;
-  overflow: hidden;
-  position: relative;
-}
-
-.command-card:hover,
-.faq-card:hover {
-  transform: translateY(-5px);
-}
-
-.command-card h3,
-.faq-card h3 {
-  color: var(--main-color);
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-}
-
-.command-card ul {
-  list-style: none;
-  padding-left: 20px;
-}
-
-.command-card li {
-  margin: 8px 0;
-  line-height: 1.4;
-}
-
-.command-card li i {
-  margin-right: 8px;
-  color: var(--main-color);
-}
-
-.faq-card::before {
-  content: "";
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  border: 2px solid var(--main-color);
-  border-radius: 10px;
-  z-index: -1;
-  animation: pulsateBorder 2s infinite;
-}
-
-@keyframes pulsateBorder {
-  0%   { border-color: var(--main-color); }
-  50%  { border-color: var(--main-hover-color); }
-  100% { border-color: var(--main-color); }
-}
-.rules-container {
-  max-width: 800px;
-  margin: auto;
-}
-
-.rules-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-  animation: pulsateBorder 2s infinite;
-}
-
-.rules-card h3 {
-  color: var(--main-color);
-  margin-bottom: 15px;
-  font-size: 1.6rem;
-}
-
-.rules-card p {
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.rules-card a {
-  color: var(--main-color);
-  text-decoration: underline;
-}
-
-.contact-container {
-  max-width: 600px;
-  margin: auto;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.contact-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-container input,
-.contact-container textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--card-border);
-  border-radius: 5px;
-  background: transparent;
-  color: var(--text-color);
-  font-size: 1rem;
-}
-
-.contact-container input:focus,
-.contact-container textarea:focus {
-  outline: none;
-  border-color: var(--main-color);
-}
-
-.contact-container button {
-  padding: 10px;
-  background: var(--main-color);
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.contact-container button:hover {
-  background: var(--main-hover-color);
-}
-
-.surprise-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: var(--main-color);
-  border-radius: 5px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  transition: background 0.3s;
-  border: none;
-  cursor: pointer;
-}
-
-.surprise-btn:hover {
-  background: var(--main-hover-color);
-}
-
-/* Changelog */
+/* CHANGES PARA EL CHANGELOG */
 
 .changelog-section {
   max-width: 1000px;
@@ -389,87 +218,77 @@ footer a:hover {
   outline: none;
 }
 
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .accordion-item {
-  border-radius: 14px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--card-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   overflow: hidden;
   transition: all 0.3s ease;
-  backdrop-filter: blur(14px);
-  border-left: 5px solid var(--main-color);
 }
 
-.accordion-item.badge-tickets    { border-left-color: #a81e1e; }
-.accordion-item.badge-polls      { border-left-color: #1e1ea8; }
-.accordion-item.badge-admin      { border-left-color: #1ea8a8; }
-.accordion-item.badge-giveaways  { border-left-color: #a81ea8; }
-.accordion-item.badge-moderation { border-left-color: #a8501e; }
-
-.badge {
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
+.accordion-item.border-tickets    { border-left: 5px solid #a81e1e; }
+.accordion-item.border-polls      { border-left: 5px solid #1e1ea8; }
+.accordion-item.border-admin      { border-left: 5px solid #1ea8a8; }
+.accordion-item.border-giveaways  { border-left: 5px solid #a81ea8; }
+.accordion-item.border-moderation { border-left: 5px solid #a8501e; }
 
 .accordion-header {
-  padding: 18px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.accordion-header span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.accordion-header i {
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.open i {
+  transform: rotate(180deg);
 }
 
 .accordion-content {
-  padding: 0 20px 15px 20px;
-  font-size: 0.95rem;
-  color: #ccc;
+  padding: 0 25px 20px 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 }
 
 .accordion-content ul {
+  margin: 20px 0;
   padding-left: 20px;
-  margin: 0;
-  list-style: none;
+  color: #ccc;
 }
 
 .accordion-content li {
   margin-bottom: 8px;
   line-height: 1.6;
+  list-style: none;
 }
 
 .badge {
-  padding: 4px 12px;
-  border-radius: 12px;
   font-size: 0.7rem;
-  background: rgba(255,255,255,0.05);
-  font-weight: bold;
-  color: white;
+  background: rgba(255,255,255,0.07);
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: white;
 }
 
-.badge-tickets    { background: #601f1f; }
-.badge-polls      { background: #1f1f60; }
-.badge-admin      { background: #1f6060; }
-.badge-giveaways  { background: #601f60; }
-.badge-moderation { background: #60381f; }
-
-/* HOMERO REVISA */
-
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .nav-right {
     flex-wrap: wrap;
@@ -511,7 +330,7 @@ footer a:hover {
   }
 
   .accordion-content {
-    padding: 0 15px;
+    padding: 0 15px 20px 15px;
   }
 
   .accordion-content ul {
