@@ -5,21 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazy - Changelog</title>
   
-  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   
-  <!-- Iconos Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   
-  <!-- Tu hoja de estilos principal -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <!-- Partículas de fondo (opcional) -->
   <div id="particles-js"></div>
 
-  <!-- Navegación -->
   <nav>
     <div class="nav-container">
       <div class="nav-left">
@@ -132,21 +127,17 @@
     <p>Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" target="_blank">Invitar al bot</a></p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/main.js"></script>
   
   <script>
-    // Acordeón
     document.querySelectorAll('.accordion-toggle').forEach(toggle => {
       toggle.addEventListener('click', () => {
         const content = toggle.nextElementSibling;
 
-        // Cierra otros acordeones
         document.querySelectorAll('.accordion-content').forEach(otherContent => {
           if (otherContent !== content) {
             otherContent.style.maxHeight = null;
-            // Quita 'rotate' en íconos de los otros
             const otherToggle = otherContent.previousElementSibling;
             if (otherToggle) {
               const icon = otherToggle.querySelector('i');
@@ -155,7 +146,6 @@
           }
         });
 
-        // Alterna el acordeón actual
         if (content.style.maxHeight) {
           content.style.maxHeight = null;
           toggle.querySelector('i').classList.remove('rotate');
@@ -166,7 +156,6 @@
       });
     });
 
-    // Búsqueda de changelog
     document.getElementById('changelog-search').addEventListener('input', function (e) {
       const term = e.target.value.toLowerCase();
       document.querySelectorAll('.accordion-item').forEach(item => {
