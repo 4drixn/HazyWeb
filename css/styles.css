@@ -362,26 +362,26 @@ footer a:hover {
 .changelog-search-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 10px;
-  padding: 10px 16px;
+  padding: 0 16px;
   margin: 2rem auto;
   max-width: 500px;
   position: relative;
 }
 
 .search-icon {
-  position: absolute;
-  left: 15px;
-  color: #aaa;
+  margin-right: 10px;
+  color: #888;
   font-size: 1rem;
+  pointer-events: none;
 }
 
 .changelog-search {
-  width: 100%;
-  padding: 10px 15px 10px 35px;
+  flex: 1;
+  padding: 12px 14px;
   border: none;
   background: transparent;
   color: white;
@@ -389,84 +389,65 @@ footer a:hover {
   outline: none;
 }
 
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .accordion-item {
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--card-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-left: 5px solid var(--main-color);
+  border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s ease;
-  backdrop-filter: blur(14px);
+  padding: 0;
 }
 
 .accordion-header {
+  padding: 18px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 25px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.3s ease;
 }
 
-.accordion-header:hover {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.accordion-header i {
-  transition: transform 0.3s ease;
-}
-
-.accordion-header.open i {
-  transform: rotate(180deg);
+.accordion-header span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  padding: 0 25px;
+  padding: 0 20px 15px 20px;
+  font-size: 0.95rem;
+  color: #ccc;
 }
 
 .accordion-content ul {
-  margin: 20px 0;
   padding-left: 20px;
-  line-height: 1.7;
+  margin: 0;
+  list-style: none;
 }
 
 .accordion-content li {
   margin-bottom: 8px;
-  list-style: none;
+  line-height: 1.6;
 }
 
-/* Badges  */
 .badge {
-  display: inline-block;
-  padding: 2px 10px;
+  padding: 4px 12px;
+  border-radius: 12px;
   font-size: 0.7rem;
+  background: rgba(255,255,255,0.05);
   font-weight: bold;
-  border-radius: 50px;
-  margin-left: 8px;
+  color: white;
   text-transform: uppercase;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.5px;
 }
 
-.badge-tickets    { background: rgba(168,30,30,0.15); color: #e45252; }
-.badge-temp       { background: rgba(30,168,30,0.15); color: #58e458; }
-.badge-polls      { background: rgba(30,30,168,0.15); color: #3c63f0; }
-.badge-giveaways  { background: rgba(168,30,168,0.15); color: #e352e3; }
-.badge-website    { background: rgba(168,168,30,0.15); color: #dcdc48; }
-.badge-admin      { background: rgba(30,168,168,0.15); color: #4cd5d5; }
-.badge-moderation { background: rgba(168,80,30,0.15); color: #ef8c53; }
-.badge-misc       { background: rgba(80,30,168,0.15); color: #b77aff; }
+.badge-tickets    { background: #601f1f; }
+.badge-polls      { background: #1f1f60; }
+.badge-admin      { background: #1f6060; }
+.badge-giveaways  { background: #601f60; }
+.badge-moderation { background: #60381f; }
 
 /* HOMERO REVISA */
 
