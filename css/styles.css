@@ -17,7 +17,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto', sans-serif; /* O Inter, si prefieres */
+  font-family: 'Roboto', sans-serif; 
   background: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
@@ -26,7 +26,7 @@ body {
 
 main {
   flex: 1;
-  margin-top: 75px; /* Para que el contenido no quede debajo del nav fijo */
+  margin-top: 75px; 
 }
 
 #particles-js {
@@ -512,7 +512,6 @@ footer a {
   }
 }
 
-/* ========== Changelog Search & Accordion ========== */
 
 .changelog-search {
   width: 100%;
@@ -558,7 +557,6 @@ footer a {
   margin-bottom: 1.5rem;
 }
 
-/* Botón del acordeón */
 .accordion-toggle {
   all: unset;
   cursor: pointer;
@@ -571,13 +569,11 @@ footer a {
   color: var(--text-color);
 }
 
-/* Ícono con rotación al abrir/cerrar */
 .rotate {
   transform: rotate(180deg);
   transition: transform 0.2s ease;
 }
 
-/* Contenido interno del acordeón */
 .accordion-content {
   overflow: hidden;
   max-height: 0;
