@@ -39,6 +39,8 @@ main {
   z-index: -1;
 }
 
+/* NAV */
+
 nav {
   width: 100%;
   height: 75px;
@@ -180,8 +182,95 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* CHANGES PARA EL CHANGELOG */
+.commands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
 
+.command-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--main-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  overflow: hidden;
+}
+
+.command-card:hover {
+  transform: translateY(-5px);
+}
+
+.command-card h3 {
+  color: var(--main-color);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.command-card ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.command-card li {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.command-card li i {
+  margin-right: 8px;
+  color: var(--main-color);
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: auto;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  outline: none;
+  border-color: var(--main-color);
+}
+
+.contact-container button {
+  padding: 10px;
+  background: var(--main-color);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-container button:hover {
+  background: var(--main-hover-color);
+}
 .changelog-section {
   max-width: 1000px;
   margin: auto;
@@ -288,7 +377,7 @@ footer a:hover {
   color: white;
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 1024px) {
   .nav-right {
     flex-wrap: wrap;
