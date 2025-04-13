@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazy - Changelog</title>
   
+  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   
+  <!-- Iconos Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   
+  <!-- Archivo CSS (asegúrate de que css/new-styles.css contenga tus estilos base o adaptados) -->
   <link rel="stylesheet" href="css/new-styles.css" />
 </head>
 
@@ -50,7 +53,7 @@
       <div class="accordion" id="changelog-accordion">
         <!-- 06/04/2025 -->
         <div class="accordion-item">
-          <button class="accordion-toggle">
+          <button type="button" class="accordion-toggle">
             <span>06/04/2025 — Actualización de sistemas</span>
             <i class="fas fa-chevron-down"></i>
           </button>
@@ -66,7 +69,7 @@
 
         <!-- 03/03/2025 -->
         <div class="accordion-item">
-          <button class="accordion-toggle">
+          <button type="button" class="accordion-toggle">
             <span>03/03/2025 — Website y Polls</span>
             <i class="fas fa-chevron-down"></i>
           </button>
@@ -80,7 +83,7 @@
 
         <!-- 28/02/2025 -->
         <div class="accordion-item">
-          <button class="accordion-toggle">
+          <button type="button" class="accordion-toggle">
             <span>28/02/2025 — Nuevos comandos admin</span>
             <i class="fas fa-chevron-down"></i>
           </button>
@@ -94,7 +97,7 @@
 
         <!-- 23/02/2025 -->
         <div class="accordion-item">
-          <button class="accordion-toggle">
+          <button type="button" class="accordion-toggle">
             <span>23/02/2025 — Sorteos y Fixes</span>
             <i class="fas fa-chevron-down"></i>
           </button>
@@ -108,7 +111,7 @@
 
         <!-- 20/02/2025 -->
         <div class="accordion-item">
-          <button class="accordion-toggle">
+          <button type="button" class="accordion-toggle">
             <span>20/02/2025 — Comandos de moderación y sistema de verificación</span>
             <i class="fas fa-chevron-down"></i>
           </button>
@@ -127,21 +130,30 @@
     <p>Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" target="_blank">Invitar al bot</a></p>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/main.js"></script>
-  
   <script>
+    // Funcionalidad del acordeón
     document.querySelectorAll('.accordion-toggle').forEach(toggle => {
       toggle.addEventListener('click', () => {
         const content = toggle.nextElementSibling;
+        
+        // Cierra otros acordeones abiertos
         document.querySelectorAll('.accordion-content').forEach((otherContent) => {
           if (otherContent !== content) {
             otherContent.style.maxHeight = null;
-            otherContent.parentElement
-              .querySelector('.accordion-toggle i')
-              .classList.remove('rotate');
+            const otherToggle = otherContent.previousElementSibling;
+            if (otherToggle) {
+              const icon = otherToggle.querySelector('i');
+              if (icon) {
+                icon.classList.remove('rotate');
+              }
+            }
           }
         });
+        
+        // Alterna acordeón actual
         if (content.style.maxHeight) {
           content.style.maxHeight = null;
           toggle.querySelector('i').classList.remove('rotate');
@@ -159,6 +171,5 @@
       });
     });
   </script>
-
 </body>
 </html>
