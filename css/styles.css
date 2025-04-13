@@ -1,3 +1,4 @@
+/* === VARIABLES Y COLORES === */
 :root {
   --main-color: #a81e1e;
   --main-hover-color: #8e1b1b;
@@ -18,179 +19,130 @@
   --misc: rgba(80, 30, 168, 0.05);
 }
 
+/* === RESET === */
+* { box-sizing: border-box; }
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Roboto', sans-serif;
-}
-
-body {
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
-
 main {
   flex: 1;
-  width: 100%;
+  padding-top: 100px;
 }
-
 #particles-js {
   position: fixed;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
   z-index: -1;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-
-@keyframes pulsateBorder {
-  0%   { border-color: var(--main-color); }
-  50%  { border-color: var(--main-hover-color); }
-  100% { border-color: var(--main-color); }
-}
-
+/* === NAVBAR === */
 nav {
-  width: 100%;
-  height: 75px;
-  background: rgba(0, 0, 0, 0.8);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-container {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  height: 70px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0 30px;
 }
-
+.nav-container {
+  max-width: 1300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .nav-left {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
-.nav-logo,
 .nav-left img {
   height: 40px;
-  width: auto;
   border-radius: 8px;
-  margin-right: 10px;
 }
-
-.nav-left h1,
-.nav-left h2 {
+.nav-left h1 {
   font-size: 1.6rem;
-  font-weight: bold;
   color: var(--main-color);
   margin: 0;
-  transition: transform 0.3s ease;
-  cursor: pointer;
 }
-
 .nav-right {
   display: flex;
-  align-items: center;
   gap: 22px;
-  flex-wrap: wrap;
 }
-
 .nav-right a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.3s ease, transform 0.2s ease;
-  position: relative;
+  transition: color 0.3s ease;
 }
-
 .nav-right a:hover {
   color: var(--main-color);
-  transform: translateY(-1px);
 }
-
-.nav-right a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--main-color);
-  transition: width 0.3s ease;
-}
-
-.nav-right a:hover::after {
-  width: 100%;
-}
-
 .invite-btn {
-  padding: 8px 16px;
   background: var(--main-color);
+  padding: 8px 16px;
   border-radius: 6px;
   font-weight: bold;
   color: white;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 8px rgba(168, 30, 30, 0.3);
+  transition: all 0.3s;
 }
-
 .invite-btn:hover {
   background: var(--main-hover-color);
-  transform: scale(1.05);
 }
-.section-title {
+
+/* === CHANGES === */
+h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
   color: var(--main-color);
 }
-
-.section-subtitle,
 .subtitle {
   text-align: center;
-  font-size: 1.1rem;
-  margin-bottom: 50px;
   color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 50px;
+}
+.changelog-search {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: white;
+  font-size: 1rem;
+  outline: none;
 }
 
+/* === ACCORDION === */
 .accordion {
   max-width: 900px;
-  margin: 2rem auto;
+  margin: auto;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .accordion-item {
   border: 1px solid var(--border-light);
   border-radius: 14px;
@@ -198,9 +150,7 @@ nav {
   backdrop-filter: blur(14px);
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  overflow: hidden;
 }
-
 .accordion-header {
   display: flex;
   justify-content: space-between;
@@ -212,97 +162,41 @@ nav {
   color: var(--text-color);
   transition: background 0.3s ease;
 }
-
 .accordion-header:hover {
   background: rgba(255,255,255,0.02);
 }
-
 .accordion-header i {
   transition: transform 0.3s ease;
 }
-
 .accordion-header.open i {
   transform: rotate(180deg);
 }
-
 .accordion-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
   padding: 0 25px;
 }
-
 .accordion-content ul {
   margin: 20px 0;
   padding-left: 20px;
   line-height: 1.7;
-  color: #ccc;
 }
-
 .accordion-content li {
   margin-bottom: 8px;
 }
 
-.changelog-search {
-  width: 100%;
-  max-width: 500px;
-  padding: 12px 16px;
-  margin: 2rem auto 1.5rem;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: white;
-  font-size: 1rem;
-  outline: none;
-  display: block;
-}
-
-.badge {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: white;
-  font-size: 0.7rem;
-  padding: 3px 10px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
+/* === FOOTER === */
 footer {
-  margin-top: auto;
   text-align: center;
   padding: 20px 10px;
   color: #888;
   font-size: 0.9rem;
   border-top: 1px solid rgba(255,255,255,0.07);
   background: rgba(0,0,0,0.4);
+  margin-top: 60px;
 }
-
 footer a {
   color: var(--main-color);
   text-decoration: none;
-}
-
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-right {
-    justify-content: center;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .accordion-content {
-    padding: 0 15px;
-  }
-
-  .accordion-content ul {
-    padding-left: 15px;
-  }
 }
