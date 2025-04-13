@@ -13,9 +13,9 @@
 
   <nav>
     <div class="nav-container">
-      <div class="nav-left">
+      <div class="nav-left" onclick="toggleLogo()">
         <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo">
-        <h2>Hazy</h2>
+        <h2 id="logoText">Hazy</h2>
       </div>
       <div class="nav-right">
         <a href="index.html">Inicio</a>
@@ -32,53 +32,50 @@
   <main>
     <header>
       <div class="hero-content">
-        <h1>El bot definitivo para tu servidor de Discord.</h1>
-        <p>Gestión, moderación y mucho más, en un solo lugar. Simplifica la administración de tu comunidad.</p>
-        <div>
+        <h1>Tu comunidad, mejor administrada con Hazy.</h1>
+        <p>Gestión, moderación y herramientas clave para Discord. Todo en un solo lugar.</p>
+        <div class="cta-buttons">
           <a class="cta-btn" href="https://invite.hazybot.net" target="_blank">¡Invítame a tu Servidor!</a>
-          <a class="cta-btn" href="https://discord.gg/kilombo" target="_blank" style="margin-left: 15px;">Únete al Servidor</a>
+          <a class="cta-btn secondary" href="https://discord.gg/kilombo" target="_blank">Únete al Servidor</a>
         </div>
       </div>
     </header>
 
-    <!-- TEAM -->
     <section>
       <h2 class="section-title">Hazy Team</h2>
       <p class="section-subtitle">Conocé a las personas que hacen posible Hazy</p>
 
       <div class="developer-container">
+        <div class="developer-card dev-left">
+          <img class="developer-pfp" src="https://images-ext-1.discordapp.net/external/TgZpmATvy5yM6epbsYj-f1pc_svZNVh_PnC5IPZdyYw/https/cdn.discordapp.com/avatars/786094453772386324/4ea53198b40d1410b0caff45af903cc8.webp?format=webp" alt="homer" />
+          <h3>homeR</h3>
+          <p><strong>Discord:</strong> homer.lua</p>
+          <div class="social-links">
+            <a href="https://github.com/homerARG" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://discord.gg/kilombo" target="_blank"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
 
-        <div class="developer-card">
+        <div class="developer-card dev-center">
           <img class="developer-pfp" src="https://images-ext-1.discordapp.net/external/F5Kz1oyMRcLsCwSwsvUpl8URZkqc--p9cQZFenPVi-4/https/cdn.discordapp.com/avatars/1096843631513583757/de87767990424d19851caaf9d6f58a73.webp?format=webp" alt="adrian" />
           <h3>Adrian</h3>
           <p><strong>Discord:</strong> adrian.tf</p>
           <div class="social-links">
-            <a href="https://github.com/4drixn" target="_blank"><i class="fab fa-github github-link"></i></a>
+            <a href="https://github.com/4drixn" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://discord.gg/kilombo" target="_blank"><i class="fab fa-discord"></i></a>
           </div>
           <a class="surprise-btn" href="https://youtu.be/dQw4w9WgXcQ" target="_blank">🎁 Sorpresa</a>
         </div>
 
-        <div class="developer-card">
-          <img class="developer-pfp" src="https://images-ext-1.discordapp.net/external/TgZpmATvy5yM6epbsYj-f1pc_svZNVh_PnC5IPZdyYw/https/cdn.discordapp.com/avatars/786094453772386324/4ea53198b40d1410b0caff45af903cc8.webp?format=webp" alt="homer" />
-          <h3>homeR</h3>
-          <p><strong>Discord:</strong> homer.lua</p>
-          <div class="social-links">
-            <a href="https://github.com/homerARG" target="_blank"><i class="fab fa-github github-link"></i></a>
-            <a href="https://discord.gg/kilombo" target="_blank"><i class="fab fa-discord"></i></a>
-          </div>
-        </div>
-
-        <div class="developer-card">
+        <div class="developer-card dev-right">
           <img class="developer-pfp" src="https://images-ext-1.discordapp.net/external/TgZpmATvy5yM6epbsYj-f1pc_svZNVh_PnC5IPZdyYw/https/cdn.discordapp.com/avatars/786094453772386324/4ea53198b40d1410b0caff45af903cc8.webp?format=webp" alt="felipe" />
           <h3>Felipe</h3>
           <p><strong>Discord:</strong> fffelipeee.</p>
           <div class="social-links">
-            <a href="https://github.com/4drixn" target="_blank"><i class="fab fa-github github-link"></i></a>
+            <a href="https://github.com/4drixn" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://discord.gg/kilombo" target="_blank"><i class="fab fa-discord"></i></a>
           </div>
         </div>
-
       </div>
     </section>
   </main>
@@ -86,6 +83,16 @@
   <footer>
     <p>Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" target="_blank">Invitar al bot</a></p>
   </footer>
+
+  <script>
+    function toggleLogo() {
+      const logo = document.getElementById('logoText');
+      logo.classList.add('obfuscate');
+      setTimeout(() => {
+        logo.classList.remove('obfuscate');
+      }, 1000);
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/main.js"></script>
