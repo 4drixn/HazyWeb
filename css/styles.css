@@ -17,7 +17,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif; /* O Inter, si prefieres */
   background: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
@@ -26,7 +26,7 @@ body {
 
 main {
   flex: 1;
-  margin-top: 75px;
+  margin-top: 75px; /* Para que el contenido no quede debajo del nav fijo */
 }
 
 #particles-js {
@@ -169,14 +169,14 @@ nav {
   animation: fadeInUp 1s ease forwards, bounce 2s infinite;
 }
 
-.support-bubble:hover {
-  transform: scale(1.1);
-  background: var(--main-hover-color);
-}
-
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-10px); }
+}
+
+.support-bubble:hover {
+  transform: scale(1.1);
+  background: var(--main-hover-color);
 }
 
 header {
@@ -355,7 +355,7 @@ section {
   border: 1px solid var(--card-border);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .contact-container form {
@@ -411,7 +411,7 @@ section {
   border-radius: 10px;
   text-align: center;
   width: 320px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   transition: transform 0.3s;
   position: relative;
   min-height: 400px;
@@ -512,6 +512,8 @@ footer a {
   }
 }
 
+/* ========== Changelog Search & Accordion ========== */
+
 .changelog-search {
   width: 100%;
   max-width: 400px;
@@ -556,6 +558,7 @@ footer a {
   margin-bottom: 1.5rem;
 }
 
+/* Botón del acordeón */
 .accordion-toggle {
   all: unset;
   cursor: pointer;
@@ -568,19 +571,13 @@ footer a {
   color: var(--text-color);
 }
 
-.accordion-toggle time {
-  font-weight: bold;
-  color: var(--main-color);
-}
-
-.accordion-toggle .icon {
+/* Ícono con rotación al abrir/cerrar */
+.rotate {
+  transform: rotate(180deg);
   transition: transform 0.2s ease;
 }
 
-.accordion-toggle[aria-expanded="true"] .icon {
-  transform: rotate(180deg);
-}
-
+/* Contenido interno del acordeón */
 .accordion-content {
   overflow: hidden;
   max-height: 0;
@@ -591,9 +588,10 @@ footer a {
 .accordion-content ul {
   list-style: none;
   padding-left: 0;
+  margin-top: 0.5rem;
 }
 
 .accordion-content li {
   margin: 0.5rem 0;
   line-height: 1.4;
-} 
+}
