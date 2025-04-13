@@ -11,34 +11,36 @@
   <!-- Iconos Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   
-  <!-- Archivo CSS (asegúrate de que css/new-styles.css contenga tus estilos base o adaptados) -->
-  <link rel="stylesheet" href="css/new-styles.css" />
+  <!-- Tu hoja de estilos principal -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
+  <!-- Partículas de fondo (opcional) -->
   <div id="particles-js"></div>
 
-  <nav class="navbar">
+  <!-- Navegación -->
+  <nav>
     <div class="nav-container">
-      <div class="nav-brand">
-        <img src="hazy-logo.jpg" alt="Hazy Logo" class="logo">
-        <span class="brand-name">Hazy</span>
+      <div class="nav-left">
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo">
+        <h2 id="logoText">Hazy</h2>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="comandos.html">Comandos</a></li>
-        <li><a href="precios.html">Precios</a></li>
-        <li><a href="changelog.html" class="active">Changelog</a></li>
-        <li><a href="rules.html">Rules</a></li>
-        <li><a href="contact.html">Contáctanos</a></li>
-        <li><a href="https://invite.hazybot.net" target="_blank" class="btn-accent">Invitar al Bot</a></li>
-      </ul>
+      <div class="nav-right">
+        <a href="index.html">Inicio</a>
+        <a href="comandos.html">Comandos</a>
+        <a href="precios.html">Precios</a>
+        <a href="changelog.html" class="active">Changelog</a>
+        <a href="rules.html">Rules</a>
+        <a href="contact.html">Contáctanos</a>
+        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
+      </div>
     </div>
   </nav>
 
-  <main class="main-content">
+  <main>
     <section class="section-changelog">
-      <h1 class="section-title">Changelog</h1>
+      <h2 class="section-title">Changelog</h2>
       <p class="section-subtitle">
         Mantente al día con las últimas mejoras y actualizaciones de Hazy.
       </p>
@@ -126,34 +128,34 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     <p>Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" target="_blank">Invitar al bot</a></p>
   </footer>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/main.js"></script>
+  
   <script>
-    // Funcionalidad del acordeón
+    // Acordeón
     document.querySelectorAll('.accordion-toggle').forEach(toggle => {
       toggle.addEventListener('click', () => {
         const content = toggle.nextElementSibling;
-        
-        // Cierra otros acordeones abiertos
-        document.querySelectorAll('.accordion-content').forEach((otherContent) => {
+
+        // Cierra otros acordeones
+        document.querySelectorAll('.accordion-content').forEach(otherContent => {
           if (otherContent !== content) {
             otherContent.style.maxHeight = null;
+            // Quita 'rotate' en íconos de los otros
             const otherToggle = otherContent.previousElementSibling;
             if (otherToggle) {
               const icon = otherToggle.querySelector('i');
-              if (icon) {
-                icon.classList.remove('rotate');
-              }
+              if (icon) icon.classList.remove('rotate');
             }
           }
         });
-        
-        // Alterna acordeón actual
+
+        // Alterna el acordeón actual
         if (content.style.maxHeight) {
           content.style.maxHeight = null;
           toggle.querySelector('i').classList.remove('rotate');
@@ -164,6 +166,7 @@
       });
     });
 
+    // Búsqueda de changelog
     document.getElementById('changelog-search').addEventListener('input', function (e) {
       const term = e.target.value.toLowerCase();
       document.querySelectorAll('.accordion-item').forEach(item => {
