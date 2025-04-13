@@ -11,6 +11,7 @@
 <body>
   <div id="particles-js"></div>
 
+  <!-- Navegación -->
   <nav>
     <div class="nav-container">
       <div class="nav-left" onclick="toggleLogo()">
@@ -30,6 +31,7 @@
   </nav>
 
   <main>
+    <!-- Eliminamos la altura fija en header para que el contenido se ajuste naturalmente -->
     <header>
       <div class="hero-content">
         <h1>Tu comunidad, mejor administrada con Hazy.</h1>
@@ -84,16 +86,15 @@
     <p>Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" target="_blank">Invitar al bot</a></p>
   </footer>
 
+  <!-- Scripts -->
   <script>
+    // Simple animación para el logo en el nav
     function toggleLogo() {
       const logo = document.getElementById('logoText');
       logo.classList.add('obfuscate');
-      setTimeout(() => {
-        logo.classList.remove('obfuscate');
-      }, 1000);
+      setTimeout(() => logo.classList.remove('obfuscate'), 1000);
     }
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/main.js"></script>
 </body>
