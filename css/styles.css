@@ -390,13 +390,32 @@ footer a:hover {
 }
 
 .accordion-item {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-left: 5px solid var(--main-color);
-  border-radius: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: all 0.3s ease;
-  padding: 0;
+  backdrop-filter: blur(14px);
+  border-left: 5px solid var(--main-color);
+}
+
+.accordion-item.badge-tickets    { border-left-color: #a81e1e; }
+.accordion-item.badge-polls      { border-left-color: #1e1ea8; }
+.accordion-item.badge-admin      { border-left-color: #1ea8a8; }
+.accordion-item.badge-giveaways  { border-left-color: #a81ea8; }
+.accordion-item.badge-moderation { border-left-color: #a8501e; }
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .accordion-header {
