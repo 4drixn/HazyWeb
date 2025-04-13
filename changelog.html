@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazy - Changelog</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/new-styles.css" />
 </head>
+
 <body>
   <div id="particles-js"></div>
 
-  <nav>
+  <nav class="navbar">
     <div class="nav-container">
-      <div class="nav-left" onclick="toggleLogo()">
-        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo">
-        <h2 id="logoText">Hazy</h2>
+      <div class="nav-brand">
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="logo">
+        <span class="brand-name">Hazy</span>
       </div>
-      <div class="nav-right">
-        <a href="index.html">Inicio</a>
-        <a href="comandos.html">Comandos</a>
-        <a href="precios.html">Precios</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="rules.html">Rules</a>
-        <a href="contact.html">Contáctanos</a>
-        <a class="invite-btn" href="https://invite.hazybot.net" target="_blank">Invitar al Bot</a>
-      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="comandos.html">Comandos</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="changelog.html" class="active">Changelog</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="contact.html">Contáctanos</a></li>
+        <li><a href="https://invite.hazybot.net" target="_blank" class="btn-accent">Invitar al Bot</a></li>
+      </ul>
     </div>
   </nav>
 
-  <main>
-    <section class="changelog-section">
-      <h2 class="section-title">Changelog</h2>
-      <p class="section-subtitle">Mantente al día con las últimas mejoras y actualizaciones de Hazy.</p>
+  <main class="main-content">
+    <section class="section-changelog">
+      <h1 class="section-title">Changelog</h1>
+      <p class="section-subtitle">
+        Mantente al día con las últimas mejoras y actualizaciones de Hazy.
+      </p>
 
-      <input id="changelog-search" type="search" class="changelog-search" placeholder="Buscar actualizaciones..." />
+      <input
+        id="changelog-search"
+        type="search"
+        class="changelog-search"
+        placeholder="Buscar actualizaciones..."
+      />
 
       <div class="accordion" id="changelog-accordion">
-
         <!-- 06/04/2025 -->
-        <div class="accordion-item badge-tickets">
-          <div class="accordion-header">
-            <span><strong>06/04/2025</strong> — Actualización de sistemas</span>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
+            <span>06/04/2025 — Actualización de sistemas</span>
             <i class="fas fa-chevron-down"></i>
-          </div>
+          </button>
           <div class="accordion-content">
             <ul>
               <li>✅ Transcript system remade (más limpio y detallado)</li>
@@ -55,11 +65,11 @@
         </div>
 
         <!-- 03/03/2025 -->
-        <div class="accordion-item badge-polls">
-          <div class="accordion-header">
-            <span><strong>03/03/2025</strong> — Website y Polls</span>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
+            <span>03/03/2025 — Website y Polls</span>
             <i class="fas fa-chevron-down"></i>
-          </div>
+          </button>
           <div class="accordion-content">
             <ul>
               <li>✅ Se agregó el comando <code>/poll</code></li>
@@ -69,11 +79,11 @@
         </div>
 
         <!-- 28/02/2025 -->
-        <div class="accordion-item badge-admin">
-          <div class="accordion-header">
-            <span><strong>28/02/2025</strong> — Nuevos comandos admin</span>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
+            <span>28/02/2025 — Nuevos comandos admin</span>
             <i class="fas fa-chevron-down"></i>
-          </div>
+          </button>
           <div class="accordion-content">
             <ul>
               <li>✅ Comandos agregados: <code>/addrole</code>, <code>/temprole</code></li>
@@ -83,11 +93,11 @@
         </div>
 
         <!-- 23/02/2025 -->
-        <div class="accordion-item badge-giveaways">
-          <div class="accordion-header">
-            <span><strong>23/02/2025</strong> — Sorteos y Fixes</span>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
+            <span>23/02/2025 — Sorteos y Fixes</span>
             <i class="fas fa-chevron-down"></i>
-          </div>
+          </button>
           <div class="accordion-content">
             <ul>
               <li>✅ Se agregó <code>/sorteo</code></li>
@@ -97,11 +107,11 @@
         </div>
 
         <!-- 20/02/2025 -->
-        <div class="accordion-item badge-moderation">
-          <div class="accordion-header">
-            <span><strong>20/02/2025</strong> — Comandos de moderación y sistema de verificación</span>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
+            <span>20/02/2025 — Comandos de moderación y sistema de verificación</span>
             <i class="fas fa-chevron-down"></i>
-          </div>
+          </button>
           <div class="accordion-content">
             <ul>
               <li>✅ Se añadió <code>/ban</code>, <code>/warn</code>, <code>/mute</code></li>
@@ -109,35 +119,35 @@
             </ul>
           </div>
         </div>
-
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <p>Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" target="_blank">Invitar al bot</a></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/main.js"></script>
-
+  
   <script>
-    const headers = document.querySelectorAll('.accordion-header');
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const parent = header.parentElement;
-        const content = parent.querySelector('.accordion-content');
-
-        if (header.classList.contains('open')) {
-          header.classList.remove('open');
+    document.querySelectorAll('.accordion-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const content = toggle.nextElementSibling;
+        document.querySelectorAll('.accordion-content').forEach((otherContent) => {
+          if (otherContent !== content) {
+            otherContent.style.maxHeight = null;
+            otherContent.parentElement
+              .querySelector('.accordion-toggle i')
+              .classList.remove('rotate');
+          }
+        });
+        if (content.style.maxHeight) {
           content.style.maxHeight = null;
+          toggle.querySelector('i').classList.remove('rotate');
         } else {
-          document.querySelectorAll('.accordion-header.open').forEach(h => {
-            h.classList.remove('open');
-            h.parentElement.querySelector('.accordion-content').style.maxHeight = null;
-          });
-          header.classList.add('open');
           content.style.maxHeight = content.scrollHeight + 'px';
+          toggle.querySelector('i').classList.add('rotate');
         }
       });
     });
@@ -148,12 +158,7 @@
         item.style.display = item.textContent.toLowerCase().includes(term) ? '' : 'none';
       });
     });
-
-    function toggleLogo() {
-      const logo = document.getElementById('logoText');
-      logo.classList.add('obfuscate');
-      setTimeout(() => logo.classList.remove('obfuscate'), 1000);
-    }
   </script>
+
 </body>
 </html>
