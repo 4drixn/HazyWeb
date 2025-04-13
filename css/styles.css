@@ -24,8 +24,10 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Se agrega un margin-top para evitar que el contenido quede oculto por el nav fijo */
 main {
   flex: 1;
+  margin-top: 75px; 
 }
 
 #particles-js {
@@ -535,6 +537,7 @@ footer a {
   text-transform: uppercase;
   font-weight: 500;
 }
+
 .badge-tickets       { background: rgba(168,30,30,0.1);    color: var(--main-color); }
 .badge-temp          { background: rgba(30,168,30,0.1);    color: #1ea81e; }
 .badge-polls         { background: rgba(30,30,168,0.1);    color: #1e1ea8; }
@@ -595,3 +598,4 @@ footer a {
 .accordion-content li {
   margin: 0.5rem 0;
   line-height: 1.4;
+}
