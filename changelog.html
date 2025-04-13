@@ -4,220 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazy - Changelog</title>
+  <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #a81e1e;
-      --bg-dark: #0b0b0b;
-      --text: #ffffff;
-      --glass: rgba(255, 255, 255, 0.03);
-      --border: rgba(255, 255, 255, 0.08);
-
-      --tickets: rgba(168, 30, 30, 0.05);
-      --temp: rgba(30, 168, 30, 0.05);
-      --polls: rgba(30, 30, 168, 0.05);
-      --giveaways: rgba(168, 30, 168, 0.05);
-      --website: rgba(168, 168, 30, 0.05);
-      --admin: rgba(30, 168, 168, 0.05);
-      --moderation: rgba(168, 80, 30, 0.05);
-      --misc: rgba(80, 30, 168, 0.05);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    #particles-js {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      padding: 0 30px;
-    }
-
-    .nav-container {
-      max-width: 1300px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-left img {
-      height: 40px;
-      border-radius: 8px;
-    }
-
-    .nav-left h1 {
-      font-size: 1.6rem;
-      color: var(--primary);
-      margin: 0;
-    }
-
-    .nav-right {
-      display: flex;
-      gap: 22px;
-    }
-
-    .nav-right a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-    }
-
-    .nav-right a:hover {
-      color: var(--primary);
-    }
-
-    .invite-btn {
-      background: var(--primary);
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .invite-btn:hover {
-      background: #891818;
-    }
-
-    main {
-      flex: 1;
-      padding-top: 100px;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
-
-    p.subtitle {
-      text-align: center;
-      color: #ccc;
-      font-size: 1rem;
-      margin-bottom: 50px;
-    }
-
-    .badge {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: white;
-      font-size: 0.7rem;
-      padding: 3px 10px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .accordion {
-      max-width: 900px;
-      margin: auto;
-      padding: 0 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .accordion-item {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--glass);
-      backdrop-filter: blur(14px);
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-
-    .accordion-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 25px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text);
-      transition: background 0.3s ease;
-    }
-
-    .accordion-header:hover {
-      background: rgba(255,255,255,0.02);
-    }
-
-    .accordion-header i {
-      transition: transform 0.3s ease;
-    }
-
-    .accordion-header.open i {
-      transform: rotate(180deg);
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      padding: 0 25px;
-    }
-
-    .accordion-content ul {
-      margin: 20px 0;
-      padding-left: 20px;
-      line-height: 1.7;
-    }
-
-    .accordion-content li {
-      margin-bottom: 8px;
-    }
-
-    .changelog-search {
-      width: 100%;
-      padding: 12px 16px;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: white;
-      font-size: 1rem;
-      outline: none;
-    }
-  </style>
 </head>
 <body>
   <div id="particles-js"></div>
@@ -225,8 +14,8 @@
   <nav>
     <div class="nav-container">
       <div class="nav-left">
-        <img src="hazy-logo.jpg" alt="Hazy Logo">
-        <h1>Hazy</h1>
+        <img src="hazy-logo.jpg" alt="Hazy Logo" class="nav-logo">
+        <h2>Hazy</h2>
       </div>
       <div class="nav-right">
         <a href="index.html">Inicio</a>
@@ -240,116 +29,121 @@
     </div>
   </nav>
 
-<main>
-  <section style="max-width: 900px; margin: auto; padding: 0 1rem;">
-    <h2>Changelog</h2>
-    <p class="subtitle">Mantente al día con las últimas mejoras y actualizaciones de Hazy.</p>
+  <main>
+    <section>
+      <h2 class="section-title">Changelog</h2>
+      <p class="section-subtitle">Mantente al día con las últimas mejoras y actualizaciones de Hazy.</p>
 
-    <input id="changelog-search" type="search" class="changelog-search" placeholder="Buscar actualizaciones..." />
+      <input id="changelog-search" type="search" class="changelog-search" placeholder="Buscar actualizaciones..." />
 
-    <div class="accordion" id="changelog-accordion">
+      <div class="accordion" id="changelog-accordion">
 
-      <!-- 06/04/2025 -->
-      <div class="accordion-item" style="background: var(--tickets);">
-        <div class="accordion-header">
-          <span><strong>06/04/2025</strong> — Actualización de sistemas</span>
-          <i class="fas fa-chevron-down"></i>
+        <div class="accordion-item" style="background: var(--tickets);">
+          <div class="accordion-header">
+            <span><strong>06/04/2025</strong> — Actualización de sistemas</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>✅ Transcript system remade (más limpio y detallado)</li>
+              <li>✅ Sistema de roles temporales actualizado y con base de datos</li>
+              <li>✅ Sistema de encuestas actualizado y con base de datos</li>
+              <li>✅ Sistema de sorteos actualizado y con base de datos</li>
+            </ul>
+          </div>
         </div>
-        <div class="accordion-content">
-          <ul>
-            <li>✅ Transcript system remade (más limpio y detallado)</li>
-            <li>✅ Sistema de roles temporales actualizado y con base de datos</li>
-            <li>✅ Sistema de encuestas actualizado y con base de datos</li>
-            <li>✅ Sistema de sorteos actualizado y con base de datos</li>
-          </ul>
+
+        <div class="accordion-item" style="background: var(--polls);">
+          <div class="accordion-header">
+            <span><strong>03/03/2025</strong> — Website y Polls</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>✅ Se agregó el comando <code>/poll</code></li>
+              <li>🐞 Se corrigió bug de permisos en <code>/sugerir</code></li>
+            </ul>
+          </div>
         </div>
+
+        <div class="accordion-item" style="background: var(--admin);">
+          <div class="accordion-header">
+            <span><strong>28/02/2025</strong> — Nuevos comandos admin</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>✅ Comandos agregados: <code>/addrole</code>, <code>/temprole</code></li>
+              <li>🌐 Lanzamiento de hazybot.net</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item" style="background: var(--giveaways);">
+          <div class="accordion-header">
+            <span><strong>23/02/2025</strong> — Sorteos y Fixes</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>✅ Se agregó <code>/sorteo</code></li>
+              <li>🐞 Correcciones en <code>$addrole</code> y <code>/sugerir</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item" style="background: var(--moderation);">
+          <div class="accordion-header">
+            <span><strong>20/02/2025</strong> — Comandos de moderación y sistema de verificación</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>✅ Comando <code>/verify</code> agregado</li>
+              <li>✅ Mejoras visuales al sistema de verificación</li>
+              <li>🐞 Fix al sistema de warns</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
+    </section>
+  </main>
 
-      <!-- 03/03/2025 -->
-      <div class="accordion-item" style="background: var(--polls);">
-        <div class="accordion-header">
-          <span><strong>03/03/2025</strong> — Website y Polls</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>✅ Se agregó el comando <code>/poll</code></li>
-            <li>🐞 Se corrigió bug de permisos en <code>/sugerir</code></li>
-          </ul>
-        </div>
-      </div>
+  <footer>
+    <p>Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" target="_blank">Invitar al bot</a></p>
+  </footer>
 
-      <!-- 28/02/2025 -->
-      <div class="accordion-item" style="background: var(--admin);">
-        <div class="accordion-header">
-          <span><strong>28/02/2025</strong> — Nuevos comandos admin</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>✅ Comandos agregados: <code>/addrole</code>, <code>/temprole</code></li>
-            <li>🌐 Lanzamiento de hazybot.net</li>
-          </ul>
-        </div>
-      </div>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="js/main.js"></script>
 
-      <!-- 23/02/2025 -->
-      <div class="accordion-item" style="background: var(--giveaways);">
-        <div class="accordion-header">
-          <span><strong>23/02/2025</strong> — Sorteos y Fixes</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>✅ Se agregó <code>/sorteo</code></li>
-            <li>🐞 Correcciones en <code>$addrole</code> y <code>/sugerir</code></li>
-          </ul>
-        </div>
-      </div>
+  <script>
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const parent = header.parentElement;
+        const content = parent.querySelector('.accordion-content');
 
-      <!-- 20/02/2025 -->
-      <div class="accordion-item" style="background: var(--moderation);">
-        <div class="accordion-header">
-          <span><strong>20/02/2025</strong> — Comandos de moderación y sistema de verificación</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content">
-
-<footer style="text-align: center; padding: 20px 10px; color: #888; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.07); background: rgba(0,0,0,0.4); margin-top: 60px;">
-  Hazy® 2025 • Made by Adrian • <a href="https://invite.hazybot.net" style="color: var(--primary); text-decoration: none;">Invitar al bot</a>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="js/main.js"></script>
-
-<script>
-  const headers = document.querySelectorAll('.accordion-header');
-  headers.forEach(header => {
-    header.addEventListener('click', () => {
-      const parent = header.parentElement;
-      const content = parent.querySelector('.accordion-content');
-
-      if (header.classList.contains('open')) {
-        header.classList.remove('open');
-        content.style.maxHeight = null;
-      } else {
-        document.querySelectorAll('.accordion-header.open').forEach(h => {
-          h.classList.remove('open');
-          h.parentElement.querySelector('.accordion-content').style.maxHeight = null;
-        });
-        header.classList.add('open');
-        content.style.maxHeight = content.scrollHeight + 'px';
-      }
+        if (header.classList.contains('open')) {
+          header.classList.remove('open');
+          content.style.maxHeight = null;
+        } else {
+          document.querySelectorAll('.accordion-header.open').forEach(h => {
+            h.classList.remove('open');
+            h.parentElement.querySelector('.accordion-content').style.maxHeight = null;
+          });
+          header.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
     });
-  });
 
-  document.getElementById('changelog-search').addEventListener('input', function (e) {
-    const term = e.target.value.toLowerCase();
-    document.querySelectorAll('.accordion-item').forEach(item => {
-      item.style.display = item.textContent.toLowerCase().includes(term) ? '' : 'none';
+    document.getElementById('changelog-search').addEventListener('input', function (e) {
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(term) ? '' : 'none';
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
